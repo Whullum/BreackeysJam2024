@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace Infrastructure
+namespace _Scripts.Infrastructure
 {
     public class ContainerFactory : MonoInstaller
     {
@@ -11,6 +11,6 @@ namespace Infrastructure
         }
         
         public T Instantiate<T>(GameObject prefab, Vector3 position, Transform parent = null) where T : Component
-            => Container.InstantiatePrefab(prefab, position, Quaternion.identity, parent).GetComponent<T>();
+            => Container.InstantiatePrefab(prefab, position, Quaternion.identity, parent).GetComponent<T>(); 
     }
 }
