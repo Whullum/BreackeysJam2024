@@ -2,7 +2,7 @@
 
 namespace Infrastructure
 {
-    public class MainMenuInstaller : MonoInstaller
+    public class GameplayInstaller : MonoInstaller
     {
         public override void InstallBindings()
         {
