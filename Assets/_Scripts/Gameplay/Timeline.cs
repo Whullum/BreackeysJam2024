@@ -23,7 +23,8 @@ namespace _Scripts.Gameplay
         {
             MoveOnTimeline newMove = ContainerFactory.Instantiate<MoveOnTimeline>(_movePrefab, transform.position, transform);
             newMove.Init(move);
-            _moves.Add(newMove);
+            _moves.Add(newMove);    
         }
+
     }
 }
