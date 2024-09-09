@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using _Scripts.Gameplay.UI;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

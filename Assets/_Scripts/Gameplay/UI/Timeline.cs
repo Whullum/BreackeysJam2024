@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using _Scripts.Gameplay.Moves;
 using _Scripts.Infrastructure;
 using UnityEngine;
 using Zenject;
 
-namespace _Scripts.Gameplay
+namespace _Scripts.Gameplay.UI
 {
     public class Timeline : MonoBehaviour
     {

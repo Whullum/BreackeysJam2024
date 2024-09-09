@@ -5,10 +5,10 @@ namespace _Scripts.Gameplay.Moves
 {
     public class MoveOnTimeline : MonoBehaviour
     {
-        private Move _move;
-
         [SerializeField]
         private Image _image;
+        
+        private Move _move;
 
         public Move Move => _move;
 
