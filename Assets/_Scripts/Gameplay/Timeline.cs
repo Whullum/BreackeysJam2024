@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using _Scripts.Gameplay.Moves;
 using _Scripts.Infrastructure;
 using UnityEngine;
@@ -11,8 +12,10 @@ namespace _Scripts.Gameplay
         [SerializeField]
         private GameObject _movePrefab;
         
-        private readonly List<MoveOnTimeline> _moves = new List<MoveOnTimeline>();
-        
+        private List<MoveOnTimeline> _moves = new List<MoveOnTimeline>();
+
+        public MoveOnTimeline[] Moves => _moves.ToArray();
+
         [Inject]
         private ContainerFactory ContainerFactory { get; set; }
         

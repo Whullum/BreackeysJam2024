@@ -6,6 +6,8 @@ namespace _Scripts.Gameplay.Moves
     {
         private Move _move;
 
+        public Move Move => _move;
+
         public void Init(Move move)
         {
             _move = move;
