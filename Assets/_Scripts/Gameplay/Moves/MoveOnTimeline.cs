@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using _Scripts.Gameplay.UI;
+using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace _Scripts.Gameplay.Moves
 {
@@ -11,11 +13,19 @@ namespace _Scripts.Gameplay.Moves
         private Move _move;
 
         public Move Move => _move;
+        
+        [Inject]
+        private Timeline Timeline { get; set; }
 
         public void Init(Move move)
         {
             _move = move;
             _image.sprite = _move.Icon;
+        }
+
+        public void RemoveThis()
+        {
+            Timeline.RemoveMove(this);
         }
 
         private void Start()

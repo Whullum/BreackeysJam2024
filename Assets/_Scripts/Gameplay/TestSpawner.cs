@@ -7,14 +7,21 @@ namespace _Scripts.Gameplay
 {
     public class TestSpawner : MonoBehaviour
     {
+        [SerializeField] private int _playerSpot;
+        
         [SerializeField]
         private SpawnInfo[] _spawnList;
 
         [Inject]
         private EnemyContainer EnemyContainer { get; set; }
         
+        [Inject]
+        private PlayerMarker Player { get; set; }
+        
         private void Start()
         {
+            Player.Movement.GoToSpot(_playerSpot, true);
+            
             foreach (SpawnInfo spawnInfo in _spawnList)
             {
                 EnemyContainer.SpawnEnemy(spawnInfo.Prefab, spawnInfo.Spot);

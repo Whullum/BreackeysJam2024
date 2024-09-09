@@ -11,15 +11,21 @@ namespace _Scripts.Gameplay.SpotSystem
     public class Spot : MonoBehaviour
     {
         private CharacterMovement _currentCharacter;
+        
         private SpotMap _map;
-    
+        
+        public int IndexOnMap { get; private set; }
+
         public bool IsOccupied => _currentCharacter != null;
         
-        public void Init(SpotMap map)
+        public void Init(SpotMap map, int indexOnMap)
         {
             _map = map;
+            IndexOnMap = indexOnMap;
         }
-        
+
+        public Spot GetAdjacentSpot(int delta) => _map.GetSpot(IndexOnMap + delta);
+
         public bool TryOccupy(CharacterMovement characterMovement)
         {
             if (IsOccupied)
