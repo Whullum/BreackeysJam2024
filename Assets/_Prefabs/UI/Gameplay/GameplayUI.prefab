@@ -480,6 +480,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8e7ba0758f30c114bbb3b6aafc6d9390, type: 2}
   - {fileID: 11400000, guid: 81ae93e9dcf7a824bbf782e696063e10, type: 2}
   - {fileID: 11400000, guid: 3eed71fb7040c854fa35f172771e8201, type: 2}
+  - {fileID: 11400000, guid: 91d2e3a043cd47c42ac33a16f3156774, type: 2}
   _movePrefab: {fileID: 497943810051401691, guid: 81cb185594c3b5542b3d1ef9fcebf8e5, type: 3}
 --- !u!114 &7229984233897871545
 MonoBehaviour:

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using _Scripts.Extentions;
 using _Scripts.Gameplay.Characters;
 using _Scripts.Gameplay.Moves;
@@ -19,7 +20,7 @@ namespace _Scripts.Gameplay.Turns
         [Inject]
         private PlayerMarker Player { get; set; }
 
-        private bool IsWinConditionMet => EnemyContainer.Enemies.Length == 0;
+        private bool IsWinConditionMet => EnemyContainer.Enemies.All(e => e.Life.IsDead);
         
         private bool IsLoseConditionMet => Player.Life.IsDead;
 

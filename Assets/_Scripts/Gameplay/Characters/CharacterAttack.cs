@@ -1,12 +1,14 @@
 ﻿using _Scripts.Gameplay.SpotSystem;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 namespace _Scripts.Gameplay.Characters
 {
-    public class CharacterAttack : MonoBehaviour
+    public class CharacterAttack : MonoBehaviour, IRestorable
     {
-        [SerializeField] private Weapon.Weapon _currentWeapon;
+        [SerializeField]
+        private Weapon.Weapon _startingWeapon;
+        
+        private Weapon.Weapon _currentWeapon;
 
         public Weapon.Weapon CurrentWeapon => _currentWeapon;
         
@@ -19,6 +21,11 @@ namespace _Scripts.Gameplay.Characters
         private CharacterMovement _movement;
         
         public CharacterMovement Movement => _movement ??= GetComponent<CharacterMovement>();
+
+        private void Awake()
+        {
+            EquipStartingWeapon();
+        }
 
         public void Punch()
         {
@@ -43,6 +50,14 @@ namespace _Scripts.Gameplay.Characters
             CurrentWeapon.Attack(GetComponent<CharacterMarker>(), victim);
         }
 
+        public void TryDisarm()
+        {
+            if ( ! TryGetVictim(1, out CharacterMarker victim))
+                return;
+            _currentWeapon = victim.Attack.CurrentWeapon;
+            victim.Attack._currentWeapon = null;
+        }
+
         private bool TryGetVictim(int maxRange, out CharacterMarker victim)
         {
             victim = null;
@@ -61,5 +76,12 @@ namespace _Scripts.Gameplay.Characters
             
             return victim != null;
         }
+
+        private void EquipStartingWeapon()
+        {
+            _currentWeapon = _startingWeapon;
+        }
+
+        public void Restore() => EquipStartingWeapon();
     }
 }

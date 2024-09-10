@@ -335,10 +335,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5331461567636832250, guid: 8571b07055da8cf4cb49f75dd1fd9983, type: 3}
-      propertyPath: _currentWeapon
-      value: 
-      objectReference: {fileID: 11400000, guid: 23dcc1764686e3b45be9fd22b86c8b5c, type: 2}
     - target: {fileID: 5789052033357785616, guid: 8571b07055da8cf4cb49f75dd1fd9983, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
