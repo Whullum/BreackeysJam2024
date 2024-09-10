@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace _Scripts.Gameplay.Moves
 {
-    [CreateAssetMenu(menuName = "Moves/PlaceholderMove")]
+    [CreateAssetMenu(menuName = "Moves/Placeholder")]
     public class PlaceholderMove : Move
     {
         public override void Execute(PlayerMarker _)

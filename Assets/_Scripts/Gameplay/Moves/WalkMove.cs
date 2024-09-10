@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace _Scripts.Gameplay.Moves
 {
-    [CreateAssetMenu(menuName = "Moves/Walk move")]
+    [CreateAssetMenu(menuName = "Moves/Walk")]
     public class WalkMove : Move
     {
         public override void Execute(PlayerMarker player)

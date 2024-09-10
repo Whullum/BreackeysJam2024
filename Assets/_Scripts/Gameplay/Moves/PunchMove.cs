@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace _Scripts.Gameplay.Moves
 {
-    [CreateAssetMenu(menuName = "Moves/Turn around")]
-    public class TurnAroundMove : Move
+    [CreateAssetMenu(menuName = "Moves/Punch")]
+    public class PunchMove : Move
     {
         public override void Execute(PlayerMarker player)
         {
-            player.Movement.TurnAround();
+            player.Strikes.Punch();
         }
     }
 }

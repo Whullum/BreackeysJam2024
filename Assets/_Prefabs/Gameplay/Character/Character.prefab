@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5723629324896043672}
   - component: {fileID: 8586147524428959808}
   - component: {fileID: 2301012947330227613}
+  - component: {fileID: 6252573672785631090}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -60,6 +61,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 2
+--- !u!114 &6252573672785631090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609345334486451692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbfa93f737647bc4e9c3750ff81f2b6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _punchDamage: 2
+  _kickDamage: 2
 --- !u!1 &4993076457843622438
 GameObject:
   m_ObjectHideFlags: 0

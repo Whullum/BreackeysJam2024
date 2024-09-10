@@ -10,13 +10,13 @@ namespace _Scripts.Gameplay.SpotSystem
     /// </summary>
     public class Spot : MonoBehaviour
     {
-        private CharacterMovement _currentCharacter;
-        
         private SpotMap _map;
         
+        public CharacterMovement CurrentCharacter { get; private set; }
+
         public int IndexOnMap { get; private set; }
 
-        public bool IsOccupied => _currentCharacter != null;
+        public bool IsOccupied => CurrentCharacter != null;
         
         public void Init(SpotMap map, int indexOnMap)
         {
@@ -34,13 +34,13 @@ namespace _Scripts.Gameplay.SpotSystem
                 return false;
             }
 
-            _currentCharacter = characterMovement;
+            CurrentCharacter = characterMovement;
             return true;
         }
         
         public void Leave()
         {
-            _currentCharacter = null;
+            CurrentCharacter = null;
         }
     
     }
