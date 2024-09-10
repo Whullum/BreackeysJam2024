@@ -20,7 +20,7 @@ namespace _Scripts.Gameplay
         
         private void Start()
         {
-            Player.Movement.GoToSpot(_playerSpot, true);
+            Player.Movement.AssignHomeSpot(_playerSpot);
             
             foreach (SpawnInfo spawnInfo in _spawnList)
             {

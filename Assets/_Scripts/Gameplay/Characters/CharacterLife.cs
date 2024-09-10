@@ -1,19 +1,25 @@
 ﻿using System;
 using NaughtyAttributes;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Scripts.Gameplay.Characters
 {
-    public class CharacterLife : MonoBehaviour
+    public class CharacterLife : MonoBehaviour, IDiscardable, IRestorable
     {
         [SerializeField]
+        private int _startingHealth;
+        
         private int _health;
         
         //Health
         public bool IsDead => _health <= 0;
 
         public event Action Died;
+
+        private void Awake()
+        {
+            _health = _startingHealth;
+        }
 
         public void TakeDamage(int damage)
         {
@@ -37,5 +43,9 @@ namespace _Scripts.Gameplay.Characters
             Debug.Log($"Add death animation here");
             gameObject.SetActive(false);
         }
+
+        public void Discard() => _health = _startingHealth;
+
+        public void Restore() => gameObject.SetActive(true);
     }
 }

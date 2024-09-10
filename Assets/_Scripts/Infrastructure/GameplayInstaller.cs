@@ -28,7 +28,7 @@ namespace _Scripts.Infrastructure
             Container.Bind<Timeline>().FromInstance(_timeline).AsSingle();
             Container.Bind<SpotMap>().FromInstance(spotMap).AsSingle();
             Container.Bind<EnemyContainer>().FromInstance(_enemyContainer).AsSingle();
-            Container.Bind<TurnsSystem>().AsSingle();
+            Container.Bind<FightPlayer>().AsSingle();
         }
     }
 }

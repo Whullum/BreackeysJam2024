@@ -8,20 +8,23 @@ namespace _Scripts.Gameplay.Characters
     {
         [SerializeField] private EnemyIntention[] _intentionLoop;
 
-        public Action GetActionForTunr(int turn)
+        public void PerformTurn(int turn)
         {
             int intentionIndex = turn.RepeatIndex(_intentionLoop.Length);
-            return GetActionForIntention(_intentionLoop[intentionIndex]);
-        }
-
-        private Action GetActionForIntention(EnemyIntention intention)
-        {
-            return intention switch
+            
+            switch (_intentionLoop[intentionIndex])
             {
-                EnemyIntention.Move => () => Debug.Log($"{gameObject} enemy moves"),
-                EnemyIntention.Attack => () => Debug.Log($"{gameObject} enemy attacks"),
-                _ => throw new ArgumentOutOfRangeException(nameof(intention), intention, null)
-            };
+                case EnemyIntention.Move:
+                    Debug.Log($"{gameObject} enemy moves");
+                    break;
+                
+                case EnemyIntention.Attack:
+                    Debug.Log($"{gameObject} enemy attacks");
+                    break;
+                
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
     }
 

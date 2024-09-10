@@ -7,11 +7,11 @@ namespace _Scripts.Gameplay.UI
     public class ForeseeButton : MonoBehaviour
     {
         [Inject]
-        private TurnsSystem TurnsSystem { get; set; }
+        private FightPlayer FightPlayer { get; set; }
 
         public void Foresee()
         {
-            TurnsSystem.BuildTurnsSequence();
+            FightPlayer.PlayFight();
         }
     }
 }

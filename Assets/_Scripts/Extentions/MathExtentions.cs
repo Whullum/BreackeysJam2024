@@ -10,6 +10,13 @@ namespace _Scripts.Extentions
                 return 0;
             return n > 0 ? 1 : -1;
         }
+        
+        public static int Sign(this int n)
+        {
+            if (n == 0)
+                return 0;
+            return n > 0 ? 1 : -1;
+        }
 
         public static float WithSign(this float n, int sign) => Mathf.Abs(n) * Sign(sign);
 

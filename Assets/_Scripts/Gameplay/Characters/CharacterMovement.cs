@@ -7,14 +7,20 @@ using Zenject;
 
 namespace _Scripts.Gameplay.Characters
 {
-    public class CharacterMovement : MonoBehaviour
+    public class CharacterMovement : MonoBehaviour, IDiscardable, IRestorable
     {
         [SerializeField]
         private float _lerpMoveSpeed;
+        
+        private int _homeSpot;
 
         public Spot CurrentSpot { get; private set; }
 
-        public int Direction => transform.localScale.x.Sign();
+        public int Direction
+        {
+            get => transform.localScale.x.Sign();
+            set => transform.localScale = transform.localScale.WithX(value.Sign());
+        }
 
         private CharacterLife _life;
         public CharacterLife Life => _life ??= GetComponent<CharacterLife>(); 
@@ -52,7 +58,18 @@ namespace _Scripts.Gameplay.Characters
 
         public void TurnAround()
         {
-            transform.localScale = transform.localScale.WithX(transform.localScale.x * -1);
+            Direction = -Direction;
+        }
+
+        public void AssignHomeSpot(int homeSpot)
+        {
+            _homeSpot = homeSpot;
+            ReturnToHomeSpot();
+        }
+
+        public void ReturnToHomeSpot()
+        {
+            GoToSpot(_homeSpot, true);
         }
 
         public void GoToSpot(int index, bool teleport = false)
@@ -77,6 +94,14 @@ namespace _Scripts.Gameplay.Characters
         private void LeaveCurrentSpot()
         {
             CurrentSpot.Leave();
+        }
+
+        public void Discard() => CurrentSpot.Leave();
+
+        public void Restore()
+        {
+            ReturnToHomeSpot();
+            Direction = 1;
         }
     }
 }

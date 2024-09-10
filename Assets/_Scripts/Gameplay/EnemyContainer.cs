@@ -16,7 +16,7 @@ namespace _Scripts.Gameplay
         public EnemyMarker[] Enemies => _enemies.ToArray();
         
         [Inject]
-        private TurnsSystem TurnsSystem { get; set; }
+        private FightPlayer FightPlayer { get; set; }
         
         [Inject]
         private ContainerFactory ContainerFactory { get; set; }
@@ -28,7 +28,7 @@ namespace _Scripts.Gameplay
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                TurnsSystem.BuildTurnsSequence();
+                FightPlayer.PlayFight();
             }
         }
 
@@ -41,7 +41,7 @@ namespace _Scripts.Gameplay
             Vector3 position = targetSpot.transform.position;
             EnemyMarker newEnemy = ContainerFactory.Instantiate<EnemyMarker>(prefab, position, transform);
             _enemies.Add(newEnemy);
-            newEnemy.Movement.GoToSpot(spotIndex, true);
+            newEnemy.Movement.AssignHomeSpot(spotIndex);
         }
     }
 }
