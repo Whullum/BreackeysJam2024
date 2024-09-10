@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Punch
   _description: Punch enemy in front of you. Breaks the guard
-  _icon: {fileID: 21300000, guid: cb7b463a6da5fe547987153c83995b6d, type: 3}
+  _icon: {fileID: 21300000, guid: 0026dec495f82a444ab82a93a38161a4, type: 3}

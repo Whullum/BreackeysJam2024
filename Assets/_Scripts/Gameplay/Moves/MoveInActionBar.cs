@@ -26,6 +26,7 @@ namespace _Scripts.Gameplay.Moves
 
         public void Init(Move move)
         {
+
             _move = move;
             if (_icon != null & _icon)
             {
