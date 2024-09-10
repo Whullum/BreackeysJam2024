@@ -1,3 +1,4 @@
+using _Scripts.Extentions;
 using _Scripts.Gameplay.SpotSystem;
 using NaughtyAttributes;
 using UnityEngine;
@@ -11,6 +12,8 @@ namespace _Scripts.Gameplay.Characters
         private float _lerpMoveSpeed;
         
         private Spot _currentSpot;
+
+        public int Direction => transform.localScale.x.Sign();
     
         [Inject]
         private SpotMap SpotMap { get; set; }
@@ -31,6 +34,16 @@ namespace _Scripts.Gameplay.Characters
             if (_currentSpot == null)
                 return;
             transform.position = Vector3.Lerp(transform.position, _currentSpot.transform.position, Time.fixedDeltaTime * _lerpMoveSpeed);
+        }
+
+        public void TryGoForward()
+        {
+            GoToSpot(_currentSpot.IndexOnMap + Direction);
+        }
+
+        public void TurnAround()
+        {
+            transform.localScale = transform.localScale.WithX(transform.localScale.x * -1);
         }
     
         public void GoToSpot(int index, bool teleport = false)

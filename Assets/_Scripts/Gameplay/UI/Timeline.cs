@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using _Scripts.Extentions;
 using _Scripts.Gameplay.Moves;
 using _Scripts.Infrastructure;
 using UnityEngine;
@@ -17,6 +18,12 @@ namespace _Scripts.Gameplay.UI
 
         [Inject]
         private ContainerFactory ContainerFactory { get; set; }
+
+        public void RemoveMove(MoveOnTimeline move)
+        {
+            _moves.TryRemove(move);
+            Destroy(move.gameObject);
+        }
         
         public void AddMove(Move move)
         {

@@ -22,7 +22,12 @@ namespace _Scripts.Gameplay.SpotSystem
         [Inject]
         private ContainerFactory ContainerFactory { get; set; }
 
-        public Spot GetSpot(int index) => _spots[index];
+        public Spot GetSpot(int index)
+        {
+            if (index < 0 || index >= _spots.Count)
+                return null;
+            return _spots[index];
+        }
 
         private void Awake()
         {
@@ -34,7 +39,7 @@ namespace _Scripts.Gameplay.SpotSystem
             for (int i = 0; i < _spotsCount; i++)
             {
                 Spot newSpot = ContainerFactory.Instantiate<Spot>(_spotPrefab, transform.position, transform);
-                newSpot.Init(this);
+                newSpot.Init(this, i);
                 _spots.Add(newSpot);
             }
 

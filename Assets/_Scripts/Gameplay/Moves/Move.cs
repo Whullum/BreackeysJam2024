@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Scripts.Gameplay.Characters;
+using UnityEngine;
 
 namespace _Scripts.Gameplay.Moves
 {
@@ -19,6 +20,6 @@ namespace _Scripts.Gameplay.Moves
 
         public Sprite Icon => _icon;
         
-        public abstract void Execute();
+        public abstract void Execute(PlayerMarker player);
     }
 }
