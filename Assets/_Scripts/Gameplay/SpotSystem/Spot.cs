@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using _Scripts.Extentions;
 using _Scripts.Gameplay.Characters;
 using UnityEngine;
 using Zenject;
@@ -11,36 +15,48 @@ namespace _Scripts.Gameplay.SpotSystem
     public class Spot : MonoBehaviour
     {
         private SpotMap _map;
-        
-        public CharacterMovement CurrentCharacter { get; private set; }
+
+        public List<SpotObject> _objects = new List<SpotObject>();
 
         public int IndexOnMap { get; private set; }
 
-        public bool IsOccupied => CurrentCharacter != null;
-        
         public void Init(SpotMap map, int indexOnMap)
         {
             _map = map;
             IndexOnMap = indexOnMap;
         }
+        
+        public T GetObject<T>() where T : SpotObject
+            => (T) _objects.FirstOrDefault(o => o is T);
+
+        public bool IsOccupiedBy<T>() where T : SpotObject
+            => _objects.Any(o => o is T);
 
         public Spot GetAdjacentSpot(int delta) => _map.GetSpot(IndexOnMap + delta);
 
-        public bool TryOccupy(CharacterMovement characterMovement)
+        public bool TryOccupy(SpotObject spotObject)
         {
-            if (IsOccupied)
-            {
-                Debug.LogError("Spot is already occupied");
+            Type objectType = spotObject.GetType();
+            if (_objects.Any(o => o.GetType() == objectType))
                 return false;
-            }
-
-            CurrentCharacter = characterMovement;
+            
+            _objects.Add(spotObject);
             return true;
         }
-        
-        public void Leave()
+
+        public void ForceLeave<T>() where T : SpotObject
         {
-            CurrentCharacter = null;
+            SpotObject objectToLeave = _objects.FirstOrDefault(o => o is T);
+            if (objectToLeave == null)
+                return;
+            
+            objectToLeave.OnForceLeave();
+            objectToLeave.LeaveCurrentSpot();
+        }
+        
+        public void Leave(SpotObject spotObject)
+        {
+            _objects.TryRemove(spotObject);
         }
     
     }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace _Scripts.Gameplay.Weapon
 {
-    public abstract class Weapon : ScriptableObject
+    public abstract class WeaponType : ScriptableObject
     {
         [SerializeField]
         private int _maxRange;

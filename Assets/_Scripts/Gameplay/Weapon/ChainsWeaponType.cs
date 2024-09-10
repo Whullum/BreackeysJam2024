@@ -4,7 +4,7 @@ using UnityEngine;
 namespace _Scripts.Gameplay.Weapon
 {
     [CreateAssetMenu(menuName = "Weapon/Chains")]
-    public class ChainsWeapon : Weapon
+    public class ChainsWeaponType : WeaponType
     {
         public override void Attack(CharacterMarker attacker, CharacterMarker victim)
         {

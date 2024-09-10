@@ -15,7 +15,7 @@ namespace _Scripts.Gameplay.Characters
         private CharacterAttack Attack => _attack ??= GetComponent<CharacterAttack>();
         private CharacterMovement Movement => _movement ??= GetComponent<CharacterMovement>(); 
         
-        private int DesiredDistance => Attack.CurrentWeapon?.MaxRange ?? 1;
+        private int DesiredDistance => Attack.CurrentWeaponType?.MaxRange ?? 1;
 
         private int DeltaToPlayer => Player.Movement.CurrentSpot.IndexOnMap - Movement.CurrentSpot.IndexOnMap;
         
@@ -62,7 +62,7 @@ namespace _Scripts.Gameplay.Characters
             if (DeltaToPlayer > DesiredDistance)
                 return;
             
-            if (Attack.CurrentWeapon != null)
+            if (Attack.CurrentWeaponType != null)
                 Attack.UseWeapon();
             else
                 Attack.Punch();

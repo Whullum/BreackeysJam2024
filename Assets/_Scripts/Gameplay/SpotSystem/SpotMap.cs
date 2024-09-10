@@ -56,17 +56,5 @@ namespace _Scripts.Gameplay.SpotSystem
                 _spots[i].transform.position = new Vector3(offset * _gridSize, 0, 0);
             }
         }
-
-        public Spot GetRandomAvailableSpot()
-        {
-            if (_spots == null)
-            {
-                Debug.LogError("No spots available");
-                return null;
-            }
-        
-            //Find the first available spot
-            return _spots.FirstOrDefault(spot => spot.IsOccupied == false);
-        }
     }
 }
