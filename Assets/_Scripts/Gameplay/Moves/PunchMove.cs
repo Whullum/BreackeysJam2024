@@ -8,7 +8,7 @@ namespace _Scripts.Gameplay.Moves
     {
         public override void Execute(PlayerMarker player)
         {
-            player.Strikes.Punch();
+            player.Attack.Punch();
         }
     }
 }

@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace _Scripts.Gameplay.Moves
 {
-    [CreateAssetMenu(menuName = "Moves/Kick")]
-    public class KickMove : Move
+    [CreateAssetMenu(menuName = "Moves/Use weapon")]
+    public class UseWeaponMove : Move
     {
         public override void Execute(PlayerMarker player)
         {
-            player.Attack.Kick();
+            player.Attack.UseWeapon();
         }
     }
 }

@@ -9,13 +9,13 @@ namespace _Scripts.Gameplay.Characters
         private IRestorable[] _restorables;
         private CharacterMovement _movement;
         private CharacterLife _life;
-        private CharacterStrikes _strikes;
+        private CharacterAttack attack;
 
-        public IDiscardable[] Discardables => _discardables ??= GetComponentsInChildren<IDiscardable>();
-        public IRestorable[] Restorables => _restorables ??= GetComponentsInChildren<IRestorable>();
+        private IDiscardable[] Discardables => _discardables ??= GetComponentsInChildren<IDiscardable>();
+        private IRestorable[] Restorables => _restorables ??= GetComponentsInChildren<IRestorable>();
         public CharacterMovement Movement => _movement ??= GetComponent<CharacterMovement>();
         public CharacterLife Life => _life ??= GetComponent<CharacterLife>(); 
-        public CharacterStrikes Strikes => _strikes ??= GetComponent<CharacterStrikes>();
+        public CharacterAttack Attack => attack ??= GetComponent<CharacterAttack>();
 
         public void DiscardMemebers()
         {
