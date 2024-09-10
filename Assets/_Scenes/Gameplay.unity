@@ -166,10 +166,6 @@ MonoBehaviour:
   _spawnList:
   - _prefab: {fileID: 1678829971027553636, guid: 02e24e8217d11654292e1e21e5d837eb, type: 3}
     _spot: 0
-  - _prefab: {fileID: 1678829971027553636, guid: 02e24e8217d11654292e1e21e5d837eb, type: 3}
-    _spot: 4
-  - _prefab: {fileID: 1678829971027553636, guid: 02e24e8217d11654292e1e21e5d837eb, type: 3}
-    _spot: 5
 --- !u!4 &152468705
 Transform:
   m_ObjectHideFlags: 0

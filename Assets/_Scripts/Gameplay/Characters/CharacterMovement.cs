@@ -19,7 +19,12 @@ namespace _Scripts.Gameplay.Characters
         public int Direction
         {
             get => transform.localScale.x.Sign();
-            set => transform.localScale = transform.localScale.WithX(value.Sign());
+            set
+            {
+                if (value == 0)
+                    return;
+                transform.localScale = transform.localScale.WithX(value.Sign());
+            }
         }
 
         private CharacterLife _life;
@@ -51,10 +56,9 @@ namespace _Scripts.Gameplay.Characters
             transform.position = Vector3.Lerp(transform.position, CurrentSpot.transform.position, Time.fixedDeltaTime * _lerpMoveSpeed);
         }
 
-        public void TryGoForward()
-        {
-            GoToSpot(CurrentSpot.IndexOnMap + Direction);
-        }
+        public void TryGoForward() => GoToSpot(CurrentSpot.IndexOnMap + Direction);
+
+        public void TryGoBackwards() => GoToSpot(CurrentSpot.IndexOnMap - Direction);
 
         public void TurnAround()
         {
