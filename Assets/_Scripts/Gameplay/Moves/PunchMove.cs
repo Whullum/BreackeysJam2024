@@ -6,9 +6,8 @@ namespace _Scripts.Gameplay.Moves
     [CreateAssetMenu(menuName = "Moves/Punch")]
     public class PunchMove : Move
     {
-        public override void Execute(PlayerMarker player, out bool combo)
+        public override void Execute(PlayerMarker player)
         {
-            combo = false;
             player.Attack.Punch();
         }
     }

@@ -14,7 +14,7 @@ namespace _Scripts.Gameplay.Characters
         private EnemyIntention[] _behaviourOverride;
         
         [SerializeField]
-        private WeaponType _weaponOverride;
+        private WeaponType _weaponOverride; 
         
         public int Spot => _spot;
 

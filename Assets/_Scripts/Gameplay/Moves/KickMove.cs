@@ -6,9 +6,9 @@ namespace _Scripts.Gameplay.Moves
     [CreateAssetMenu(menuName = "Moves/Kick")]
     public class KickMove : Move
     {
-        public override void Execute(PlayerMarker player, out bool combo)
+        public override void Execute(PlayerMarker player)
         {
-            combo = player.Attack.Kick();
+            player.Attack.Kick();
         }
     }
 }

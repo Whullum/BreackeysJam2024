@@ -6,9 +6,8 @@ namespace _Scripts.Gameplay.Moves
     [CreateAssetMenu(menuName = "Moves/Swap weapon")]
     public class SwapWeaponMove : Move
     {
-        public override void Execute(PlayerMarker player, out bool combo)
+        public override void Execute(PlayerMarker player)
         {
-            combo = false;
             if (player.Movement.IsInAir)
             {
                 player.Movement.TryDescend();
