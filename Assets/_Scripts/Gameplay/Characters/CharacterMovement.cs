@@ -40,13 +40,11 @@ namespace _Scripts.Gameplay.Characters
 
         public void TryAscend()
         {
-            Debug.Log(gameObject);
             GoToSpot(Coordinates + new Vector2Int(0, 1));
         }
 
         public void TryDescend()
         {
-            Debug.Log(gameObject + " ads");
             CurrentSpot.GetAdjacentSpot(new Vector2Int(0, -1))?.ForceLeave<CharacterMovement>();
             GoToSpot(Coordinates + new Vector2Int(0, -1));
         }

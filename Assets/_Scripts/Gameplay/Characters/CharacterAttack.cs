@@ -97,6 +97,8 @@ namespace _Scripts.Gameplay.Characters
         {
             if ( ! TryGetVictim(1, out CharacterMarker victim))
                 return false;
+            if (victim.Attack.CurrentWeaponType == null)
+                return false;
             _currentWeaponType = victim.Attack.CurrentWeaponType;
             victim.Attack._currentWeaponType = null;
             return true;

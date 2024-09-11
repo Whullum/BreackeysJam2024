@@ -6,14 +6,16 @@ namespace _Scripts.Gameplay.Moves
     [CreateAssetMenu(menuName = "Moves/Disarm")]
     public class DisarmMove : Move
     {
-        public override void Execute(PlayerMarker player)
+        public override void Execute(PlayerMarker player, out bool combo)
         {
+            combo = false;
             if (player.Movement.IsInAir)
             {
                 player.Movement.TryDescend();
                 return;
             }
-            player.Attack.TryDisarm();
+
+            combo = player.Attack.TryDisarm();
         }
     }
 }

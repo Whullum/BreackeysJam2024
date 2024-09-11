@@ -29,13 +29,18 @@ namespace _Scripts.Gameplay.Turns
             // For now fight is limited by 20 turns. Later fight must only be limited by win/lose conditions
             for (int turn = 0; turn < 20; turn++)
             {
+                bool combo = false;
                 if (turn < Timeline.Moves.Length)
                 {
                     MoveOnTimeline moveOnTimeline = Timeline.Moves[turn];
-                    moveOnTimeline.Move.Execute(Player);
+                    moveOnTimeline.Move.Execute(Player, out combo);
                 }
                 
                 await Task.Delay(300);
+
+                Debug.Log(combo);
+                if (combo)
+                    continue;
                 
                 foreach (EnemyMarker enemy in EnemyContainer.Enemies)
                 {
