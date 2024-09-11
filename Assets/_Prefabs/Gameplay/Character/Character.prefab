@@ -74,9 +74,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfa93f737647bc4e9c3750ff81f2b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startingWeapon: {fileID: 0}
-  _punchDamage: 2
-  _kickDamage: 2
+  _startingWeaponType: {fileID: 0}
+  _punchDamage: 1
+  _kickDamage: 1
 --- !u!1 &4993076457843622438
 GameObject:
   m_ObjectHideFlags: 0

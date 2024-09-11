@@ -138,6 +138,12 @@ namespace _Scripts.Gameplay.Characters
             return victim != null;
         }
 
+        public void AssignStartingWeaponType(WeaponType startingWeaponType)
+        {
+            _startingWeaponType = startingWeaponType;
+            EquipStartingWeapon();
+        }
+
         private void EquipStartingWeapon()
         {
             _currentWeaponType = _startingWeaponType;

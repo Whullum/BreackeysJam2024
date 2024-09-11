@@ -151,10 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a546cdda1314aecaad044336f9b34d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerSpot: {x: 1, y: 0}
-  _spawnList:
-  - _prefab: {fileID: 1678829971027553636, guid: 02e24e8217d11654292e1e21e5d837eb, type: 3}
-    _spot: {x: 3, y: 0}
+  _currentLevel: {fileID: 11400000, guid: d59ff1dded75e8c4883f809e775be202, type: 2}
+  _enemyPrefab: {fileID: 1678829971027553636, guid: 02e24e8217d11654292e1e21e5d837eb, type: 3}
 --- !u!4 &152468705
 Transform:
   m_ObjectHideFlags: 0
