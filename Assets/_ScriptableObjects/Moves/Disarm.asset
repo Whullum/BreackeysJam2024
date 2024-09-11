@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Disarm
   _description: Disarm enemy in front of you and take their weapon
-  _icon: {fileID: 21300000, guid: 1822fcca7760957458969decc795c395, type: 3}
+  _icon: {fileID: 21300000, guid: 3916b85fef28720d08cc8835741db085, type: 3}

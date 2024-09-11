@@ -702,6 +702,7 @@ RectTransform:
   m_Children:
   - {fileID: 8982652251385357777}
   - {fileID: 2481609100971382962}
+  - {fileID: 5496513820080121398}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -866,6 +867,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8e7ba0758f30c114bbb3b6aafc6d9390, type: 2}
   - {fileID: 11400000, guid: 81ae93e9dcf7a824bbf782e696063e10, type: 2}
   - {fileID: 11400000, guid: 3eed71fb7040c854fa35f172771e8201, type: 2}
+  - {fileID: 11400000, guid: 91d2e3a043cd47c42ac33a16f3156774, type: 2}
+  - {fileID: 11400000, guid: 021740f2522d55b418b1f64f5e8d2948, type: 2}
   _movePrefab: {fileID: 497943810051401691, guid: 81cb185594c3b5542b3d1ef9fcebf8e5, type: 3}
   _actionCardParent: {fileID: 5770821649237140702}
 --- !u!1 &4890977462565176482
@@ -878,7 +881,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2481609100971382962}
   m_Layer: 5
-  m_Name: BottomUI
+  m_Name: SimUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1572,6 +1575,41 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &7450928934966124647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5496513820080121398}
+  m_Layer: 5
+  m_Name: FightUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5496513820080121398
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7450928934966124647}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3724741713329558425}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7605475574392971710
 GameObject:
   m_ObjectHideFlags: 0

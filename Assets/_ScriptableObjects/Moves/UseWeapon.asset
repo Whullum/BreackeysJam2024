@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Use weapon
   _description: Attack with the weapon you are holding
-  _icon: {fileID: 21300000, guid: dc8a3bcfd54b5574da6c1035f37d0752, type: 3}
+  _icon: {fileID: 21300000, guid: ca0fc63c69e2f305b8fc0af828beb37a, type: 3}
