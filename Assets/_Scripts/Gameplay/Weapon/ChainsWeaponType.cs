@@ -10,7 +10,7 @@ namespace _Scripts.Gameplay.Weapon
         {
             victim.Life.TakeDamage(Damage);
 
-            int pullSpot = attacker.Movement.CurrentSpot.IndexOnMap + attacker.Movement.Direction;
+            Vector2Int pullSpot = attacker.Movement.Coordinates + new Vector2Int(attacker.Movement.Direction, 0);
             victim.Movement.GoToSpot(pullSpot);
         }
     }

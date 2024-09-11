@@ -7,7 +7,7 @@ namespace _Scripts.Gameplay
 {
     public class TestSpawner : MonoBehaviour
     {
-        [SerializeField] private int _playerSpot;
+        [SerializeField] private Vector2Int _playerSpot;
         
         [SerializeField]
         private SpawnInfo[] _spawnList;

@@ -10,10 +10,10 @@ namespace _Scripts.Gameplay.Characters
         private GameObject _prefab;
         
         [SerializeField]
-        private int _spot;
+        private Vector2Int _spot;
         
         public GameObject Prefab => _prefab;
         
-        public int Spot => _spot;
+        public Vector2Int Spot => _spot;
     }
 }

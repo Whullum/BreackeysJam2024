@@ -68,7 +68,7 @@ namespace _Scripts.Gameplay.Characters
 
             if (currentWeaponType != null)
             {
-                WeaponOnGroundFactory.SpawnWeapon(currentWeaponType, Movement.CurrentSpot.IndexOnMap);
+                WeaponOnGroundFactory.SpawnWeapon(currentWeaponType, Movement.CurrentSpot.Coordinates);
             }
 
             _currentWeaponType = pickedUpWeaponType;
@@ -88,7 +88,7 @@ namespace _Scripts.Gameplay.Characters
             
             for (int i = 1; i <= maxRange; i++)
             {
-                Spot adjacentSpot = Movement.CurrentSpot.GetAdjacentSpot(Movement.Direction * i);
+                Spot adjacentSpot = Movement.CurrentSpot.GetAdjacentSpot(new Vector2Int(Movement.Direction * i, 0));
                 if (adjacentSpot == null)
                     continue;
             

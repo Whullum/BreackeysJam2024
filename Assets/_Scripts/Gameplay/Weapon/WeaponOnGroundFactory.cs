@@ -16,15 +16,15 @@ namespace _Scripts.Gameplay.Weapon
         [Inject]
         private SpotMap SpotMap { get; set; }
         
-        public void SpawnWeapon(WeaponType type, int spotIndex)
+        public void SpawnWeapon(WeaponType type, Vector2Int coordinates)
         {
-            Spot spot = SpotMap.GetSpot(spotIndex);
+            Spot spot = SpotMap.GetSpot(coordinates);
             if (spot == null)
                 return;
             
             spot.ForceLeave<WeaponOnGround>();
             WeaponOnGround newWeapon = ContainerFactory.Instantiate<WeaponOnGround>(_prefab, spot.transform.position, transform);
-            newWeapon.GoToSpot(spotIndex, true);
+            newWeapon.GoToSpot(coordinates, true);
             newWeapon.Init(type);
         }
     }

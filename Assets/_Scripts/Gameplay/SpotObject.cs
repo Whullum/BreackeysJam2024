@@ -9,9 +9,11 @@ namespace _Scripts.Gameplay
         [SerializeField]
         private float _lerpMoveSpeed;
         
-        private int _homeSpot;
+        private Vector2Int _homeSpot;
 
-        public Spot CurrentSpot { get; private set; }
+        public Spot CurrentSpot { get; set; }
+
+        public Vector2Int Coordinates => CurrentSpot.Coordinates;
         
         [Inject]
         protected SpotMap SpotMap { get; private set; }
@@ -28,7 +30,7 @@ namespace _Scripts.Gameplay
             transform.position = Vector3.Lerp(transform.position, CurrentSpot.transform.position, Time.fixedDeltaTime * _lerpMoveSpeed);
         }
         
-        public void AssignHomeSpot(int homeSpot)
+        public void AssignHomeSpot(Vector2Int homeSpot)
         {
             _homeSpot = homeSpot;
             ReturnToHomeSpot();
@@ -39,9 +41,9 @@ namespace _Scripts.Gameplay
             GoToSpot(_homeSpot, true);
         }
 
-        public void GoToSpot(int index, bool teleport = false)
+        public void GoToSpot(Vector2Int coordinates, bool teleport = false)
         {
-            Spot destination = SpotMap.GetSpot(index);
+            Spot destination = SpotMap.GetSpot(coordinates);
             
             if (destination == null || destination == CurrentSpot)
                 return;

@@ -32,16 +32,16 @@ namespace _Scripts.Gameplay
             }
         }
 
-        public void SpawnEnemy(GameObject prefab, int spotIndex)
+        public void SpawnEnemy(GameObject prefab, Vector2Int coordinates)
         {
-            Spot targetSpot = SpotMap.GetSpot(spotIndex);
+            Spot targetSpot = SpotMap.GetSpot(coordinates);
             if (targetSpot.IsOccupiedBy<CharacterMovement>())
-                throw new InvalidOperationException($"Spot {spotIndex} is already occupied. Cannot spawn here");
+                throw new InvalidOperationException($"Spot {coordinates} is already occupied. Cannot spawn here");
             
             Vector3 position = targetSpot.transform.position;
             EnemyMarker newEnemy = ContainerFactory.Instantiate<EnemyMarker>(prefab, position, transform);
             _enemies.Add(newEnemy);
-            newEnemy.Movement.AssignHomeSpot(spotIndex);
+            newEnemy.Movement.AssignHomeSpot(coordinates);
         }
     }
 }

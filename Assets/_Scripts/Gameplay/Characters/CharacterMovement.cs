@@ -34,9 +34,9 @@ namespace _Scripts.Gameplay.Characters
             Direction = -Direction;
         }
 
-        public void TryGoForward() => GoToSpot(CurrentSpot.IndexOnMap + Direction);
+        public void TryGoForward() => GoToSpot(Coordinates + new Vector2Int(Direction, 0));
 
-        public void TryGoBackwards() => GoToSpot(CurrentSpot.IndexOnMap - Direction);
+        public void TryGoBackwards() => GoToSpot(Coordinates - new Vector2Int(Direction, 0));
 
         public override void OnForceLeave()
         {

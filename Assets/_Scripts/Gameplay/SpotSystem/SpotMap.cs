@@ -9,24 +9,26 @@ namespace _Scripts.Gameplay.SpotSystem
     public class SpotMap : MonoBehaviour
     {
         [SerializeField]
-        private float _gridSize;
+        private Vector2 _gridSize;
         
         [SerializeField]
-        private int _spotsCount;
+        private Vector2Int _spotsCount;
         
         [SerializeField]
         private GameObject _spotPrefab; 
         
-        private readonly List<Spot> _spots = new List<Spot>();
+        private Spot[,] _spots;
 
         [Inject]
         private ContainerFactory ContainerFactory { get; set; }
 
-        public Spot GetSpot(int index)
+        public Spot GetSpot(Vector2Int coordinates)
         {
-            if (index < 0 || index >= _spots.Count)
+            if (coordinates.x < 0 || coordinates.y >= _spots.GetLength(0) || coordinates.y < 0 ||
+                coordinates.y >= _spots.GetLength(1))
                 return null;
-            return _spots[index];
+            
+            return _spots[coordinates.x, coordinates.y];
         }
 
         private void Awake()
@@ -36,11 +38,16 @@ namespace _Scripts.Gameplay.SpotSystem
 
         private void GenerateSpots()
         {
-            for (int i = 0; i < _spotsCount; i++)
+            _spots = new Spot[_spotsCount.x, _spotsCount.y];
+            
+            for (int y = 0; y < _spotsCount.y; y++)
             {
-                Spot newSpot = ContainerFactory.Instantiate<Spot>(_spotPrefab, transform.position, transform);
-                newSpot.Init(this, i);
-                _spots.Add(newSpot);
+                for (int x = 0; x < _spotsCount.x; x++)
+                {
+                    Spot newSpot = ContainerFactory.Instantiate<Spot>(_spotPrefab, transform.position, transform);
+                    newSpot.Init(this, new Vector2Int(x, y));
+                    _spots[x, y] = newSpot;
+                }
             }
 
             RearrangeSpots();
@@ -48,12 +55,15 @@ namespace _Scripts.Gameplay.SpotSystem
 
         private void RearrangeSpots()
         {
-            float median = (float) (_spots.Count - 1) / 2;
+            float xMedian = (float) (_spots.GetLength(0) - 1) / 2;
             
-            for (int i = 0; i < _spotsCount; i++)
+            for (int y = 0; y < _spots.GetLength(1); y++)
             {
-                float offset = i - median;
-                _spots[i].transform.position = new Vector3(offset * _gridSize, 0, 0);
+                for (int x = 0; x < _spots.GetLength(0); x++)
+                {
+                    float xOffset = x - xMedian;
+                    _spots[x, y].transform.position = new Vector3(xOffset * _gridSize.x, y * _gridSize.y, 0);
+                }
             }
         }
     }

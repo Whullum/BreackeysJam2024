@@ -162,10 +162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a546cdda1314aecaad044336f9b34d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerSpot: 3
+  _playerSpot: {x: 3, y: 0}
   _spawnList:
   - _prefab: {fileID: 1678829971027553636, guid: 02e24e8217d11654292e1e21e5d837eb, type: 3}
-    _spot: 0
+    _spot: {x: 0, y: 0}
 --- !u!4 &152468705
 Transform:
   m_ObjectHideFlags: 0
@@ -210,8 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7817499df66b9d947a9f1770efd48be0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gridSize: 1
-  _spotsCount: 7
+  _gridSize: {x: 1, y: 1.5}
+  _spotsCount: {x: 7, y: 2}
   _spotPrefab: {fileID: 5809496923740903584, guid: b61937ab12af0b145bc9c03228590f7b, type: 3}
 --- !u!4 &240426607
 Transform:

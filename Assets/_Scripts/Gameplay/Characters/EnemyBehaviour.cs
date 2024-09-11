@@ -17,7 +17,7 @@ namespace _Scripts.Gameplay.Characters
         
         private int DesiredDistance => Attack.CurrentWeaponType?.MaxRange ?? 1;
 
-        private int DeltaToPlayer => Player.Movement.CurrentSpot.IndexOnMap - Movement.CurrentSpot.IndexOnMap;
+        private int DeltaToPlayer => Player.Movement.CurrentSpot.Coordinates.x - Movement.CurrentSpot.Coordinates.x;
         
         private int DistanceToPlayer => Mathf.Abs(DeltaToPlayer);
 

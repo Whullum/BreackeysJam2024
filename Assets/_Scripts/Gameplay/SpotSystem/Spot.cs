@@ -18,12 +18,12 @@ namespace _Scripts.Gameplay.SpotSystem
 
         public List<SpotObject> _objects = new List<SpotObject>();
 
-        public int IndexOnMap { get; private set; }
+        public Vector2Int Coordinates { get; private set; }
 
-        public void Init(SpotMap map, int indexOnMap)
+        public void Init(SpotMap map, Vector2Int coordinates)
         {
             _map = map;
-            IndexOnMap = indexOnMap;
+            Coordinates = coordinates;
         }
         
         public T GetObject<T>() where T : SpotObject
@@ -32,7 +32,7 @@ namespace _Scripts.Gameplay.SpotSystem
         public bool IsOccupiedBy<T>() where T : SpotObject
             => _objects.Any(o => o is T);
 
-        public Spot GetAdjacentSpot(int delta) => _map.GetSpot(IndexOnMap + delta);
+        public Spot GetAdjacentSpot(Vector2Int delta) => _map.GetSpot(Coordinates + delta);
 
         public bool TryOccupy(SpotObject spotObject)
         {
