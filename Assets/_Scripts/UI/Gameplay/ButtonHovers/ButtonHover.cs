@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class ButtonHover : MonoBehaviour
+public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private RectTransform _toScale;
+
+    [SerializeField]
+    private float _scalingFactor = 1.2f;
+
+    [SerializeField]
+    private float _animTime = 0.2f;
+
+    public void OnPointerEnter(PointerEventData _)
     {
-        
+        _toScale.DOScale(_scalingFactor, _animTime);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnPointerExit(PointerEventData _)
     {
-        
+        _toScale.DOScale(1f, _animTime);
     }
 }
