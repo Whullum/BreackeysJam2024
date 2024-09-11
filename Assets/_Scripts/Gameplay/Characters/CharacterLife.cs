@@ -1,5 +1,6 @@
 ﻿using System;
 using _Scripts.Gameplay.Turns;
+using DG.Tweening;
 using NaughtyAttributes;
 using UnityEngine;
 using Zenject;
@@ -35,6 +36,8 @@ namespace _Scripts.Gameplay.Characters
 
             Debug.Log(_health);
             _health -= damage;
+            transform.DOKill();
+            transform.DOShakeScale(0.2f, Vector3.one * 0.2f);
             
             if (_health <= 0)
                 Kill();
