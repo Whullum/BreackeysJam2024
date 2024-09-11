@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 5940107350595416517}
   - component: {fileID: 207936271067386529}
   - component: {fileID: 5236846065992293291}
+  - component: {fileID: 5266542254883252637}
   m_Layer: 5
   m_Name: SimulateButton
   m_TagString: Untagged
@@ -499,6 +500,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 0
+--- !u!114 &5266542254883252637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430730056584762887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c2b0bea79fb707bdb97eefd596ab344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1655787767754418430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,8 +1368,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280952890
-  m_fontColor: {r: 0.22745098, g: 0.15686275, b: 0.16470589, a: 1}
+    rgba: 4279308061
+  m_fontColor: {r: 0.11320752, g: 0.05927375, b: 0.06526639, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1427,6 +1440,7 @@ GameObject:
   - component: {fileID: 2047725113444579328}
   - component: {fileID: 4052949337341422456}
   - component: {fileID: 2529790006512087104}
+  - component: {fileID: 29134096579957674}
   m_Layer: 5
   m_Name: Fight
   m_TagString: Untagged
@@ -1536,6 +1550,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &29134096579957674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6839735655164406829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934cbeb741de069e799c5262b6bd96e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7450928934966124647
 GameObject:
   m_ObjectHideFlags: 0
