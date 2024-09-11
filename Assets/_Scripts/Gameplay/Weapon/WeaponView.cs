@@ -13,7 +13,7 @@ namespace _Scripts.Gameplay.Weapon
         
         private void Update()
         {
-            _spriteRenderer.sprite = _attack.CurrentWeapon?.Sprite;
+            _spriteRenderer.sprite = _attack.CurrentWeaponType?.Sprite;
         }
     }
 }

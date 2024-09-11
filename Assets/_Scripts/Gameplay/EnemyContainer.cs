@@ -35,7 +35,7 @@ namespace _Scripts.Gameplay
         public void SpawnEnemy(GameObject prefab, int spotIndex)
         {
             Spot targetSpot = SpotMap.GetSpot(spotIndex);
-            if (targetSpot.IsOccupied)
+            if (targetSpot.IsOccupiedBy<CharacterMovement>())
                 throw new InvalidOperationException($"Spot {spotIndex} is already occupied. Cannot spawn here");
             
             Vector3 position = targetSpot.transform.position;

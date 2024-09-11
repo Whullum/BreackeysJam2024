@@ -1,14 +1,18 @@
 ﻿using _Scripts.Gameplay.SpotSystem;
+using _Scripts.Gameplay.Weapon;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
+using Zenject;
 
 namespace _Scripts.Gameplay.Characters
 {
-    public class CharacterAttack : MonoBehaviour
+    public class CharacterAttack : MonoBehaviour, IRestorable
     {
-        [SerializeField] private Weapon.Weapon _currentWeapon;
+        [SerializeField]
+        private WeaponType _startingWeaponType;
+        
+        private WeaponType _currentWeaponType;
 
-        public Weapon.Weapon CurrentWeapon => _currentWeapon;
+        public WeaponType CurrentWeaponType => _currentWeaponType;
         
         [SerializeField]
         private int _punchDamage;
@@ -19,6 +23,14 @@ namespace _Scripts.Gameplay.Characters
         private CharacterMovement _movement;
         
         public CharacterMovement Movement => _movement ??= GetComponent<CharacterMovement>();
+        
+        [Inject]
+        private WeaponOnGroundFactory WeaponOnGroundFactory { get; set; }
+
+        private void Awake()
+        {
+            EquipStartingWeapon();
+        }
 
         public void Punch()
         {
@@ -36,11 +48,38 @@ namespace _Scripts.Gameplay.Characters
 
         public void UseWeapon()
         {
-            if (CurrentWeapon == null)
+            if (CurrentWeaponType == null)
                 return;
-            if ( ! TryGetVictim(CurrentWeapon.MaxRange, out CharacterMarker victim))
+            if ( ! TryGetVictim(CurrentWeaponType.MaxRange, out CharacterMarker victim))
                 return;
-            CurrentWeapon.Attack(GetComponent<CharacterMarker>(), victim);
+            CurrentWeaponType.Attack(GetComponent<CharacterMarker>(), victim);
+        }
+
+        public void SwapWeapon()
+        {
+            WeaponType currentWeaponType = CurrentWeaponType;
+            WeaponOnGround pickedUpWeapon = Movement.CurrentSpot.GetObject<WeaponOnGround>();
+            WeaponType pickedUpWeaponType = pickedUpWeapon?.Type;
+
+            if (pickedUpWeapon != null)
+            {
+                pickedUpWeapon.PickUp();
+            }
+
+            if (currentWeaponType != null)
+            {
+                WeaponOnGroundFactory.SpawnWeapon(currentWeaponType, Movement.CurrentSpot.IndexOnMap);
+            }
+
+            _currentWeaponType = pickedUpWeaponType;
+        }
+
+        public void TryDisarm()
+        {
+            if ( ! TryGetVictim(1, out CharacterMarker victim))
+                return;
+            _currentWeaponType = victim.Attack.CurrentWeaponType;
+            victim.Attack._currentWeaponType = null;
         }
 
         private bool TryGetVictim(int maxRange, out CharacterMarker victim)
@@ -53,7 +92,7 @@ namespace _Scripts.Gameplay.Characters
                 if (adjacentSpot == null)
                     continue;
             
-                victim = adjacentSpot.CurrentCharacter?.GetComponent<CharacterMarker>();
+                victim = adjacentSpot.GetObject<CharacterMovement>()?.GetComponent<CharacterMarker>();
                 
                 if (victim != null)
                     break;
@@ -61,5 +100,12 @@ namespace _Scripts.Gameplay.Characters
             
             return victim != null;
         }
+
+        private void EquipStartingWeapon()
+        {
+            _currentWeaponType = _startingWeaponType;
+        }
+
+        public void Restore() => EquipStartingWeapon();
     }
 }
