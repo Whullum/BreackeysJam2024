@@ -28,6 +28,12 @@ namespace _Scripts.Gameplay.Characters
 
         public void PerformTurn(int turn)
         {
+            if (Movement.IsInAir)
+            {
+                Movement.TryDescend();
+                return;
+            }
+            
             int intentionIndex = turn.RepeatIndex(_intentionLoop.Length);
             
             switch (_intentionLoop[intentionIndex])

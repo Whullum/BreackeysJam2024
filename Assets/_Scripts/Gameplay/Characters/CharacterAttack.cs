@@ -32,27 +32,46 @@ namespace _Scripts.Gameplay.Characters
             EquipStartingWeapon();
         }
 
-        public void Punch()
+        public bool Punch()
         {
             if ( ! TryGetVictim(1, out CharacterMarker victim))
-                return;
+                return false;
             victim.Life.TakeDamage(_punchDamage);
+            return true;
         }
 
-        public void Kick()
+        public bool Kick()
         {
             if ( ! TryGetVictim(1, out CharacterMarker victim))
-                return;
+                return false;
+            Debug.Log("Has victim");
+
             victim.Life.TakeDamage(_kickDamage);
+            if (victim.Life.IsDead)
+                return true;
+            
+            if (Movement.IsInAir)
+            {
+                victim.Movement.TryDescend();
+                Movement.TryDescend();
+            }
+            else
+            {
+                victim.Movement.TryAscend();
+                Movement.TryAscend();
+            }
+            
+            return true;
         }
 
-        public void UseWeapon()
+        public bool UseWeapon()
         {
             if (CurrentWeaponType == null)
-                return;
+                return false;
             if ( ! TryGetVictim(CurrentWeaponType.MaxRange, out CharacterMarker victim))
-                return;
+                return false;
             CurrentWeaponType.Attack(GetComponent<CharacterMarker>(), victim);
+            return true;
         }
 
         public void SwapWeapon()
@@ -74,12 +93,13 @@ namespace _Scripts.Gameplay.Characters
             _currentWeaponType = pickedUpWeaponType;
         }
 
-        public void TryDisarm()
+        public bool TryDisarm()
         {
             if ( ! TryGetVictim(1, out CharacterMarker victim))
-                return;
+                return false;
             _currentWeaponType = victim.Attack.CurrentWeaponType;
             victim.Attack._currentWeaponType = null;
+            return true;
         }
 
         private bool TryGetVictim(int maxRange, out CharacterMarker victim)

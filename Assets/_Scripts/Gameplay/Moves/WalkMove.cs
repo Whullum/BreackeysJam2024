@@ -8,6 +8,7 @@ namespace _Scripts.Gameplay.Moves
     {
         public override void Execute(PlayerMarker player)
         {
+            player.Movement.TryDescend();
             player.Movement.TryGoForward();
         }
     }

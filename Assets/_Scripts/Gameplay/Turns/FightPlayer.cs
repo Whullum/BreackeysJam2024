@@ -35,14 +35,15 @@ namespace _Scripts.Gameplay.Turns
                     moveOnTimeline.Move.Execute(Player);
                 }
                 
+                await Task.Delay(300);
+                
                 foreach (EnemyMarker enemy in EnemyContainer.Enemies)
                 {
                     enemy.Behaviour.PerformTurn(turn);
+                    await Task.Delay(300);
                 }
 
-                await Task.Delay(300);
 
-                Debug.Log($"{IsWinConditionMet} {IsLoseConditionMet}");
                 if (IsWinConditionMet || IsLoseConditionMet)
                     break;
             }
