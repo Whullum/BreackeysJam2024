@@ -8,8 +8,7 @@ namespace _Scripts.Gameplay.Moves
     {
         public override void Execute(PlayerMarker player, out bool combo)
         {
-            combo = false;
-            player.Attack.Kick();
+            combo = player.Attack.Kick();
         }
     }
 }

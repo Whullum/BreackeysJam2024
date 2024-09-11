@@ -24,7 +24,7 @@ namespace _Scripts.Gameplay.SpotSystem
 
         public Spot GetSpot(Vector2Int coordinates)
         {
-            if (coordinates.x < 0 || coordinates.y >= _spots.GetLength(0) || coordinates.y < 0 ||
+            if (coordinates.x < 0 || coordinates.x >= _spots.GetLength(0) || coordinates.y < 0 ||
                 coordinates.y >= _spots.GetLength(1))
                 return null;
             

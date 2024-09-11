@@ -26,6 +26,9 @@ namespace _Scripts.Gameplay.Characters
         
         [Inject]
         private WeaponOnGroundFactory WeaponOnGroundFactory { get; set; }
+        
+        [Inject]
+        private SpotMap SpotMap { get; set; }
 
         private void Awake()
         {
@@ -37,6 +40,18 @@ namespace _Scripts.Gameplay.Characters
             if ( ! TryGetVictim(1, out CharacterMarker victim))
                 return false;
             victim.Life.TakeDamage(_punchDamage);
+            if (Movement.IsInAir)
+            {
+                Spot destination = null;
+                for (int i = 10; i >= 0; i--)
+                {
+                    destination = SpotMap.GetSpot(Movement.Coordinates + new Vector2Int(i * Movement.Direction, 0));
+                    if (destination != null && ! destination.IsOccupiedBy<CharacterMovement>())
+                        break;
+                }
+                if (destination != null)
+                    victim.Movement.GoToSpot(destination.Coordinates);
+            }
             return true;
         }
 
