@@ -26,6 +26,9 @@ namespace _Scripts.Infrastructure
         
         [SerializeField]
         private WeaponOnGroundFactory _weaponOnGroundFactory;
+
+        [SerializeField]
+        private ManaBarController _manaBarController;
         
         public override void InstallBindings()
         {
@@ -35,6 +38,7 @@ namespace _Scripts.Infrastructure
             Container.Bind<EnemyContainer>().FromInstance(_enemyContainer).AsSingle();
             Container.Bind<WeaponOnGroundFactory>().FromInstance(_weaponOnGroundFactory).AsSingle();
             Container.Bind<FightPlayer>().AsSingle();
+            Container.Bind<ManaBarController>().FromInstance(_manaBarController).AsSingle();
         }
     }
 }
