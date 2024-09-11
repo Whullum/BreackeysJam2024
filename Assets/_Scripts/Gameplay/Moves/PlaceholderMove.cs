@@ -6,9 +6,8 @@ namespace _Scripts.Gameplay.Moves
     [CreateAssetMenu(menuName = "Moves/Placeholder")]
     public class PlaceholderMove : Move
     {
-        public override void Execute(PlayerMarker _, out bool combo)
+        public override void Execute(PlayerMarker _)
         {
-            combo = false;
             Debug.Log($"{Name} move executed");
         }
     }

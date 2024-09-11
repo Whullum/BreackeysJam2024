@@ -37,6 +37,7 @@ namespace _Scripts.Infrastructure
             Container.Bind<SpotMap>().FromInstance(_spotMap).AsSingle();
             Container.Bind<EnemyContainer>().FromInstance(_enemyContainer).AsSingle();
             Container.Bind<WeaponOnGroundFactory>().FromInstance(_weaponOnGroundFactory).AsSingle();
+            Container.Bind<ComboSystem>().AsSingle();
             Container.Bind<FightPlayer>().AsSingle();
             Container.Bind<ManaBarController>().FromInstance(_manaBarController).AsSingle();
         }

@@ -10,8 +10,8 @@ namespace _Scripts.Gameplay.Weapon
         {
             victim.Life.TakeDamage(Damage);
 
-            Vector2Int pullSpot = attacker.Movement.Coordinates + new Vector2Int(attacker.Movement.Direction, 0);
-            victim.Movement.GoToSpot(pullSpot);
+            Vector2Int pullSpot = victim.Movement.Coordinates - new Vector2Int(attacker.Movement.Direction, 0);
+            attacker.Movement.GoToSpot(pullSpot);
         }
     }
 }

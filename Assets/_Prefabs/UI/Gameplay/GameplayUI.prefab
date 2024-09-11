@@ -1584,6 +1584,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3eed71fb7040c854fa35f172771e8201, type: 2}
   - {fileID: 11400000, guid: 91d2e3a043cd47c42ac33a16f3156774, type: 2}
   - {fileID: 11400000, guid: 021740f2522d55b418b1f64f5e8d2948, type: 2}
+  - {fileID: 11400000, guid: d05aa901e4f0f604d8c1714f2425525e, type: 2}
   _movePrefab: {fileID: 497943810051401691, guid: 81cb185594c3b5542b3d1ef9fcebf8e5, type: 3}
   _actionCardParent: {fileID: 5770821649237140702}
 --- !u!1 &4890977462565176482

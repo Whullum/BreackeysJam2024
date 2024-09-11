@@ -6,9 +6,8 @@ namespace _Scripts.Gameplay.Moves
     [CreateAssetMenu(menuName = "Moves/Walk")]
     public class WalkMove : Move
     {
-        public override void Execute(PlayerMarker player, out bool combo)
+        public override void Execute(PlayerMarker player)
         {
-            combo = false;
             player.Movement.TryDescend();
             player.Movement.TryGoForward();
         }

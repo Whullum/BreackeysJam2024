@@ -51,6 +51,8 @@ namespace _Scripts.Gameplay.Characters
             }
         }
 
+        public void ApplyLoop(EnemyIntention[] loop) => _intentionLoop = loop;
+
         private void PerformMove()
         {
             Movement.Direction = DirectionToPlayer;

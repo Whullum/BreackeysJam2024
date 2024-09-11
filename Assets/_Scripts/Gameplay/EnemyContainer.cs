@@ -32,7 +32,7 @@ namespace _Scripts.Gameplay
             }
         }
 
-        public void SpawnEnemy(GameObject prefab, Vector2Int coordinates)
+        public EnemyMarker SpawnEnemy(GameObject prefab, Vector2Int coordinates)
         {
             Spot targetSpot = SpotMap.GetSpot(coordinates);
             if (targetSpot.IsOccupiedBy<CharacterMovement>())
@@ -42,6 +42,7 @@ namespace _Scripts.Gameplay
             EnemyMarker newEnemy = ContainerFactory.Instantiate<EnemyMarker>(prefab, position, transform);
             _enemies.Add(newEnemy);
             newEnemy.Movement.AssignHomeSpot(coordinates);
+            return newEnemy;
         }
     }
 }

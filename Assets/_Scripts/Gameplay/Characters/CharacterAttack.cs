@@ -1,4 +1,5 @@
-﻿using _Scripts.Gameplay.SpotSystem;
+﻿using System;
+using _Scripts.Gameplay.SpotSystem;
 using _Scripts.Gameplay.Weapon;
 using UnityEngine;
 using Zenject;
@@ -30,6 +31,10 @@ namespace _Scripts.Gameplay.Characters
         [Inject]
         private SpotMap SpotMap { get; set; }
 
+        public event Action Punched;
+        public event Action Kicked;
+        public event Action UsedWeapon;
+
         private void Awake()
         {
             EquipStartingWeapon();
@@ -40,6 +45,7 @@ namespace _Scripts.Gameplay.Characters
             if ( ! TryGetVictim(1, out CharacterMarker victim))
                 return false;
             victim.Life.TakeDamage(_punchDamage);
+            Punched?.Invoke();
             if (Movement.IsInAir)
             {
                 Spot destination = null;
@@ -59,9 +65,9 @@ namespace _Scripts.Gameplay.Characters
         {
             if ( ! TryGetVictim(1, out CharacterMarker victim))
                 return false;
-            Debug.Log("Has victim");
 
             victim.Life.TakeDamage(_kickDamage);
+            Kicked?.Invoke();
             if (victim.Life.IsDead)
                 return true;
             
@@ -86,6 +92,7 @@ namespace _Scripts.Gameplay.Characters
             if ( ! TryGetVictim(CurrentWeaponType.MaxRange, out CharacterMarker victim))
                 return false;
             CurrentWeaponType.Attack(GetComponent<CharacterMarker>(), victim);
+            UsedWeapon?.Invoke();
             return true;
         }
 
@@ -136,6 +143,12 @@ namespace _Scripts.Gameplay.Characters
             }
             
             return victim != null;
+        }
+
+        public void AssignStartingWeaponType(WeaponType startingWeaponType)
+        {
+            _startingWeaponType = startingWeaponType;
+            EquipStartingWeapon();
         }
 
         private void EquipStartingWeapon()

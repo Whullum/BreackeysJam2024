@@ -20,6 +20,6 @@ namespace _Scripts.Gameplay.Moves
 
         public Sprite Icon => _icon;
         
-        public abstract void Execute(PlayerMarker player, out bool combo);
+        public abstract void Execute(PlayerMarker player);
     }
 }

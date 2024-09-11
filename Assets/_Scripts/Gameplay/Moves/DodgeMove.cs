@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace _Scripts.Gameplay.Moves
 {
-    [CreateAssetMenu(menuName = "Moves/Use weapon")]
-    public class UseWeaponMove : Move
+    [CreateAssetMenu(menuName = "Moves/Dodge")]
+    public class DodgeMove : Move
     {
         public override void Execute(PlayerMarker player)
         {
-            player.Attack.UseWeapon();
+            player.Life.Dodge();
         }
     }
 }
