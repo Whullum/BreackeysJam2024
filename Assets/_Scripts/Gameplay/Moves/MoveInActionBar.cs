@@ -62,7 +62,7 @@ namespace _Scripts.Gameplay.Moves
             if (_move == null)
                 return;
             
-            _label.text = _move.Name;
+            //_label.text = _move.Name;
             _icon.sprite = _move.Icon;
         }
     }
