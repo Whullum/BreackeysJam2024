@@ -12,6 +12,9 @@ namespace _Scripts.Gameplay.UI
         [SerializeField]
         private GameObject _movePrefab;
         
+        [SerializeField]
+        private Transform _moveParent;
+
         private List<MoveOnTimeline> _moves = new List<MoveOnTimeline>();
 
         public MoveOnTimeline[] Moves => _moves.ToArray();
@@ -27,7 +30,7 @@ namespace _Scripts.Gameplay.UI
         
         public void AddMove(Move move)
         {
-            MoveOnTimeline newMove = ContainerFactory.Instantiate<MoveOnTimeline>(_movePrefab, transform.position, transform);
+            MoveOnTimeline newMove = ContainerFactory.Instantiate<MoveOnTimeline>(_movePrefab, _moveParent.position, _moveParent);
             newMove.Init(move);
             _moves.Add(newMove);    
         }

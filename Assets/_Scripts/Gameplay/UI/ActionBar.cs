@@ -14,7 +14,9 @@ namespace _Scripts.Gameplay.UI
         [SerializeField]
         private GameObject _movePrefab;
 
-
+        [SerializeField]
+        private Transform _actionCardParent;
+        
         [Inject]
         private ContainerFactory ContainerFactory { get; set; }
     
@@ -28,7 +30,7 @@ namespace _Scripts.Gameplay.UI
         {
             foreach (var move in _possibleMoves)
             {
-                MoveInActionBar newMove = ContainerFactory.Instantiate<MoveInActionBar>(_movePrefab, transform.position, transform);
+                MoveInActionBar newMove = ContainerFactory.Instantiate<MoveInActionBar>(_movePrefab, _actionCardParent);
                 newMove.Init(move);
             }
         }

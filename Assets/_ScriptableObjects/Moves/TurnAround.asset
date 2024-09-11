@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Turn around
   _description: Turn around in place
-  _icon: {fileID: 21300000, guid: 63d4166c3e8d9e54daf1d2849af261c1, type: 3}
+  _icon: {fileID: 21300000, guid: 9afac03e186e0bef09a9cfc453f20ec6, type: 3}

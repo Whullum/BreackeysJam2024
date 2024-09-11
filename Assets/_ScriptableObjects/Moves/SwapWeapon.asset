@@ -15,4 +15,4 @@ MonoBehaviour:
   _name: Swap weapon
   _description: Drop whatever weapon you are holding and pick up the one from your
     spot
-  _icon: {fileID: 21300000, guid: 72f4f83801c948649a8665d1b574f48c, type: 3}
+  _icon: {fileID: 21300000, guid: 1a6726ae15e82b701b32f562b3e524a3, type: 3}

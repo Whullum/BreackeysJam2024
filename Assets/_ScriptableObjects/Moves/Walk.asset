@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Walk
   _description: Move forward 1 square
-  _icon: {fileID: 21300000, guid: 3b77e5cfa2e4d2b42afff83de3850e82, type: 3}
+  _icon: {fileID: 21300000, guid: a1e8ccd6dbc144d3a9d44901ab059bae, type: 3}
