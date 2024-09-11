@@ -14,6 +14,8 @@ namespace _Scripts.Gameplay
         public Spot CurrentSpot { get; set; }
 
         public Vector2Int Coordinates => CurrentSpot.Coordinates;
+
+        public bool IsInAir => Coordinates.y > 0;
         
         [Inject]
         protected SpotMap SpotMap { get; private set; }
