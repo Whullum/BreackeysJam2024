@@ -230,3 +230,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _offset: 225
   _scalingFactor: 2
+  _animDuration: 0.2
