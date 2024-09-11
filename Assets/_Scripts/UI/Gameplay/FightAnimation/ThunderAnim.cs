@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThunderAnim : MonoBehaviour, IFightStageAnimator
+public class ThunderAnim : FightStageAnimator
 {
-    public void TransitionToFightStage()
-    {
-        
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +13,11 @@ public class ThunderAnim : MonoBehaviour, IFightStageAnimator
 
     // Update is called once per frame
     void Update()
+    {
+        
+    }
+
+    public override void TransitionToFightStage()
     {
         
     }

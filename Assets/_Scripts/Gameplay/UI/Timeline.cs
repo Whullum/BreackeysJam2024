@@ -22,18 +22,32 @@ namespace _Scripts.Gameplay.UI
         [Inject]
         private ContainerFactory ContainerFactory { get; set; }
 
+        private bool _isInFightStage = false;
+
         public void RemoveMove(MoveOnTimeline move)
         {
+            if (_isInFightStage)
+            {
+                return;
+            }
             _moves.TryRemove(move);
-            Destroy(move.gameObject);
+            move.Destroy();
         }
         
         public void AddMove(Move move)
         {
+            if (_isInFightStage)
+            {
+                return;
+            }
             MoveOnTimeline newMove = ContainerFactory.Instantiate<MoveOnTimeline>(_movePrefab, _moveParent.position, _moveParent);
             newMove.Init(move);
             _moves.Add(newMove);    
         }
 
+        public void FightStageStarted()
+        {
+            _isInFightStage = true;
+        }
     }
 }

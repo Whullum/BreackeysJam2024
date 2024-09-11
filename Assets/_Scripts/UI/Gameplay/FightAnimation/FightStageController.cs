@@ -1,23 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
-public interface IFightStageAnimator
+public abstract class FightStageAnimator : MonoBehaviour
 {
-    public void TransitionToFightStage();
+    public abstract void TransitionToFightStage();
 }
 
 public class FightStageController : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+{   
+    [SerializeField]
+    private List<FightStageAnimator> _animations;
 
-    // Update is called once per frame
-    void Update()
+    [Button]
+    public void SwitchToFightStage()
     {
-        
+        foreach (var anim in _animations)
+        {
+            anim.TransitionToFightStage();
+        }
     }
 }

@@ -10,17 +10,17 @@ namespace _Scripts.Gameplay.Moves
     {
         [SerializeField]
         private Move _move;
-        
+
         [SerializeField]
         private Image _icon;
-        
+
         [SerializeField]
         private TMP_Text _label;
 
 
         [SerializeField]
         private TMP_Text _description;
-        
+
         [Inject]
         private Timeline Timeline { get; set; }
 
@@ -36,10 +36,10 @@ namespace _Scripts.Gameplay.Moves
             {
                 _label.text = _move.name;
             }
-            //if (_description != null & _description)
-            //{
-            //    _description.text = _move.Description;
-            //}
+            if (_description != null & _description)
+            {
+                _description.text = _move.Description;
+            }
         }
 
         private void Start()
@@ -61,7 +61,7 @@ namespace _Scripts.Gameplay.Moves
         {
             if (_move == null)
                 return;
-            
+
             //_label.text = _move.Name;
             _icon.sprite = _move.Icon;
         }
