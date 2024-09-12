@@ -22,10 +22,8 @@ namespace _Scripts.Gameplay.Characters
         private int _kickDamage;
         
         private CharacterMovement _movement;
-        private CharacterAttack _attack;
         
         private CharacterMovement Movement => _movement ??= GetComponent<CharacterMovement>();
-        private CharacterAttack Attack => _attack ??= GetComponent<CharacterAttack>(); 
         
         [Inject]
         private WeaponOnGroundFactory WeaponOnGroundFactory { get; set; }
@@ -139,6 +137,8 @@ namespace _Scripts.Gameplay.Characters
                     continue;
             
                 victim = adjacentSpot.GetObject<CharacterMovement>()?.GetComponent<CharacterMarker>();
+                if (victim?.GetType() == GetComponent<CharacterMarker>().GetType())
+                    victim = null;
                 
                 if (victim != null)
                     break;

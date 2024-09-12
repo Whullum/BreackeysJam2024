@@ -21,5 +21,11 @@
         {
             Destroy(gameObject);
         }
+
+        public override void Discard()
+        {
+            base.Discard();
+            Destroy(gameObject);
+        }
     }
 }

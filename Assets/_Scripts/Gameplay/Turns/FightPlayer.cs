@@ -5,6 +5,7 @@ using _Scripts.Extentions;
 using _Scripts.Gameplay.Characters;
 using _Scripts.Gameplay.Moves;
 using _Scripts.Gameplay.UI;
+using _Scripts.Gameplay.Weapon;
 using UnityEngine;
 using Zenject;
 
@@ -23,6 +24,9 @@ namespace _Scripts.Gameplay.Turns
         
         [Inject]
         private ComboSystem ComboSystem { get; set; }
+        
+        [Inject]
+        private WeaponOnGroundFactory WeaponOnGroundFactory { get; set; }
 
         private bool IsWinConditionMet => EnemyContainer.Enemies.All(e => e.Life.IsDead);
         
@@ -41,6 +45,10 @@ namespace _Scripts.Gameplay.Turns
                 {
                     MoveOnTimeline moveOnTimeline = Timeline.Moves[turn];
                     moveOnTimeline.Move.Execute(Player);
+                }
+                else
+                {
+                    Player.Movement.TryDescend();
                 }
                 
                 await Task.Delay(300);
@@ -71,6 +79,8 @@ namespace _Scripts.Gameplay.Turns
             
             Player.RestoreMemebers();
             EnemyContainer.Enemies.Foreach(e => e.RestoreMemebers());
+            
+            WeaponOnGroundFactory.Discard();
         }
     }
 }

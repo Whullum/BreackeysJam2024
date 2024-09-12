@@ -69,5 +69,11 @@ namespace _Scripts.Gameplay.Characters
         {
             Life.Kill();
         }
+
+        public override void Restore()
+        {
+            base.Restore();
+            Direction = 1;
+        }
     }
 }

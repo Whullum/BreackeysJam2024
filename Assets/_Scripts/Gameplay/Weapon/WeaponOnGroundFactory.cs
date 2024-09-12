@@ -1,4 +1,7 @@
-﻿using _Scripts.Gameplay.SpotSystem;
+﻿using System.Collections.Generic;
+using System.Linq;
+using _Scripts.Extentions;
+using _Scripts.Gameplay.SpotSystem;
 using _Scripts.Infrastructure;
 using UnityEngine;
 using Zenject;
@@ -13,6 +16,17 @@ namespace _Scripts.Gameplay.Weapon
         [Inject]
         private ContainerFactory ContainerFactory  { get; set; }
 
+        private List<WeaponOnGround> _pool = new List<WeaponOnGround>();
+
+        public List<WeaponOnGround> Pool
+        {
+            get
+            {
+                _pool = _pool.Where(w => w != null).ToList();
+                return _pool;
+            }
+        }
+
         [Inject]
         private SpotMap SpotMap { get; set; }
         
@@ -26,6 +40,12 @@ namespace _Scripts.Gameplay.Weapon
             WeaponOnGround newWeapon = ContainerFactory.Instantiate<WeaponOnGround>(_prefab, spot.transform.position, transform);
             newWeapon.GoToSpot(coordinates, true);
             newWeapon.Init(type);
+            _pool.Add(newWeapon);
+        }
+
+        public void Discard()
+        {
+            _pool.Select(w => w.GetComponent<IDiscardable>()).Foreach(d => d.Discard());
         }
     }
 }
