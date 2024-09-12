@@ -5,15 +5,17 @@ using Zenject;
 
 namespace _Scripts.Gameplay.Characters
 {
-    public class EnemyBehaviour : MonoBehaviour
+    public class EnemyBehaviour : MonoBehaviour, IRestorable
     {
         [SerializeField] private EnemyIntention[] _intentionLoop;
 
         private CharacterAttack _attack;
         private CharacterMovement _movement;
-
+        private CharacterLife _life;
+        
         private CharacterAttack Attack => _attack ??= GetComponent<CharacterAttack>();
         private CharacterMovement Movement => _movement ??= GetComponent<CharacterMovement>(); 
+        private CharacterLife Life => _life ??= GetComponent<CharacterLife>(); 
         
         private int DesiredDistance => Attack.CurrentWeaponType?.MaxRange ?? 1;
 
@@ -22,19 +24,27 @@ namespace _Scripts.Gameplay.Characters
         private int DistanceToPlayer => Mathf.Abs(DeltaToPlayer);
 
         private int DirectionToPlayer => DeltaToPlayer.Sign();
+
+        public int Turn { get; private set; }
+
+        public EnemyIntention NextTurnIntention => _intentionLoop[Turn.RepeatIndex(_intentionLoop.Length)];
         
         [Inject]
         private PlayerMarker Player { get; set; }
 
-        public void PerformTurn(int turn)
+        public void PerformNextTurn()
         {
+            if (Life.IsDead)
+                return;
+            
             if (Movement.IsInAir)
             {
                 Movement.TryDescend();
+                Turn++;
                 return;
             }
             
-            int intentionIndex = turn.RepeatIndex(_intentionLoop.Length);
+            int intentionIndex = Turn.RepeatIndex(_intentionLoop.Length);
             
             switch (_intentionLoop[intentionIndex])
             {
@@ -49,6 +59,7 @@ namespace _Scripts.Gameplay.Characters
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+            Turn++;
         }
 
         public void ApplyLoop(EnemyIntention[] loop) => _intentionLoop = loop;
@@ -74,6 +85,11 @@ namespace _Scripts.Gameplay.Characters
                 Attack.UseWeapon();
             else
                 Attack.Punch();
+        }
+
+        public void Restore()
+        {
+            Turn = 0;
         }
     }
 

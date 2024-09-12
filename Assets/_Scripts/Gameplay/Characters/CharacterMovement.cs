@@ -31,20 +31,36 @@ namespace _Scripts.Gameplay.Characters
 
         public void TurnAround()
         {
+            if (Life.IsDead)
+                return;
             Direction = -Direction;
         }
 
-        public void TryGoForward() => GoToSpot(Coordinates + new Vector2Int(Direction, 0));
+        public void TryGoForward()
+        {
+            if (Life.IsDead)
+                return;
+            GoToSpot(Coordinates + new Vector2Int(Direction, 0));
+        }
 
-        public void TryGoBackwards() => GoToSpot(Coordinates - new Vector2Int(Direction, 0));
+        public void TryGoBackwards()
+        {
+            if (Life.IsDead)
+                return;
+            GoToSpot(Coordinates - new Vector2Int(Direction, 0));
+        }
 
         public void TryAscend()
         {
+            if (Life.IsDead)
+                return;
             GoToSpot(Coordinates + new Vector2Int(0, 1));
         }
 
         public void TryDescend()
         {
+            if (Life.IsDead)
+                return;
             CurrentSpot.GetAdjacentSpot(new Vector2Int(0, -1))?.ForceLeave<CharacterMovement>();
             GoToSpot(Coordinates + new Vector2Int(0, -1));
         }

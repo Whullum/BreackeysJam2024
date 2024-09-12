@@ -50,7 +50,7 @@ namespace _Scripts.Gameplay.Turns
 
                 foreach (EnemyMarker enemy in EnemyContainer.Enemies)
                 {
-                    enemy.Behaviour.PerformTurn(turn);
+                    enemy.Behaviour.PerformNextTurn();
                     await Task.Delay(300);
                 }
 

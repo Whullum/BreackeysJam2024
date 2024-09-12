@@ -22,8 +22,10 @@ namespace _Scripts.Gameplay.Characters
         private int _kickDamage;
         
         private CharacterMovement _movement;
+        private CharacterAttack _attack;
         
-        public CharacterMovement Movement => _movement ??= GetComponent<CharacterMovement>();
+        private CharacterMovement Movement => _movement ??= GetComponent<CharacterMovement>();
+        private CharacterAttack Attack => _attack ??= GetComponent<CharacterAttack>(); 
         
         [Inject]
         private WeaponOnGroundFactory WeaponOnGroundFactory { get; set; }
