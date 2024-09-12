@@ -764,7 +764,7 @@ MonoBehaviour:
     m_Right: 20
     m_Top: 5
     m_Bottom: 5
-  m_ChildAlignment: 1
+  m_ChildAlignment: 7
   m_Spacing: 30
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
@@ -1560,7 +1560,7 @@ RectTransform:
   m_Father: {fileID: 2481609100971382962}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.042000003, y: 0}
-  m_AnchorMax: {x: 0.83, y: 0.116000004}
+  m_AnchorMax: {x: 0.83, y: 0.39}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
