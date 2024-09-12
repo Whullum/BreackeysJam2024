@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
 using _Scripts.Extentions;
@@ -24,6 +25,9 @@ namespace _Scripts.Gameplay.Turns
         
         [Inject]
         private ComboSystem ComboSystem { get; set; }
+
+        [Inject]
+        private LevelLoader _levelLoader;
         
         [Inject]
         private WeaponOnGroundFactory WeaponOnGroundFactory { get; set; }
@@ -34,10 +38,15 @@ namespace _Scripts.Gameplay.Turns
         
         public event Action TurnStarted;
 
-        public async void PlayFight()
+        public void PlayFight()
+        {   
+            StartCoroutine(Fight());
+        }
+
+        private IEnumerator Fight()
         {
-            // For now fight is limited by 20 turns. Later fight must only be limited by win/lose conditions
-            for (int turn = 0; turn < 20; turn++)
+            // Fight is limited by 99 turns. This is a sanity check.
+            for (int turn = 0; turn < 99; turn++)
             {
                 TurnStarted?.Invoke();
                 ComboSystem.SwitchTurns();
@@ -52,8 +61,7 @@ namespace _Scripts.Gameplay.Turns
                     Player.Movement.TryDescend();
                 }
                 
-                await Task.Delay(300);
-
+                yield return new WaitForSeconds(0.3f);
                 if (ComboSystem.IsComboActive)
                 {
                     Debug.Log("COMBO!");
@@ -63,7 +71,7 @@ namespace _Scripts.Gameplay.Turns
                 foreach (EnemyMarker enemy in EnemyContainer.Enemies)
                 {
                     enemy.Behaviour.PerformNextTurn();
-                    await Task.Delay(300);
+                yield return new WaitForSeconds(0.3f);
                 }
 
 
@@ -73,7 +81,16 @@ namespace _Scripts.Gameplay.Turns
 
             Debug.Log("Fight is over");
             
-            RestoreScene();
+            if (IsWinConditionMet)
+            {
+                _levelLoader.LoadNextLevel();
+            }
+            else
+            {
+                _levelLoader.ReloadLevel();
+            }
+
+            //RestoreScene();
         }
 
         private void RestoreScene()

@@ -44,4 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb3d3fa72cc083480b2f4d26e22f97b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonClickSFXs: []
+  _music: []
+  _buttonClickSFX: []
+  _buttonHoverSFX: []
+  _cardPlayedSFX: []
