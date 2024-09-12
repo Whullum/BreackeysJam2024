@@ -29,6 +29,11 @@ public enum VolumeType
     Main, SFX, Music
 }
 
+public enum GameplayAudioState
+{
+    Calm, Storm,
+}
+
 public class SoundManager : MonoBehaviour
 {
     #region structs
@@ -108,6 +113,14 @@ public class SoundManager : MonoBehaviour
     {
         _musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         _musicInstance.release();
+    }
+
+    private void SwitchMusicState(GameplayAudioState audioState)
+    {
+        if (audioState == GameplayAudioState.Calm)
+            _musicInstance.setParameterByNameWithLabel("GameplayState", "Calm");
+        else
+            _musicInstance.setParameterByNameWithLabel("GameplayState", "Storm");
     }
 
     public void PlayBackgroundMusic(BackgroundMusicType musicType)
