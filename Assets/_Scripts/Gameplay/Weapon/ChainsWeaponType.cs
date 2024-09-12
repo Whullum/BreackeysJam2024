@@ -8,10 +8,9 @@ namespace _Scripts.Gameplay.Weapon
     {
         public override void Attack(CharacterMarker attacker, CharacterMarker victim)
         {
-            victim.Life.TakeDamage(Damage);
-
             Vector2Int pullSpot = victim.Movement.Coordinates - new Vector2Int(attacker.Movement.Direction, 0);
             attacker.Movement.GoToSpot(pullSpot);
+            victim.Life.TakeDamage(Damage);
         }
     }
 }

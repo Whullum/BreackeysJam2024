@@ -7,7 +7,7 @@ using Zenject;
 
 namespace _Scripts.Gameplay.Characters
 {
-    public class CharacterMovement : SpotObject
+    public sealed class CharacterMovement : SpotObject
     {
         public int Direction
         {

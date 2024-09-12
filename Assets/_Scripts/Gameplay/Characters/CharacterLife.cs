@@ -16,9 +16,11 @@ namespace _Scripts.Gameplay.Characters
         
         public bool IsDead => _health <= 0;
 
+        [ShowNativeProperty]
         public bool IsDodging { get; private set; }
         
         public event Action Died;
+        public event Action Dodged;
         
         [Inject]
         private FightPlayer FightPlayer { get; set; }
@@ -31,13 +33,19 @@ namespace _Scripts.Gameplay.Characters
 
         public void TakeDamage(int damage)
         {
-            if (IsDodging || damage <= 0 || IsDead)
+            Debug.Log($"{damage} {IsDead} {IsDodging}");
+            if (damage <= 0 || IsDead)
                 return;
 
-            Debug.Log(_health);
+            if (IsDodging)
+            {
+                Dodged?.Invoke();
+                return;
+            }
+            
             _health -= damage;
             transform.DOKill();
-            transform.DOShakeScale(0.2f, Vector3.one * 0.2f);
+            transform.DOShakeScale(0.2f, Vector3.one * 0.5f);
             
             if (_health <= 0)
                 Kill();

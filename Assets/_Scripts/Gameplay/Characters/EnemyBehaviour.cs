@@ -66,6 +66,8 @@ namespace _Scripts.Gameplay.Characters
 
         private void PerformMove()
         {
+            if (Player.Life.IsDead)
+                return;
             Movement.Direction = DirectionToPlayer;
 
             int desiredDelta = (DistanceToPlayer - DesiredDistance).Sign();
@@ -78,6 +80,8 @@ namespace _Scripts.Gameplay.Characters
 
         private void PerformAttack()
         {
+            if (Player.Life.IsDead)
+                return;
             if (DeltaToPlayer > DesiredDistance)
                 return;
             
