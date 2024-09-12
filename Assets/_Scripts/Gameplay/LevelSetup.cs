@@ -1,40 +1,25 @@
-﻿using System;
+﻿    using System;
 using _Scripts.Gameplay.Characters;
+using _Scripts.Gameplay.Turns;
+using NaughtyAttributes;
 using UnityEngine;
 using Zenject;
 
 namespace _Scripts.Gameplay
 {
     public class LevelSetup : MonoBehaviour
-    {
-        [SerializeField]
-        private LevelData _currentLevel;
-        
-        [SerializeField]
-        private GameObject _enemyPrefab;
-        
+    {        
         [Inject]
-        private EnemyContainer EnemyContainer { get; set; }
+        private LevelLoader _levelLoader;
         
-        [Inject]
-        private PlayerMarker Player { get; set; }
-        
-        private void Start()
+        [SerializeField]
+        [Range(0,3)]
+        private int _levelID;
+
+        [Button]
+        private void LoadSelectedLevel()
         {
-            Player.Movement.AssignHomeSpot(new Vector2Int(_currentLevel.PlayerSpot, 0));
-            
-            foreach (EnemySpawnInfo spawnInfo in _currentLevel.Enemies)
-            {
-                EnemyMarker newEnemy = EnemyContainer.SpawnEnemy(_enemyPrefab, new Vector2Int(spawnInfo.Spot, 0));
-                if (spawnInfo.BehaviourOverride.Length > 0)
-                {
-                    newEnemy.Behaviour.ApplyLoop(spawnInfo.BehaviourOverride);
-                }
-                if (spawnInfo.WeaponOverride != null)
-                {
-                    newEnemy.Attack.AssignStartingWeaponType(spawnInfo.WeaponOverride);
-                }
-            }
+            _levelLoader.LoadLevel(_levelID);
         }
     }
 }

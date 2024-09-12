@@ -32,7 +32,7 @@ namespace _Scripts.Gameplay
             }
         }
 
-        public EnemyMarker SpawnEnemy(GameObject prefab, Vector2Int coordinates)
+        public EnemyMarker SpawnEnemy(EnemyMarker prefab, Vector2Int coordinates)
         {
             Spot targetSpot = SpotMap.GetSpot(coordinates);
             if (targetSpot.IsOccupiedBy<CharacterMovement>())

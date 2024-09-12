@@ -75,3 +75,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _soundManager: {fileID: 655849082041155799, guid: 9a3416b6eaa654821a424bf4f241381f, type: 3}
+  _levelLoader: {fileID: 1655714347906656203, guid: 8ac11598ef9c3968580608d1728ba30d, type: 3}
