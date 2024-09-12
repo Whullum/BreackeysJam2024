@@ -44,9 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb3d3fa72cc083480b2f4d26e22f97b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _music: []
+  _music:
+  - type: 2
+    sound:
+      Guid:
+        Data1: -2018492899
+        Data2: 1193699164
+        Data3: 1793004701
+        Data4: 535907996
+      Path: event:/MUS_Calm
   _buttonClickSFX:
-  - type: 0
+  - type: 1
     sound:
       Guid:
         Data1: -2138686926
@@ -54,7 +62,7 @@ MonoBehaviour:
         Data3: 156952751
         Data4: 352841399
       Path: event:/UI_Card_Select
-  - type: 0
+  - type: 1
     sound:
       Guid:
         Data1: -853472307
@@ -62,7 +70,7 @@ MonoBehaviour:
         Data3: -386330469
         Data4: 67258280
       Path: event:/UI_Card_Hover
-  - type: 0
+  - type: 2
     sound:
       Guid:
         Data1: -905256134
@@ -70,7 +78,7 @@ MonoBehaviour:
         Data3: 877457282
         Data4: 1732175726
       Path: event:/UI_Button_Simulate_Press_v3
-  - type: 0
+  - type: 1
     sound:
       Guid:
         Data1: 1616306188
@@ -79,7 +87,7 @@ MonoBehaviour:
         Data4: -615232460
       Path: event:/UI_Card_Remove
   _buttonHoverSFX:
-  - type: 0
+  - type: 1
     sound:
       Guid:
         Data1: 620675156
@@ -96,7 +104,7 @@ MonoBehaviour:
         Data3: 1007594666
         Data4: -587231056
       Path: event:/SFX_Card_Disarm
-  - type: 0
+  - type: 1
     sound:
       Guid:
         Data1: 25606951
@@ -104,7 +112,7 @@ MonoBehaviour:
         Data3: 837469375
         Data4: 2002013338
       Path: event:/SFX_Card_Dodge
-  - type: 0
+  - type: 2
     sound:
       Guid:
         Data1: -1381923588
@@ -112,7 +120,7 @@ MonoBehaviour:
         Data3: 1730324912
         Data4: -787358524
       Path: event:/SFX_Card_Impact
-  - type: 0
+  - type: 3
     sound:
       Guid:
         Data1: 2122006876
@@ -120,7 +128,7 @@ MonoBehaviour:
         Data3: 286323604
         Data4: -1070609832
       Path: event:/SFX_Card_Step
-  - type: 0
+  - type: 5
     sound:
       Guid:
         Data1: -246453980
@@ -128,7 +136,7 @@ MonoBehaviour:
         Data3: -1369147723
         Data4: -1471838014
       Path: event:/SFX_Card_Swap
-  - type: 0
+  - type: 6
     sound:
       Guid:
         Data1: 808398331
