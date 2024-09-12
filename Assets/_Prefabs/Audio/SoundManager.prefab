@@ -45,6 +45,94 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _music: []
-  _buttonClickSFX: []
-  _buttonHoverSFX: []
-  _cardPlayedSFX: []
+  _buttonClickSFX:
+  - type: 0
+    sound:
+      Guid:
+        Data1: -2138686926
+        Data2: 1116247273
+        Data3: 156952751
+        Data4: 352841399
+      Path: event:/UI_Card_Select
+  - type: 0
+    sound:
+      Guid:
+        Data1: -853472307
+        Data2: 1107899291
+        Data3: -386330469
+        Data4: 67258280
+      Path: event:/UI_Card_Hover
+  - type: 0
+    sound:
+      Guid:
+        Data1: -905256134
+        Data2: 1202832990
+        Data3: 877457282
+        Data4: 1732175726
+      Path: event:/UI_Button_Simulate_Press_v3
+  - type: 0
+    sound:
+      Guid:
+        Data1: 1616306188
+        Data2: 1309160812
+        Data3: -1674961488
+        Data4: -615232460
+      Path: event:/UI_Card_Remove
+  _buttonHoverSFX:
+  - type: 0
+    sound:
+      Guid:
+        Data1: 620675156
+        Data2: 1092330211
+        Data3: -2104672891
+        Data4: -220420427
+      Path: event:/UI_Button_Simulate_Hover_Loop_v2
+  _cardPlayedSFX:
+  - type: 0
+    sound:
+      Guid:
+        Data1: 1383999064
+        Data2: 1300891683
+        Data3: 1007594666
+        Data4: -587231056
+      Path: event:/SFX_Card_Disarm
+  - type: 0
+    sound:
+      Guid:
+        Data1: 25606951
+        Data2: 1148737527
+        Data3: 837469375
+        Data4: 2002013338
+      Path: event:/SFX_Card_Dodge
+  - type: 0
+    sound:
+      Guid:
+        Data1: -1381923588
+        Data2: 1261098957
+        Data3: 1730324912
+        Data4: -787358524
+      Path: event:/SFX_Card_Impact
+  - type: 0
+    sound:
+      Guid:
+        Data1: 2122006876
+        Data2: 1341176008
+        Data3: 286323604
+        Data4: -1070609832
+      Path: event:/SFX_Card_Step
+  - type: 0
+    sound:
+      Guid:
+        Data1: -246453980
+        Data2: 1333287384
+        Data3: -1369147723
+        Data4: -1471838014
+      Path: event:/SFX_Card_Swap
+  - type: 0
+    sound:
+      Guid:
+        Data1: 808398331
+        Data2: 1335929566
+        Data3: 311558281
+        Data4: -523032231
+      Path: event:/SFX_Card_Turn

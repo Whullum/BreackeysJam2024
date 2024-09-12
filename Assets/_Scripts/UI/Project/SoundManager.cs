@@ -76,6 +76,9 @@ public class SoundManager : MonoBehaviour
 
     private EventReference _sliderSound;
 
+    private FMOD.Studio.EventInstance _musicInstance;
+
+
     public void ChangeVolume(VolumeType volumeType, float volume)
     {
         string volumeTypeName = Enum.GetName(typeof(VolumeType), volumeType);
@@ -95,7 +98,16 @@ public class SoundManager : MonoBehaviour
     private void PlayOnRepeat(EventReference music)
     {
         // Will! Change this to repeat!!!!
-        PlayOneShot(music);
+        //PlayOneShot(music);
+
+        _musicInstance = FMODUnity.RuntimeManager.CreateInstance(music);
+        _musicInstance.start();
+    }
+
+    private void StopRepeatAudio()
+    {
+        _musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        _musicInstance.release();
     }
 
     public void PlayBackgroundMusic(BackgroundMusicType musicType)
