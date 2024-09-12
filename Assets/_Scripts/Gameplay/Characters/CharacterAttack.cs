@@ -34,6 +34,7 @@ namespace _Scripts.Gameplay.Characters
         public event Action Punched;
         public event Action Kicked;
         public event Action UsedWeapon;
+        public event Action Disarmed;
 
         private void Awake()
         {
@@ -123,6 +124,7 @@ namespace _Scripts.Gameplay.Characters
                 return false;
             _currentWeaponType = victim.Attack.CurrentWeaponType;
             victim.Attack._currentWeaponType = null;
+            Disarmed?.Invoke();
             return true;
         }
 
@@ -137,8 +139,11 @@ namespace _Scripts.Gameplay.Characters
                     continue;
             
                 victim = adjacentSpot.GetObject<CharacterMovement>()?.GetComponent<CharacterMarker>();
+                Debug.Log($"{victim?.GetType()} {GetComponent<CharacterMarker>().GetType()}");
                 if (victim?.GetType() == GetComponent<CharacterMarker>().GetType())
+                {
                     victim = null;
+                }
                 
                 if (victim != null)
                     break;

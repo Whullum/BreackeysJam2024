@@ -11,7 +11,7 @@ using Zenject;
 
 namespace _Scripts.Gameplay.Turns
 {
-    public class FightPlayer
+    public class FightPlayer : MonoBehaviour
     {
         [Inject]
         private Timeline Timeline { get; set; }
@@ -40,6 +40,7 @@ namespace _Scripts.Gameplay.Turns
             for (int turn = 0; turn < 20; turn++)
             {
                 TurnStarted?.Invoke();
+                ComboSystem.SwitchTurns();
                 
                 if (turn < Timeline.Moves.Length)
                 {
@@ -52,9 +53,12 @@ namespace _Scripts.Gameplay.Turns
                 }
                 
                 await Task.Delay(300);
-                
-                if (ComboSystem.TrySpendCombo())
+
+                if (ComboSystem.IsComboActive)
+                {
+                    Debug.Log("COMBO!");
                     continue;
+                }
 
                 foreach (EnemyMarker enemy in EnemyContainer.Enemies)
                 {

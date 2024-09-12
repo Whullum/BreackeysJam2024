@@ -11,7 +11,7 @@ namespace _Scripts.Gameplay
         
         private Vector2Int _homeSpot;
 
-        public Spot CurrentSpot { get; set; }
+        public Spot CurrentSpot { get; private set; }
 
         public Vector2Int Coordinates => CurrentSpot.Coordinates;
 
@@ -67,6 +67,7 @@ namespace _Scripts.Gameplay
         public void LeaveCurrentSpot()
         {
             CurrentSpot?.Leave(this);
+            CurrentSpot = null;
         }
 
         public virtual void Discard() => LeaveCurrentSpot();

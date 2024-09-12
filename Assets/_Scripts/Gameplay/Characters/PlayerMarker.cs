@@ -2,7 +2,7 @@
 
 namespace _Scripts.Gameplay.Characters
 {
-    public class PlayerMarker : CharacterMarker
+    public sealed class PlayerMarker : CharacterMarker
     {
         
     }

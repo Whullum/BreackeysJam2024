@@ -6,27 +6,33 @@ namespace _Scripts.Gameplay
 {
     public class ComboSystem
     {
-        public bool IsCurrentTurnCombo { get; private set; }
+        private int _currentTurnMove;
+        private int _previousTurnMove;
+        
+        public bool IsComboActive
+            => _currentTurnMove != 0
+            && _previousTurnMove != 0
+            && _currentTurnMove != _previousTurnMove;
 
         [Inject]
         public ComboSystem(PlayerMarker player)
         {
-            player.Attack.Punched += MarkTurnAsCombo;
-            player.Attack.Kicked += MarkTurnAsCombo;
-            player.Attack.UsedWeapon += MarkTurnAsCombo;
+            player.Attack.Punched += () => MarkTurnAsValuable(1);
+            player.Attack.Kicked += () => MarkTurnAsValuable(2);
+            player.Attack.UsedWeapon += () => MarkTurnAsValuable(3);
+            player.Attack.Disarmed += () => MarkTurnAsValuable(4);
+            player.Life.Dodged += () => MarkTurnAsValuable(5);
         }
 
-        public void MarkTurnAsCombo()
+        public void MarkTurnAsValuable(int move)
         {
-            IsCurrentTurnCombo = true;
+            _currentTurnMove = move;
         }
 
-        public bool TrySpendCombo()
+        public void SwitchTurns()
         {
-            if ( ! IsCurrentTurnCombo)
-                return false;
-            IsCurrentTurnCombo = false;
-            return true;
+            _previousTurnMove = _currentTurnMove;
+            _currentTurnMove = 0;
         }
     }
 }

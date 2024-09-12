@@ -2,7 +2,7 @@
 
 namespace _Scripts.Gameplay.Characters
 {
-    public class EnemyMarker : CharacterMarker
+    public sealed class EnemyMarker : CharacterMarker
     {
         private EnemyBehaviour _behaviour;
         

@@ -29,6 +29,9 @@ namespace _Scripts.Infrastructure
 
         [SerializeField]
         private ManaBarController _manaBarController;
+
+        [SerializeField]
+        private FightPlayer _fightPlayer;
         
         public override void InstallBindings()
         {
@@ -36,10 +39,10 @@ namespace _Scripts.Infrastructure
             Container.Bind<Timeline>().FromInstance(_timeline).AsSingle();
             Container.Bind<SpotMap>().FromInstance(_spotMap).AsSingle();
             Container.Bind<EnemyContainer>().FromInstance(_enemyContainer).AsSingle();
+            Container.Bind<FightPlayer>().FromInstance(_fightPlayer).AsSingle();
             Container.Bind<WeaponOnGroundFactory>().FromInstance(_weaponOnGroundFactory).AsSingle();
-            Container.Bind<ComboSystem>().AsSingle();
-            Container.Bind<FightPlayer>().AsSingle();
             Container.Bind<ManaBarController>().FromInstance(_manaBarController).AsSingle();
+            Container.Bind<ComboSystem>().AsSingle();
         }
     }
 }
