@@ -13,10 +13,9 @@ namespace _Scripts.Gameplay.Characters
         private int _startingHealth;
         
         private int _health;
-        
-        public bool IsDead => _health <= 0;
 
-        [ShowNativeProperty]
+        public bool IsDead { get; private set; }
+
         public bool IsDodging { get; private set; }
         
         public event Action Died;
@@ -24,17 +23,20 @@ namespace _Scripts.Gameplay.Characters
         
         [Inject]
         private FightPlayer _fightPlayer;
+        
+        [Inject]
+        private ComboSystem _comboSystem;
 
         private void Awake()
         {
             _health = _startingHealth;
             _fightPlayer.TurnStarted += StopDodge;
+            _comboSystem.ComboEnded += CheckDeath;
         }
 
         public void TakeDamage(int damage)
         {
-            Debug.Log($"{damage} {IsDead} {IsDodging}");
-            if (damage <= 0 || IsDead)
+            if (IsDead)
                 return;
 
             if (IsDodging)
@@ -42,11 +44,18 @@ namespace _Scripts.Gameplay.Characters
                 Dodged?.Invoke();
                 return;
             }
-            
+
+            damage = Math.Max(0, damage);
             _health -= damage;
             transform.DOKill();
             transform.DOShakeScale(0.2f, Vector3.one * 0.5f);
-            
+
+            if ( ! _comboSystem.IsComboActive)
+                CheckDeath();
+        }
+
+        private void CheckDeath()
+        {
             if (_health <= 0)
                 Kill();
         }
@@ -68,12 +77,17 @@ namespace _Scripts.Gameplay.Characters
                 throw new InvalidOperationException("No killing in edit mode!");
             
             _health = 0;
+            IsDead = true;
             Died?.Invoke();
             Debug.Log($"Add death animation here");
             gameObject.SetActive(false);
         }
 
-        public void Discard() => _health = _startingHealth;
+        public void Discard()
+        {
+            _health = _startingHealth;
+            IsDead = false;
+        }
 
         public void Restore() => gameObject.SetActive(true);
     }

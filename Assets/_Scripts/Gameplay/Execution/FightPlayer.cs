@@ -65,6 +65,8 @@ namespace _Scripts.Gameplay.Execution
                 }
                 
                 yield return new WaitForSeconds(0.3f);
+
+                _comboSystem.UpdateComboState();
                 if (_comboSystem.IsComboActive)
                 {
                     Debug.Log("COMBO!");

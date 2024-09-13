@@ -8,6 +8,11 @@ namespace _Scripts.Gameplay.Moves
     {
         public override void Execute(PlayerMarker player)
         {
+            if (player.Movement.IsInAir)
+            {
+                player.Movement.TryDescend();
+                return;
+            }
             player.Life.Dodge();
         }
     }

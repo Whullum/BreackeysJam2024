@@ -14,6 +14,7 @@ namespace _Scripts.Gameplay.Execution
         [Inject]
         private PropFactory _propFactory;
         
+        [Inject]
         private LevelLoader _levelLoader;
         
         [Inject]

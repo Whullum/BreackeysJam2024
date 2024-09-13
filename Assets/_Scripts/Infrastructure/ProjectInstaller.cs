@@ -1,6 +1,7 @@
 using _Scripts.Gameplay.Execution;
 using Zenject;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Scripts.Infrastructure
 {
@@ -10,11 +11,14 @@ namespace _Scripts.Infrastructure
         private SoundManager _soundManager;
 
         [SerializeField]
-        private LevelLoader _levelLoader;
+        private LevelLoader _levelLoaderPrefab;
+        
         public override void InstallBindings()
         {
             Container.Bind<SoundManager>().FromInstance(_soundManager).AsSingle();
-            Container.Bind<LevelLoader>().FromInstance(_levelLoader).AsSingle();
+
+            LevelLoader levelLoader = Container.InstantiatePrefab(_levelLoaderPrefab, transform).GetComponent<LevelLoader>();
+            Container.Bind<LevelLoader>().FromInstance(levelLoader).AsSingle();
         }
     }
 }

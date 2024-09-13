@@ -49,22 +49,35 @@ namespace _Scripts.Gameplay.Characters
                 return false;
             victim.Life.TakeDamage(_punchDamage);
             Punched?.Invoke();
-            if (Movement.IsInAir)
-            {
-                Spot destination = null;
-                for (int i = 10; i >= 0; i--)
-                {
-                    destination = _spotMap.GetSpot(Movement.Coordinates + new Vector2Int(i * Movement.Direction, 0));
-                    if (destination != null && ! destination.IsOccupiedBy<CharacterMovement>())
-                        break;
-                }
 
-                if (destination == null)
-                    return true;
-                
-                victim.Movement.GoToSpot(destination.Coordinates);
-                destination.GetObject<ElectricPole>()?.TakeHit();
+            if (victim.Movement.CurrentSpot?.GetObject<ElectricPole>()?.IsBroken ?? false)
+            {
+                victim.Life.Kill();
+                return true;
             }
+            if (victim.Movement.CurrentSpot?.GetAdjacentSpot(new Vector2Int(1, 0) * Movement.Direction)?.GetObject<ElectricPole>()?.IsBroken ?? false)
+            {
+                victim.Movement.GoToSpot(victim.Movement.Coordinates + new Vector2Int(1, 0) * Movement.Direction);
+                victim.Life.Kill();
+                return true;
+            }
+
+            if (!Movement.IsInAir)
+                return true;
+            
+            Spot destination = null;
+            for (int i = 10; i >= 0; i--)
+            {
+                destination = _spotMap.GetSpot(Movement.Coordinates + new Vector2Int(i * Movement.Direction, 0));
+                if (destination != null && ! destination.IsOccupiedBy<CharacterMovement>())
+                    break;
+            }
+
+            if (destination == null)
+                return true;
+                
+            victim.Movement.GoToSpot(destination.Coordinates);
+            destination.GetAdjacentSpot(new Vector2Int(0, -1)).GetObject<ElectricPole>()?.TakeHit();
             return true;
         }
 

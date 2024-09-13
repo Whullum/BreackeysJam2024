@@ -8,7 +8,8 @@ namespace _Scripts.Gameplay.Moves
     {
         public override void Execute(PlayerMarker player)
         {
-            player.Attack.Punch();
+            if ( ! player.Attack.Punch())
+                player.Movement.TryDescend();
         }
     }
 }
