@@ -1,4 +1,5 @@
 ﻿using System;
+using _Scripts.Gameplay.SpotSystem;
 using UnityEngine;
 
 namespace _Scripts.Gameplay.Props

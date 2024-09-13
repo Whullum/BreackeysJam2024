@@ -1,4 +1,6 @@
-﻿namespace _Scripts.Gameplay.Props
+﻿using _Scripts.Gameplay.SpotSystem;
+
+namespace _Scripts.Gameplay.Props
 {
     public class Prop : SpotObject
     {

@@ -116,7 +116,7 @@ namespace _Scripts.Gameplay.Characters
 
             if (currentWeaponType != null)
             {
-                WeaponOnGroundFactory.SpawnWeapon(currentWeaponType, Movement.CurrentSpot.Coordinates);
+                _weaponOnGroundFactory.SpawnWeapon(currentWeaponType, Movement.CurrentSpot.Coordinates);
             }
 
             _currentWeaponType = pickedUpWeaponType;

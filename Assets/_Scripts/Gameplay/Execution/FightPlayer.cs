@@ -4,6 +4,7 @@ using System.Linq;
 using _Scripts.Extentions;
 using _Scripts.Gameplay.Characters;
 using _Scripts.Gameplay.Moves;
+using _Scripts.Gameplay.Props;
 using _Scripts.Gameplay.UI;
 using _Scripts.Gameplay.Weapon;
 using UnityEngine;
@@ -30,6 +31,9 @@ namespace _Scripts.Gameplay.Execution
         
         [Inject]
         private WeaponOnGroundFactory _weaponOnGroundFactory;
+        
+        [Inject]
+        private PropFactory _propFactory;
 
         private bool IsWinConditionMet => _enemyContainer.Enemies.All(e => e.Life.IsDead);
         
@@ -74,22 +78,19 @@ namespace _Scripts.Gameplay.Execution
                 }
 
 
-                if (IsWinConditionMet || IsLoseConditionMet)
+                if (IsWinConditionMet)
+                {
+                    _levelLoader.LoadNextLevel();
                     break;
+                }
+                if (IsLoseConditionMet)
+                {
+                    break;
+                }
             }
 
             Debug.Log("Fight is over");
-            
-            if (IsWinConditionMet)
-            {
-                _levelLoader.LoadNextLevel();
-            }
-            else
-            {
-                _levelLoader.ReloadLevel();
-            }
-
-            //RestoreScene();
+            RestoreScene();
         }
 
         private void RestoreScene()
@@ -101,6 +102,7 @@ namespace _Scripts.Gameplay.Execution
             _enemyContainer.Enemies.Foreach(e => e.RestoreMemebers());
             
             _weaponOnGroundFactory.Discard();
+            _propFactory.Discard();
         }
     }
 }
