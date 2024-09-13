@@ -86,6 +86,14 @@ MonoBehaviour:
         Data3: -1674961488
         Data4: -615232460
       Path: event:/UI_Card_Remove
+  - type: 0
+    sound:
+      Guid:
+        Data1: -2138686926
+        Data2: 1116247273
+        Data3: 156952751
+        Data4: 352841399
+      Path: event:/UI_Card_Select
   _buttonHoverSFX:
   - type: 1
     sound:

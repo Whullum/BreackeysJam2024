@@ -126,11 +126,14 @@ public class SoundManager : MonoBehaviour
 
     public void StopRepeatAudio()
     {
-        _musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        _musicInstance.release();
+        if (_musicInstance.isValid())
+        {
+            _musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            _musicInstance.release();
+        }
     }
 
-    private void SwitchMusicState(GameplayAudioState audioState)
+    public void SwitchMusicState(GameplayAudioState audioState)
     {
         if (audioState == GameplayAudioState.Calm)
             _musicInstance.setParameterByNameWithLabel("GameplayState", "Calm");

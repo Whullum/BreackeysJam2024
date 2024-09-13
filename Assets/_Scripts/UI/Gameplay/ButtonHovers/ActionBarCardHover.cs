@@ -4,9 +4,13 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using Zenject;
 
 public class ActionBarCardHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    [Inject]
+    private SoundManager _soundManager;
+
     [SerializeField]
     private float _offset = 50;
     [SerializeField]
@@ -52,6 +56,7 @@ public class ActionBarCardHover : MonoBehaviour, IPointerEnterHandler, IPointerE
         rt.DOAnchorPos(targetPos, _animDuration);
         rt.DOScale(targetScale, _animDuration);
         _descShowCoroutine = StartCoroutine(TryShowDescription());
+        _soundManager.PlayButtonHoverSFX(ButtonHoverSFX.Card);
     }
 
 

@@ -12,6 +12,9 @@ public class MainMenuButton : MonoBehaviour
     [Inject]
     private LevelLoader _levelLoader;
 
+    [Inject]
+    private SoundManager _soundManager;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -21,6 +24,8 @@ public class MainMenuButton : MonoBehaviour
 
     void OnClick()
     {
+
+        _soundManager.PlayButtonClickSFX(ButtonClickSFX.Default);
         _levelLoader.LoadMainMenu();
     }
 }

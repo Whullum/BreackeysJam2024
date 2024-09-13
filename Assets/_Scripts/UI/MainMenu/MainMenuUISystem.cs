@@ -21,6 +21,7 @@ public class MainMenuUISystem : MonoBehaviour
     private void Start()
     {
         _soundManager.StopRepeatAudio();
+        OpenMainMenu();
     }
 
     public void OpenMainMenu()
