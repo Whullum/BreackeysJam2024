@@ -1,6 +1,7 @@
 ﻿using _Scripts.Gameplay;
 using _Scripts.Gameplay.Characters;
 using _Scripts.Gameplay.Props;
+using _Scripts.Gameplay.Execution;
 using _Scripts.Gameplay.SpotSystem;
 using _Scripts.Gameplay.Turns;
 using _Scripts.Gameplay.UI;
@@ -45,7 +46,6 @@ namespace _Scripts.Infrastructure
             Container.Bind<EnemyContainer>().FromInstance(_enemyContainer).AsSingle();
             Container.Bind<FightPlayer>().FromInstance(_fightPlayer).AsSingle();
             Container.Bind<WeaponOnGroundFactory>().FromInstance(_weaponOnGroundFactory).AsSingle();
-            Container.Bind<PropFactory>().FromInstance(_propFactory).AsSingle();
             Container.Bind<ManaBarController>().FromInstance(_manaBarController).AsSingle();
             Container.Bind<ComboSystem>().AsSingle();
         }

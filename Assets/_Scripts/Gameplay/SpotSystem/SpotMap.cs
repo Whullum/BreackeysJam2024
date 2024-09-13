@@ -20,7 +20,7 @@ namespace _Scripts.Gameplay.SpotSystem
         private Spot[,] _spots;
 
         [Inject]
-        private ContainerFactory ContainerFactory { get; set; }
+        private ContainerFactory _containerFactory;
 
         public Spot GetSpot(Vector2Int coordinates)
         {
@@ -44,7 +44,7 @@ namespace _Scripts.Gameplay.SpotSystem
             {
                 for (int x = 0; x < _spotsCount.x; x++)
                 {
-                    Spot newSpot = ContainerFactory.Instantiate<Spot>(_spotPrefab, transform.position, transform);
+                    Spot newSpot = _containerFactory.Instantiate<Spot>(_spotPrefab, transform.position, transform);
                     newSpot.Init(this, new Vector2Int(x, y));
                     _spots[x, y] = newSpot;
                 }

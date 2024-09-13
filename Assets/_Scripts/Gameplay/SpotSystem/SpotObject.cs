@@ -1,8 +1,8 @@
-﻿using _Scripts.Gameplay.SpotSystem;
+﻿using _Scripts.Gameplay.Execution;
 using UnityEngine;
 using Zenject;
 
-namespace _Scripts.Gameplay
+namespace _Scripts.Gameplay.SpotSystem
 {
     public abstract class SpotObject : MonoBehaviour, IDiscardable, IRestorable
     {

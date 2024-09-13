@@ -1,4 +1,4 @@
-﻿namespace _Scripts.Gameplay
+﻿namespace _Scripts.Gameplay.Execution
 {
     public interface IDiscardable
     {

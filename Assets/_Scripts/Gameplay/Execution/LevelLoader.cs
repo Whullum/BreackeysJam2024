@@ -1,12 +1,8 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using _Scripts.Gameplay.Characters;
-using Zenject;
 
-namespace _Scripts.Gameplay.Turns
+namespace _Scripts.Gameplay.Execution
 {
     public class LevelLoader : MonoBehaviour
     {
@@ -40,9 +36,18 @@ namespace _Scripts.Gameplay.Turns
             }
         }
 
+        public void LoadMainMenu()
+        {
+            SceneManager.LoadSceneAsync(0);
+        }
+
         public void ReloadLevel()
         {
             LoadLevel(_currentLevelID);
+        }
+        public void LoadNextLevel()
+        {
+            LoadLevel(_currentLevelID+1);
         }
 
         public void LoadLevel(int levelID)
@@ -52,7 +57,7 @@ namespace _Scripts.Gameplay.Turns
                 Debug.LogError("There are no levels to load!");
                 return;
             }
-            if (_currentLevelID >= _levels.Count || _currentLevelID < 0)
+            if ((_currentLevelID >= _levels.Count) || (levelID < 0))
             {
                 Debug.LogError("Level out of range!");
                 return;

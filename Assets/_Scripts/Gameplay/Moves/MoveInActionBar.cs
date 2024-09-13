@@ -22,7 +22,7 @@ namespace _Scripts.Gameplay.Moves
         private TMP_Text _description;
 
         [Inject]
-        private Timeline Timeline { get; set; }
+        private Timeline _timeline;
 
         public void Init(Move move)
         {
@@ -52,7 +52,7 @@ namespace _Scripts.Gameplay.Moves
 
         public void AddThisToTimeline()
         {
-            Timeline.AddMove(_move);
+            _timeline.AddMove(_move);
         }
 
 

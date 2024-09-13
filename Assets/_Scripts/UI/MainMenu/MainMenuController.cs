@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+using _Scripts.Gameplay.Execution;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Zenject;
 
@@ -17,6 +15,8 @@ public class MainMenuController : MonoBehaviour
     [SerializeField]
     private Button _exitButton;
 
+    [Inject]
+    private LevelLoader _levelLoader;
 
     [Inject]
     private SoundManager _soundManager;
@@ -31,29 +31,32 @@ public class MainMenuController : MonoBehaviour
 
     public void OnStartButtonClick()
     {
-        LoadGameplay();
         PlayClickSFX();
+        LoadGameplay();
         
     }
 
     private void OnSettingsButtonClick()
     {
+        PlayClickSFX();
         _settingsButton.interactable = false;
     }
 
     public void OnCreditsButtonClick()
     {
+        PlayClickSFX();
         _creditsButton.interactable = false;
     }
 
     private void OnExitButtonClick()
     {
+        PlayClickSFX();
         Application.Quit();
     }
 
     private void LoadGameplay()
     {
-        SceneManager.LoadSceneAsync(1);
+        _levelLoader.LoadLevel(0);
     }
 
     private void PlayClickSFX()

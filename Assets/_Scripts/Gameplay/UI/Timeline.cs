@@ -20,7 +20,7 @@ namespace _Scripts.Gameplay.UI
         public MoveOnTimeline[] Moves => _moves.ToArray();
 
         [Inject]
-        private ContainerFactory ContainerFactory { get; set; }
+        private ContainerFactory _containerFactory;
 
         private bool _isInFightStage = false;
 
@@ -40,7 +40,7 @@ namespace _Scripts.Gameplay.UI
             {
                 return;
             }
-            MoveOnTimeline newMove = ContainerFactory.Instantiate<MoveOnTimeline>(_movePrefab, _moveParent.position, _moveParent);
+            MoveOnTimeline newMove = _containerFactory.Instantiate<MoveOnTimeline>(_movePrefab, _moveParent.position, _moveParent);
             newMove.Init(move);
             _moves.Add(newMove);    
         }

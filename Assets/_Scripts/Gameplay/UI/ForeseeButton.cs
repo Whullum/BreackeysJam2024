@@ -1,4 +1,4 @@
-﻿using _Scripts.Gameplay.Turns;
+﻿using _Scripts.Gameplay.Execution;
 using UnityEngine;
 using Zenject;
 
@@ -7,11 +7,11 @@ namespace _Scripts.Gameplay.UI
     public class ForeseeButton : MonoBehaviour
     {
         [Inject]
-        private FightPlayer FightPlayer { get; set; }
+        private FightPlayer _fightPlayer;
 
         public void Foresee()
         {
-            FightPlayer.PlayFight();
+            _fightPlayer.PlayFight();
         }
     }
 }

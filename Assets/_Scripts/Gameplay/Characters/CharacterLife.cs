@@ -1,5 +1,5 @@
 ﻿using System;
-using _Scripts.Gameplay.Turns;
+using _Scripts.Gameplay.Execution;
 using DG.Tweening;
 using NaughtyAttributes;
 using UnityEngine;
@@ -23,12 +23,12 @@ namespace _Scripts.Gameplay.Characters
         public event Action Dodged;
         
         [Inject]
-        private FightPlayer FightPlayer { get; set; }
+        private FightPlayer _fightPlayer;
 
         private void Awake()
         {
             _health = _startingHealth;
-            FightPlayer.TurnStarted += StopDodge;
+            _fightPlayer.TurnStarted += StopDodge;
         }
 
         public void TakeDamage(int damage)

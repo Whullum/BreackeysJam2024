@@ -1,5 +1,6 @@
 ﻿using System;
 using _Scripts.Extentions;
+using _Scripts.Gameplay.Execution;
 using UnityEngine;
 using Zenject;
 
@@ -19,7 +20,7 @@ namespace _Scripts.Gameplay.Characters
         
         private int DesiredDistance => Attack.CurrentWeaponType?.MaxRange ?? 1;
 
-        private int DeltaToPlayer => Player.Movement.CurrentSpot.Coordinates.x - Movement.CurrentSpot.Coordinates.x;
+        private int DeltaToPlayer => _player.Movement.CurrentSpot.Coordinates.x - Movement.CurrentSpot.Coordinates.x;
         
         private int DistanceToPlayer => Mathf.Abs(DeltaToPlayer);
 
@@ -30,7 +31,7 @@ namespace _Scripts.Gameplay.Characters
         public EnemyIntention NextTurnIntention => _intentionLoop[Turn.RepeatIndex(_intentionLoop.Length)];
         
         [Inject]
-        private PlayerMarker Player { get; set; }
+        private PlayerMarker _player;
 
         public void PerformNextTurn()
         {
@@ -66,7 +67,7 @@ namespace _Scripts.Gameplay.Characters
 
         private void PerformMove()
         {
-            if (Player.Life.IsDead)
+            if (_player.Life.IsDead)
                 return;
             Movement.Direction = DirectionToPlayer;
 
@@ -80,7 +81,7 @@ namespace _Scripts.Gameplay.Characters
 
         private void PerformAttack()
         {
-            if (Player.Life.IsDead)
+            if (_player.Life.IsDead)
                 return;
             if (DeltaToPlayer > DesiredDistance)
                 return;

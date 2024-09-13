@@ -62,6 +62,7 @@ public class ActionBarCardHover : MonoBehaviour, IPointerEnterHandler, IPointerE
         StopCoroutine(_descShowCoroutine);
         if (!Mathf.Approximately(Vector3.SqrMagnitude(_description.localScale),0f))
         {
+            _description.DOKill();
             _description.DOScale(0f, _animDuration);
         }
         Vector2 targetPos = new Vector2(0f, _startPosY);

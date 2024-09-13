@@ -18,7 +18,7 @@ namespace _Scripts.Gameplay.UI
         private Transform _actionCardParent;
         
         [Inject]
-        private ContainerFactory ContainerFactory { get; set; }
+        private ContainerFactory _containerFactory;
     
         private void Start()
         {
@@ -30,7 +30,7 @@ namespace _Scripts.Gameplay.UI
         {
             foreach (var move in _possibleMoves)
             {
-                MoveInActionBar newMove = ContainerFactory.Instantiate<MoveInActionBar>(_movePrefab, _actionCardParent);
+                MoveInActionBar newMove = _containerFactory.Instantiate<MoveInActionBar>(_movePrefab, _actionCardParent);
                 newMove.Init(move);
             }
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using _Scripts.Gameplay.Execution;
 using _Scripts.Gameplay.Props;
 using _Scripts.Gameplay.SpotSystem;
 using _Scripts.Gameplay.Weapon;
@@ -115,7 +116,7 @@ namespace _Scripts.Gameplay.Characters
 
             if (currentWeaponType != null)
             {
-                _weaponOnGroundFactory.SpawnWeapon(currentWeaponType, Movement.CurrentSpot.Coordinates);
+                WeaponOnGroundFactory.SpawnWeapon(currentWeaponType, Movement.CurrentSpot.Coordinates);
             }
 
             _currentWeaponType = pickedUpWeaponType;

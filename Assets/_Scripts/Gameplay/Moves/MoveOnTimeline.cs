@@ -19,7 +19,7 @@ namespace _Scripts.Gameplay.Moves
         public Move Move => _move;
 
         [Inject]
-        private Timeline Timeline { get; set; }
+        private Timeline _timeline;
 
         private HorizontalLayoutGroup _layoutGroup;
 
@@ -37,7 +37,7 @@ namespace _Scripts.Gameplay.Moves
         {
             if (_destroyed)
                 return;
-            Timeline.RemoveMove(this);
+            _timeline.RemoveMove(this);
         }
 
         public void Destroy()
