@@ -21,6 +21,9 @@ public class MainMenuController : MonoBehaviour
     [Inject]
     private SoundManager _soundManager;
 
+    [Inject]
+    private MainMenuUISystem _uiSystem;
+
     void Awake()
     {
         _startGameButton.onClick.AddListener(OnStartButtonClick);
@@ -38,14 +41,14 @@ public class MainMenuController : MonoBehaviour
 
     private void OnSettingsButtonClick()
     {
+        _uiSystem.OpenSettings();
         PlayClickSFX();
-        _settingsButton.interactable = false;
     }
 
     public void OnCreditsButtonClick()
     {
+        _uiSystem.OpenCredits();
         PlayClickSFX();
-        _creditsButton.interactable = false;
     }
 
     private void OnExitButtonClick()

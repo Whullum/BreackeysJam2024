@@ -9,7 +9,7 @@ namespace _Scripts.Gameplay.Execution
         [SerializeField]
         private List<LevelData> _levels;
 
-        private int _currentLevelID = -1;    
+        private int _currentLevelID = 0;    
 
         public LevelData CurrentLevel
         {
@@ -30,10 +30,7 @@ namespace _Scripts.Gameplay.Execution
 
         private void Start()
         {
-            if (_currentLevelID == -1)
-            {
-                LoadLevel(0);
-            }
+            
         }
 
         public void LoadMainMenu()

@@ -23,9 +23,14 @@ namespace _Scripts.Gameplay.Execution
         [Inject]
         private PlayerMarker _player;
 
+        [Inject]
+        private SoundManager _soundManager;
+
         private void Start()
         {
             SetupLevel(_levelLoader.CurrentLevel);
+
+            _soundManager.PlayBackgroundMusic(BackgroundMusicType.Simulation);
         }
 
         private void SetupLevel(LevelData currentLevel)

@@ -124,7 +124,7 @@ public class SoundManager : MonoBehaviour
         _musicInstance.start();
     }
 
-    private void StopRepeatAudio()
+    public void StopRepeatAudio()
     {
         _musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         _musicInstance.release();
@@ -144,6 +144,7 @@ public class SoundManager : MonoBehaviour
         {
             if (music.type == musicType)
             {
+                StopRepeatAudio();
                 PlayOnRepeat(music.sound);
             }
         }
