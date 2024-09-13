@@ -62,15 +62,7 @@ MonoBehaviour:
         Data3: 156952751
         Data4: 352841399
       Path: event:/UI_Card_Select
-  - type: 1
-    sound:
-      Guid:
-        Data1: -853472307
-        Data2: 1107899291
-        Data3: -386330469
-        Data4: 67258280
-      Path: event:/UI_Card_Hover
-  - type: 2
+  - type: 3
     sound:
       Guid:
         Data1: -905256134
@@ -78,7 +70,7 @@ MonoBehaviour:
         Data3: 877457282
         Data4: 1732175726
       Path: event:/UI_Button_Simulate_Press_v3
-  - type: 1
+  - type: 2
     sound:
       Guid:
         Data1: 1616306188
@@ -95,6 +87,14 @@ MonoBehaviour:
         Data3: -2104672891
         Data4: -220420427
       Path: event:/UI_Button_Simulate_Hover_Loop_v2
+  - type: 0
+    sound:
+      Guid:
+        Data1: -853472307
+        Data2: 1107899291
+        Data3: -386330469
+        Data4: 67258280
+      Path: event:/UI_Card_Hover
   _cardPlayedSFX:
   - type: 0
     sound:

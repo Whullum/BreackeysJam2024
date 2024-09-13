@@ -11,7 +11,7 @@ public enum BackgroundMusicType
 
 public enum ButtonClickSFX
 {
-    Default, Card, Simulation, Fight
+    Default, CardAdd, CardRemove, Simulation, Fight
 }
 
 public enum ButtonHoverSFX
