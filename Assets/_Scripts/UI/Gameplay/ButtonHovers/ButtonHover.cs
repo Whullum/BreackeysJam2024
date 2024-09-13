@@ -27,11 +27,11 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData _)
     {
-        _toScale.DOScale(_scalingFactor, _animTime);
+        _toScale.DOBlendableScaleBy(Vector3.one * (_scalingFactor - 1f), _animTime);
     }
 
     public void OnPointerExit(PointerEventData _)
     {
-        _toScale.DOScale(1f, _animTime);
+        _toScale.DOBlendableScaleBy(Vector3.one * (1f-_scalingFactor), _animTime);
     }
 }

@@ -50,7 +50,7 @@ namespace _Scripts.Gameplay.Moves
             _destroyed = true;
             _animating = true;
             var sequence = DOTween.Sequence();
-            sequence.Append(transform.DOScale(Vector3.one * 1.05f, _animTime));
+            sequence.Append(transform.DOScale(Vector3.one * 1.15f, _animTime));
             sequence.Append(transform.DOScale(Vector3.zero, _animTime));
             sequence.onComplete += () => Destroy(gameObject);
         }
@@ -81,7 +81,7 @@ namespace _Scripts.Gameplay.Moves
             transform.localScale = Vector3.zero;
             var sequence = DOTween.Sequence();
             sequence.Append(transform.DOScale(Vector3.one * 1f, _animTime));
-            sequence.Append(transform.DOPunchScale(Vector3.one * 0.05f, _animTime, 2));
+            sequence.Append(transform.DOPunchScale(Vector3.one * 0.15f, _animTime, 2));
             sequence.onComplete += () => _animating = false;
         }
     }
