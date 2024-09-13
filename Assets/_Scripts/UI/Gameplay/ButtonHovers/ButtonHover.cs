@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -14,6 +15,15 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     [SerializeField]
     private float _animTime = 0.2f;
+
+    [Button]
+    private void SetParentAsRect()
+    {
+        if (!_toScale)
+        {
+            _toScale = GetComponent<RectTransform>();
+        }
+    }
 
     public void OnPointerEnter(PointerEventData _)
     {

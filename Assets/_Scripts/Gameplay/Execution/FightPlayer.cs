@@ -30,6 +30,9 @@ namespace _Scripts.Gameplay.Execution
         private LevelLoader _levelLoader;
         
         [Inject]
+        private SoundManager _soundManager;
+
+        [Inject]
         private WeaponOnGroundFactory _weaponOnGroundFactory;
         
         [Inject]
@@ -49,6 +52,7 @@ namespace _Scripts.Gameplay.Execution
         private IEnumerator Fight()
         {
             // Fight is limited by 99 turns. This is a sanity check.
+            _soundManager.SwitchMusicState(GameplayAudioState.Storm);
             for (int turn = 0; turn < 99; turn++)
             {
                 TurnStarted?.Invoke();
@@ -92,6 +96,8 @@ namespace _Scripts.Gameplay.Execution
             }
 
             Debug.Log("Fight is over");
+
+            _soundManager.SwitchMusicState(GameplayAudioState.Calm);
             RestoreScene();
         }
 

@@ -24,6 +24,9 @@ namespace _Scripts.Gameplay.Moves
         [Inject]
         private Timeline _timeline;
 
+        [Inject]
+        private SoundManager _soundManager;
+
         public void Init(Move move)
         {
 
@@ -53,6 +56,7 @@ namespace _Scripts.Gameplay.Moves
         public void AddThisToTimeline()
         {
             _timeline.AddMove(_move);
+            _soundManager.PlayButtonClickSFX(ButtonClickSFX.CardAdd);
         }
 
 

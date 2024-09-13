@@ -20,7 +20,8 @@ namespace _Scripts.Gameplay.Moves
 
         [Inject]
         private Timeline _timeline;
-
+        [Inject]
+        private SoundManager _soundManager;
         private HorizontalLayoutGroup _layoutGroup;
 
         private bool _animating = false;
@@ -44,6 +45,8 @@ namespace _Scripts.Gameplay.Moves
         {
             if (_destroyed)
                 return;
+
+            _soundManager.PlayButtonClickSFX(ButtonClickSFX.CardRemove);
             _destroyed = true;
             _animating = true;
             var sequence = DOTween.Sequence();

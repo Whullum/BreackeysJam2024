@@ -12,6 +12,9 @@ public class BackButton : MonoBehaviour
     [SerializeField]
     private Button _button;
 
+    [Inject]
+    private SoundManager _soundManager;
+
     private void Awake()
     {
         _button.onClick.AddListener(OnClick);
@@ -19,6 +22,7 @@ public class BackButton : MonoBehaviour
 
     private void OnClick()
     {
-            _uiSystem.OpenMainMenu();
+        _soundManager.PlayButtonClickSFX(ButtonClickSFX.Default);
+        _uiSystem.OpenMainMenu();
     }
 }
