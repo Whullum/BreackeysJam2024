@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using _Scripts.Gameplay.Characters;
+using _Scripts.Gameplay.Execution;
 using _Scripts.Gameplay.SpotSystem;
-using _Scripts.Gameplay.Turns;
 using _Scripts.Infrastructure;
 using UnityEngine;
 using Zenject;
@@ -16,10 +16,10 @@ namespace _Scripts.Gameplay
         public EnemyMarker[] Enemies => _enemies.ToArray();
         
         [Inject]
-        private FightPlayer FightPlayer { get; set; }
+        private FightPlayer _fightPlayer;
         
         [Inject]
-        private ContainerFactory ContainerFactory { get; set; }
+        private ContainerFactory _containerFactory;
         
         [Inject]
         private SpotMap SpotMap { get; set; }
@@ -28,7 +28,7 @@ namespace _Scripts.Gameplay
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                FightPlayer.PlayFight();
+                _fightPlayer.PlayFight();
             }
         }
 
@@ -39,7 +39,7 @@ namespace _Scripts.Gameplay
                 throw new InvalidOperationException($"Spot {coordinates} is already occupied. Cannot spawn here");
             
             Vector3 position = targetSpot.transform.position;
-            EnemyMarker newEnemy = ContainerFactory.Instantiate<EnemyMarker>(prefab, position, transform);
+            EnemyMarker newEnemy = _containerFactory.Instantiate<EnemyMarker>(prefab, position, transform);
             _enemies.Add(newEnemy);
             newEnemy.Movement.AssignHomeSpot(coordinates);
             return newEnemy;

@@ -1,12 +1,8 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using _Scripts.Gameplay.Characters;
-using Zenject;
 
-namespace _Scripts.Gameplay.Turns
+namespace _Scripts.Gameplay.Execution
 {
     public class LevelLoader : MonoBehaviour
     {

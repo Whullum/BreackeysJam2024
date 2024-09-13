@@ -1,4 +1,5 @@
 ﻿using System;
+using _Scripts.Gameplay.Execution;
 using _Scripts.Gameplay.SpotSystem;
 using _Scripts.Gameplay.Weapon;
 using UnityEngine;
@@ -24,12 +25,12 @@ namespace _Scripts.Gameplay.Characters
         private CharacterMovement _movement;
         
         private CharacterMovement Movement => _movement ??= GetComponent<CharacterMovement>();
-        
+
         [Inject]
-        private WeaponOnGroundFactory WeaponOnGroundFactory { get; set; }
-        
+        private WeaponOnGroundFactory _weaponOnGroundFactory;
+
         [Inject]
-        private SpotMap SpotMap { get; set; }
+        private SpotMap _spotMap;
 
         public event Action Punched;
         public event Action Kicked;
@@ -52,7 +53,7 @@ namespace _Scripts.Gameplay.Characters
                 Spot destination = null;
                 for (int i = 10; i >= 0; i--)
                 {
-                    destination = SpotMap.GetSpot(Movement.Coordinates + new Vector2Int(i * Movement.Direction, 0));
+                    destination = _spotMap.GetSpot(Movement.Coordinates + new Vector2Int(i * Movement.Direction, 0));
                     if (destination != null && ! destination.IsOccupiedBy<CharacterMovement>())
                         break;
                 }
@@ -110,7 +111,7 @@ namespace _Scripts.Gameplay.Characters
 
             if (currentWeaponType != null)
             {
-                WeaponOnGroundFactory.SpawnWeapon(currentWeaponType, Movement.CurrentSpot.Coordinates);
+                _weaponOnGroundFactory.SpawnWeapon(currentWeaponType, Movement.CurrentSpot.Coordinates);
             }
 
             _currentWeaponType = pickedUpWeaponType;

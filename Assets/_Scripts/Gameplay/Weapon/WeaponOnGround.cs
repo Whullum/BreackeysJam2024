@@ -1,4 +1,6 @@
-﻿namespace _Scripts.Gameplay.Weapon
+﻿using _Scripts.Gameplay.SpotSystem;
+
+namespace _Scripts.Gameplay.Weapon
 {
     public class WeaponOnGround : SpotObject
     {

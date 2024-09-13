@@ -1,25 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using _Scripts.Gameplay.Characters;
 using UnityEngine;
 using Zenject;
 
-namespace _Scripts.Gameplay.Turns
+namespace _Scripts.Gameplay.Execution
 {
     public class LevelSetup : MonoBehaviour
     {
-        [Inject]
-        private LevelLoader _levelLoader;
-
-
         [SerializeField]
         private EnemyMarker _enemyPrefab;
 
         [Inject]
-        private EnemyContainer _enemyContainer { get; set; }
+        private LevelLoader _levelLoader;
 
         [Inject]
-        private PlayerMarker _player { get; set; }
+        private EnemyContainer _enemyContainer;
+
+        [Inject]
+        private PlayerMarker _player;
 
         private void Start()
         {

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
-using System.Threading.Tasks;
 using _Scripts.Extentions;
 using _Scripts.Gameplay.Characters;
 using _Scripts.Gameplay.Moves;
@@ -10,31 +9,31 @@ using _Scripts.Gameplay.Weapon;
 using UnityEngine;
 using Zenject;
 
-namespace _Scripts.Gameplay.Turns
+namespace _Scripts.Gameplay.Execution
 {
     public class FightPlayer : MonoBehaviour
     {
         [Inject]
-        private Timeline Timeline { get; set; }
+        private Timeline _timeline;
         
         [Inject]
-        private EnemyContainer EnemyContainer { get; set; }
+        private EnemyContainer _enemyContainer;
         
         [Inject]
-        private PlayerMarker Player { get; set; }
+        private PlayerMarker _player;
         
         [Inject]
-        private ComboSystem ComboSystem { get; set; }
+        private ComboSystem _comboSystem;
 
         [Inject]
         private LevelLoader _levelLoader;
         
         [Inject]
-        private WeaponOnGroundFactory WeaponOnGroundFactory { get; set; }
+        private WeaponOnGroundFactory _weaponOnGroundFactory;
 
-        private bool IsWinConditionMet => EnemyContainer.Enemies.All(e => e.Life.IsDead);
+        private bool IsWinConditionMet => _enemyContainer.Enemies.All(e => e.Life.IsDead);
         
-        private bool IsLoseConditionMet => Player.Life.IsDead;
+        private bool IsLoseConditionMet => _player.Life.IsDead;
         
         public event Action TurnStarted;
 
@@ -49,26 +48,26 @@ namespace _Scripts.Gameplay.Turns
             for (int turn = 0; turn < 99; turn++)
             {
                 TurnStarted?.Invoke();
-                ComboSystem.SwitchTurns();
+                _comboSystem.SwitchTurns();
                 
-                if (turn < Timeline.Moves.Length)
+                if (turn < _timeline.Moves.Length)
                 {
-                    MoveOnTimeline moveOnTimeline = Timeline.Moves[turn];
-                    moveOnTimeline.Move.Execute(Player);
+                    MoveOnTimeline moveOnTimeline = _timeline.Moves[turn];
+                    moveOnTimeline.Move.Execute(_player);
                 }
                 else
                 {
-                    Player.Movement.TryDescend();
+                    _player.Movement.TryDescend();
                 }
                 
                 yield return new WaitForSeconds(0.3f);
-                if (ComboSystem.IsComboActive)
+                if (_comboSystem.IsComboActive)
                 {
                     Debug.Log("COMBO!");
                     continue;
                 }
 
-                foreach (EnemyMarker enemy in EnemyContainer.Enemies)
+                foreach (EnemyMarker enemy in _enemyContainer.Enemies)
                 {
                     enemy.Behaviour.PerformNextTurn();
                 yield return new WaitForSeconds(0.3f);
@@ -95,13 +94,13 @@ namespace _Scripts.Gameplay.Turns
 
         private void RestoreScene()
         {
-            Player.DiscardMemebers();
-            EnemyContainer.Enemies.Foreach(e => e.DiscardMemebers());
+            _player.DiscardMemebers();
+            _enemyContainer.Enemies.Foreach(e => e.DiscardMemebers());
             
-            Player.RestoreMemebers();
-            EnemyContainer.Enemies.Foreach(e => e.RestoreMemebers());
+            _player.RestoreMemebers();
+            _enemyContainer.Enemies.Foreach(e => e.RestoreMemebers());
             
-            WeaponOnGroundFactory.Discard();
+            _weaponOnGroundFactory.Discard();
         }
     }
 }

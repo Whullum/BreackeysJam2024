@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using _Scripts.Extentions;
+using _Scripts.Gameplay.Execution;
 using _Scripts.Gameplay.SpotSystem;
 using _Scripts.Infrastructure;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace _Scripts.Gameplay.Weapon
         private GameObject _prefab;
         
         [Inject]
-        private ContainerFactory ContainerFactory  { get; set; }
+        private ContainerFactory _containerFactory;
 
         private List<WeaponOnGround> _pool = new List<WeaponOnGround>();
 
@@ -37,7 +38,7 @@ namespace _Scripts.Gameplay.Weapon
                 return;
             
             spot.ForceLeave<WeaponOnGround>();
-            WeaponOnGround newWeapon = ContainerFactory.Instantiate<WeaponOnGround>(_prefab, spot.transform.position, transform);
+            WeaponOnGround newWeapon = _containerFactory.Instantiate<WeaponOnGround>(_prefab, spot.transform.position, transform);
             newWeapon.GoToSpot(coordinates, true);
             newWeapon.Init(type);
             _pool.Add(newWeapon);

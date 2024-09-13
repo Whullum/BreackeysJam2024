@@ -1,8 +1,7 @@
 ﻿using _Scripts.Gameplay.Characters;
-using UnityEngine;
 using Zenject;
 
-namespace _Scripts.Gameplay
+namespace _Scripts.Gameplay.Execution
 {
     public class ComboSystem
     {
