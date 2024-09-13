@@ -144,3 +144,44 @@ MonoBehaviour:
         Data3: 311558281
         Data4: -523032231
       Path: event:/SFX_Card_Turn
+  _interactableSFX:
+  - type: 0
+    sound:
+      Guid:
+        Data1: 1351638916
+        Data2: 1097585605
+        Data3: -960925022
+        Data4: 730677038
+      Path: event:/SFX_ChainPull
+  - type: 1
+    sound:
+      Guid:
+        Data1: 787915583
+        Data2: 1319379112
+        Data3: 1619235986
+        Data4: -1090579388
+      Path: event:/SFX_ChainThrow
+  - type: 2
+    sound:
+      Guid:
+        Data1: -303433484
+        Data2: 1220342740
+        Data3: 580501946
+        Data4: -1098344708
+      Path: event:/SFX_ElectricPoleBreak
+  - type: 3
+    sound:
+      Guid:
+        Data1: -1377066654
+        Data2: 1213095040
+        Data3: -1028114021
+        Data4: -1074937033
+      Path: event:/SFX_CatMeow
+  - type: 4
+    sound:
+      Guid:
+        Data1: -1377066654
+        Data2: 1213095040
+        Data3: -1028114021
+        Data4: -1074937033
+      Path: event:/SFX_CatMeow

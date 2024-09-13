@@ -24,6 +24,11 @@ public enum CardPlayedSFX
     Disarm, Dodge, Kick, Punch, Step, Swap, Turn, Use, Wait
 }
 
+public enum InteractableSFX
+{
+    ChainPull, ChainThrow, ElectricPole, Cat, Gore
+}
+
 public enum VolumeType
 {
     Main, SFX, Music
@@ -65,6 +70,13 @@ public class SoundManager : MonoBehaviour
         public CardPlayedSFX type;
         public EventReference sound;
     }
+
+    [Serializable]
+    struct InteractableSFXSelector
+    {
+        public InteractableSFX type;
+        public EventReference sound;
+    }
     #endregion
 
     [SerializeField]
@@ -78,6 +90,9 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField]
     private List<CardSFXSelector> _cardPlayedSFX;
+
+    [SerializeField]
+    private List<InteractableSFXSelector> _interactableSFX;
 
     private EventReference _sliderSound;
 
