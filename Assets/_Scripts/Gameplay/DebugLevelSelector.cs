@@ -7,13 +7,12 @@ using Zenject;
 
 namespace _Scripts.Gameplay
 {
-    public class LevelSetup : MonoBehaviour
+    public class DebugLevelSelector : MonoBehaviour
     {        
         [Inject]
         private LevelLoader _levelLoader;
         
         [SerializeField]
-        [Range(0,3)]
         private int _levelID;
 
         [Button]
