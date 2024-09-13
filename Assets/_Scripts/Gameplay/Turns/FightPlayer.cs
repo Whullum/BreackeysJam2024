@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using _Scripts.Extentions;
 using _Scripts.Gameplay.Characters;
 using _Scripts.Gameplay.Moves;
+using _Scripts.Gameplay.Props;
 using _Scripts.Gameplay.UI;
 using _Scripts.Gameplay.Weapon;
 using UnityEngine;
@@ -27,6 +28,9 @@ namespace _Scripts.Gameplay.Turns
         
         [Inject]
         private WeaponOnGroundFactory WeaponOnGroundFactory { get; set; }
+
+        [Inject]
+        private PropFactory _propFactory;
 
         private bool IsWinConditionMet => EnemyContainer.Enemies.All(e => e.Life.IsDead);
         
@@ -85,6 +89,7 @@ namespace _Scripts.Gameplay.Turns
             EnemyContainer.Enemies.Foreach(e => e.RestoreMemebers());
             
             WeaponOnGroundFactory.Discard();
+            _propFactory.Discard();
         }
     }
 }

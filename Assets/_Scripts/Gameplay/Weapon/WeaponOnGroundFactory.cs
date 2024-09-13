@@ -8,44 +8,12 @@ using Zenject;
 
 namespace _Scripts.Gameplay.Weapon
 {
-    public class WeaponOnGroundFactory : MonoBehaviour
+    public class WeaponOnGroundFactory : SpotObjectFactory<WeaponOnGround>
     {
-        [SerializeField]
-        private GameObject _prefab;
-        
-        [Inject]
-        private ContainerFactory ContainerFactory  { get; set; }
-
-        private List<WeaponOnGround> _pool = new List<WeaponOnGround>();
-
-        public List<WeaponOnGround> Pool
+        public void SpawnWeapon(WeaponType weaponType, Vector2Int coordinates)
         {
-            get
-            {
-                _pool = _pool.Where(w => w != null).ToList();
-                return _pool;
-            }
-        }
-
-        [Inject]
-        private SpotMap SpotMap { get; set; }
-        
-        public void SpawnWeapon(WeaponType type, Vector2Int coordinates)
-        {
-            Spot spot = SpotMap.GetSpot(coordinates);
-            if (spot == null)
-                return;
-            
-            spot.ForceLeave<WeaponOnGround>();
-            WeaponOnGround newWeapon = ContainerFactory.Instantiate<WeaponOnGround>(_prefab, spot.transform.position, transform);
-            newWeapon.GoToSpot(coordinates, true);
-            newWeapon.Init(type);
-            _pool.Add(newWeapon);
-        }
-
-        public void Discard()
-        {
-            _pool.Select(w => w.GetComponent<IDiscardable>()).Foreach(d => d.Discard());
+            WeaponOnGround weapon = SpawnObject(null, coordinates);
+            weapon.Init(weaponType);
         }
     }
 }

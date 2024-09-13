@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using _Scripts.Gameplay.Characters;
+using _Scripts.Gameplay.Props;
+using _Scripts.Gameplay.SpotSystem;
 using UnityEngine;
 using Zenject;
 
@@ -16,7 +18,10 @@ namespace _Scripts.Gameplay.Turns
         private EnemyMarker _enemyPrefab;
 
         [Inject]
-        private EnemyContainer _enemyContainer { get; set; }
+        private EnemyContainer _enemyContainer;
+
+        [Inject]
+        private PropFactory _propFactory;
 
         [Inject]
         private PlayerMarker _player { get; set; }
@@ -52,6 +57,11 @@ namespace _Scripts.Gameplay.Turns
                 {
                     newEnemy.Attack.AssignStartingWeaponType(spawnInfo.WeaponOverride);
                 }
+            }
+
+            foreach (PropsSpawnData prop in currentLevel.Props)
+            {
+                _propFactory.SpawnObject(prop.Prefab, new Vector2Int(prop.Spot, 0));
             }
         }
     }

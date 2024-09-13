@@ -1,6 +1,4 @@
-﻿    using System;
-using _Scripts.Gameplay.Characters;
-using _Scripts.Gameplay.Turns;
+﻿using _Scripts.Gameplay.Turns;
 using NaughtyAttributes;
 using UnityEngine;
 using Zenject;
