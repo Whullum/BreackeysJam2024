@@ -31,7 +31,10 @@ namespace _Scripts.Gameplay.UI
                 return;
             }
             _moves.TryRemove(move);
-            move.Destroy();
+            if (move)
+            {
+                move.Destroy();
+            }
         }
         
         public void AddMove(Move move)
@@ -48,6 +51,19 @@ namespace _Scripts.Gameplay.UI
         public void FightStageStarted()
         {
             _isInFightStage = true;
+        }
+
+        public void ClearTimeline()
+        {
+            if (_isInFightStage)
+            {
+                return;
+            }
+            for (int i = _moves.Count-1; i >= 0; i--)
+            {
+                MoveOnTimeline move = _moves[i];
+                RemoveMove(move);
+            }
         }
     }
 }
