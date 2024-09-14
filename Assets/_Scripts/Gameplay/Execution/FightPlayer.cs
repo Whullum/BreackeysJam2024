@@ -42,6 +42,9 @@ namespace _Scripts.Gameplay.Execution
         private WeaponOnGroundFactory _weaponOnGroundFactory;
 
         [Inject]
+        private GameOverScreen _gameOverScreen;
+
+        [Inject]
         private PropFactory _propFactory;
         
         private FightState _currentState;
@@ -129,7 +132,7 @@ namespace _Scripts.Gameplay.Execution
                 }
                 else
                 {
-                    Debug.Log("Add lose screen / return to main menu here");
+                    _gameOverScreen.ShowGameOver();
                 }
             }
             else
@@ -137,6 +140,7 @@ namespace _Scripts.Gameplay.Execution
                 StopFight();
             }
             
+            _soundManager.SwitchMusicState(GameplayAudioState.Calm);
         }
 
         private void RestoreScene()
