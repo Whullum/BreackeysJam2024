@@ -11,15 +11,12 @@ namespace _Scripts.Gameplay.Props
         [SerializeField]
         private SpriteRenderer _spriteRenderer;
         
+        [SerializeField]
+        private Sprite[]  _spritePerDurability;
+        
         private void Update()
         {
-            float alpha = _model.Durability switch
-            {
-                0 => 0.3f,
-                1 => 0.8f,
-                _ => 1
-            };
-            _spriteRenderer.color = new Color(1, 1, 1, alpha);
+            _spriteRenderer.sprite = _spritePerDurability[_model.Durability];
         }
     }
 }

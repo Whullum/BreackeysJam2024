@@ -47,7 +47,7 @@ namespace _Scripts.Gameplay.Characters
 
         public bool Punch()
         {
-            if ( ! TryGetVictim(1, out CharacterMarker victim) || victim.Life.IsDodging)
+            if ( ! TryGetVictim(1, out CharacterMarker victim))
                 return false;
             
             victim.Life.StopGuard();
@@ -87,12 +87,12 @@ namespace _Scripts.Gameplay.Characters
 
         public bool Kick()
         {
-            if ( ! TryGetVictim(1, out CharacterMarker victim) || victim.Life.IsDodging || victim.Life.IsGuarding)
+            if ( ! TryGetVictim(1, out CharacterMarker victim))
                 return false;
 
             victim.Life.TakeDamage(_kickDamage);
             Kicked?.Invoke();
-            if (victim.Life.IsDead)
+            if (victim.Life.IsDead || victim.Life.IsGuarding)
                 return true;
             
             if (Movement.IsInAir)
