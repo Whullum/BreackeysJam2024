@@ -64,9 +64,9 @@ namespace _Scripts.Gameplay.Characters
 
             Debug.Log(victim);
             Debug.Log(victim.Movement);
-            Debug.Log(victim.Movement.CurrentSpot);
-            Debug.Log(victim.Movement.CurrentSpot.GetAdjacentSpot(new Vector2Int(1, 0) * Movement.Direction));
-            Debug.Log(victim.Movement.CurrentSpot.GetAdjacentSpot(new Vector2Int(1, 0) * Movement.Direction).GetObject<ElectricPole>());
+            //Debug.Log(victim.Movement.CurrentSpot);
+            //Debug.Log(victim.Movement.CurrentSpot.GetAdjacentSpot(new Vector2Int(1, 0) * Movement.Direction));
+            //Debug.Log(victim.Movement.CurrentSpot.GetAdjacentSpot(new Vector2Int(1, 0) * Movement.Direction).GetObject<ElectricPole>());
             impalePole = victim.Movement.CurrentSpot?.GetAdjacentSpot(new Vector2Int(1, 0) * Movement.Direction)
                 ?.GetObject<ElectricPole>();
             if (impalePole?.IsBroken ?? false)

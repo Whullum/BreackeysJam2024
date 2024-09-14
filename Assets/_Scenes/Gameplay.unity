@@ -389,6 +389,7 @@ MonoBehaviour:
   _propFactory: {fileID: 222839425}
   _manaBarController: {fileID: 643694043}
   _fightPlayer: {fileID: 114069494}
+  _gameOverScreen: {fileID: 8249099283490418508}
 --- !u!114 &262526470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1403,6 +1404,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e308437ae8cd4bc69b48f007066e6182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8249099283490418508 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6529359562194727437, guid: ca7112de818b89cb798dbf364ec365e6, type: 3}
+  m_PrefabInstance: {fileID: 8249099283490418506}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4619f95e3e6f67001be6a66f8a19d857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
