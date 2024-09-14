@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using NaughtyAttributes;
 using UnityEngine;
 using Zenject;
 
 public class TitleAnimation : MonoBehaviour
 {
-    [SerializeField]
-    private List<RectTransform> _titles;
-
     [Inject]
     private SoundManager _soundManager;
 
+    [SerializeField]
+    private List<RectTransform> _titles;
+
+    [Button]
     private void Start()
     {
         StartCoroutine(AnimTitle());
@@ -27,9 +29,7 @@ public class TitleAnimation : MonoBehaviour
         {
             var scale = title.DOScale(1f, 0.3f);
             scale.onComplete += () => _soundManager.CardPlayedSFX(CardPlayedSFX.Punch);
-            Debug.Log(title);
             yield return new WaitForSeconds(0.5f);
-            Debug.Log(title);
         }
     }
 
