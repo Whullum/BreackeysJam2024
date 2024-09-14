@@ -21,9 +21,8 @@ namespace _Scripts.Gameplay.Characters
         }
 
         private CharacterLife _life;
-        public CharacterLife Life => _life ??= GetComponent<CharacterLife>(); 
-    
-
+        public CharacterLife Life => _life ??= GetComponent<CharacterLife>();
+        
         private void Awake()
         {
             Life.Died += LeaveCurrentSpot;
