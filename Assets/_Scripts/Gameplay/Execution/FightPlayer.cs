@@ -16,48 +16,54 @@ namespace _Scripts.Gameplay.Execution
     {
         [Inject]
         private Timeline _timeline;
-        
+
         [Inject]
         private EnemyContainer _enemyContainer;
-        
+
         [Inject]
         private PlayerMarker _player;
-        
+
         [Inject]
         private ComboSystem _comboSystem;
 
         [Inject]
         private LevelLoader _levelLoader;
-        
+
         [Inject]
         private SoundManager _soundManager;
 
         [Inject]
         private WeaponOnGroundFactory _weaponOnGroundFactory;
-        
+
         [Inject]
         private PropFactory _propFactory;
 
         private bool IsWinConditionMet => _enemyContainer.Enemies.All(e => e.Life.IsDead);
-        
+
         private bool IsLoseConditionMet => _player.Life.IsDead;
-        
+
+        private bool _isFighting = false;
+
         public event Action TurnStarted;
 
         public void PlayFight()
-        {   
-            StartCoroutine(Fight());
+        {
+            if (!_isFighting)
+            {
+                StartCoroutine(Fight());
+            }
         }
 
         private IEnumerator Fight()
         {
             // Fight is limited by 99 turns. This is a sanity check.
+            _isFighting = true;
             _soundManager.SwitchMusicState(GameplayAudioState.Storm);
             for (int turn = 0; turn < 99; turn++)
             {
                 TurnStarted?.Invoke();
                 _comboSystem.SwitchTurns();
-                
+
                 if (turn < _timeline.Moves.Length)
                 {
                     MoveOnTimeline moveOnTimeline = _timeline.Moves[turn];
@@ -67,7 +73,7 @@ namespace _Scripts.Gameplay.Execution
                 {
                     _player.Movement.TryDescend();
                 }
-                
+
                 yield return new WaitForSeconds(0.3f);
 
                 _comboSystem.UpdateComboState();
@@ -80,7 +86,7 @@ namespace _Scripts.Gameplay.Execution
                 foreach (EnemyMarker enemy in _enemyContainer.Enemies)
                 {
                     enemy.Behaviour.PerformNextTurn();
-                yield return new WaitForSeconds(0.3f);
+                    yield return new WaitForSeconds(0.3f);
                 }
 
 
@@ -94,7 +100,7 @@ namespace _Scripts.Gameplay.Execution
                     break;
                 }
             }
-
+            _isFighting = false;
             Debug.Log("Fight is over");
 
             _soundManager.SwitchMusicState(GameplayAudioState.Calm);
@@ -105,10 +111,10 @@ namespace _Scripts.Gameplay.Execution
         {
             _player.DiscardMemebers();
             _enemyContainer.Enemies.Foreach(e => e.DiscardMemebers());
-            
+
             _player.RestoreMemebers();
             _enemyContainer.Enemies.Foreach(e => e.RestoreMemebers());
-            
+
             _weaponOnGroundFactory.Discard();
             _propFactory.Discard();
         }
