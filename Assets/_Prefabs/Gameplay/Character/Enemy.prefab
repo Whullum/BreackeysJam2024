@@ -107,6 +107,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 141298321164963072, guid: d7d6eb190d03dc04b9bb3fe2804658c7, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3fae063aaf551f449bb82a32c4d2048b, type: 2}
     - target: {fileID: 609345334486451692, guid: d7d6eb190d03dc04b9bb3fe2804658c7, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -116,12 +120,16 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5055656863722427504, guid: d7d6eb190d03dc04b9bb3fe2804658c7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -701389160, guid: ccdf6602cadfc734c9e930a0f4d6a971, type: 3}
+    - target: {fileID: 5055656863722427504, guid: d7d6eb190d03dc04b9bb3fe2804658c7, type: 3}
       propertyPath: m_Color.b
-      value: 0.3820755
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5055656863722427504, guid: d7d6eb190d03dc04b9bb3fe2804658c7, type: 3}
       propertyPath: m_Color.g
-      value: 0.3820755
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5055656863722427504, guid: d7d6eb190d03dc04b9bb3fe2804658c7, type: 3}
       propertyPath: m_Color.r

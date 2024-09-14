@@ -19,6 +19,7 @@ namespace _Scripts.Gameplay.Characters
         public bool IsDodging { get; private set; }
         
         public event Action Died;
+        public event Action TookHit;
         public event Action Dodged;
         
         [Inject]
@@ -47,8 +48,7 @@ namespace _Scripts.Gameplay.Characters
 
             damage = Math.Max(0, damage);
             _health -= damage;
-            transform.DOKill();
-            transform.DOShakeScale(0.2f, Vector3.one * 0.5f);
+            TookHit?.Invoke();
 
             if ( ! _comboSystem.IsComboActive)
                 CheckDeath();

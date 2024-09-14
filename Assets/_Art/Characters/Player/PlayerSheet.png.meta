@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_0
+      name: PlayerSheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -105,20 +105,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9966dea6aa12d3a4bbdba6d6b7c49a33
-      internalID: -1313348029
+      spriteID: c74638b2d1150724a825f26f6cde4804
+      internalID: -1828851091
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_1
+      name: PlayerSheet_1
       rect:
         serializedVersion: 2
         x: 192
@@ -126,41 +126,41 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fd5e2958725ade4b911825ad3287c6e
-      internalID: -212148985
+      spriteID: e642b23b0b403fa499dc23490dc5485d
+      internalID: -967493285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_2
+      name: PlayerSheet_2
       rect:
         serializedVersion: 2
-        x: 385
+        x: 384
         y: 1728
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b3807c98dc5ca240bd17f406201930a
-      internalID: -1439477625
+      spriteID: 745e821f244a57b458a4f08f27920100
+      internalID: -1060031246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_3
+      name: PlayerSheet_3
       rect:
         serializedVersion: 2
         x: 576
@@ -168,20 +168,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be477cccc0c44ec4bb0982d7936dac9d
-      internalID: -634013643
+      spriteID: 7b1f591850179ff45b5d3916d6ae3ca7
+      internalID: 258789642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_4
+      name: PlayerSheet_4
       rect:
         serializedVersion: 2
         x: 0
@@ -189,20 +189,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97cdd75b6a7819d4697071bf5fc4fa37
-      internalID: 845094408
+      spriteID: 96ebb301d09b9404d93de0ead9b09e18
+      internalID: 1740283708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_5
+      name: PlayerSheet_5
       rect:
         serializedVersion: 2
         x: 192
@@ -210,20 +210,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06316133138bd644fb0f3cbdae7d4547
-      internalID: -1113096752
+      spriteID: 0dfe7239b9204024aa34b44b671bd5ff
+      internalID: -1243417705
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_6
+      name: PlayerSheet_6
       rect:
         serializedVersion: 2
         x: 384
@@ -231,20 +231,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05be1f7746873c344bcd862a41f24a1d
-      internalID: 824792324
+      spriteID: dcbbf0bdbdcc9c24a9419c47369757e8
+      internalID: 777884851
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_7
+      name: PlayerSheet_7
       rect:
         serializedVersion: 2
         x: 576
@@ -252,20 +252,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 088041ec2481e294f9fddee9ea4eb08d
-      internalID: -482379601
+      spriteID: 8b8540fe071a81a41a23173b19255e8b
+      internalID: 812041348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_8
+      name: PlayerSheet_8
       rect:
         serializedVersion: 2
         x: 0
@@ -273,20 +273,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f11d6761a07c82e4ea3ab0ea181b94e7
-      internalID: 1487308142
+      spriteID: 67ffef688fef1c846912a7cc4c8768af
+      internalID: -770873540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_9
+      name: PlayerSheet_9
       rect:
         serializedVersion: 2
         x: 192
@@ -294,20 +294,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2395926e3f21b2740a64d24644bb39f0
-      internalID: 1406442373
+      spriteID: bcc5284a551320441a87eab83d2a8357
+      internalID: 869432708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_10
+      name: PlayerSheet_10
       rect:
         serializedVersion: 2
         x: 384
@@ -315,20 +315,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36ba914b9880dc24eb5df4c395c9b381
-      internalID: 480809009
+      spriteID: db5dfe0d7970e434db4d12fe7f7dbf53
+      internalID: -738191496
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_11
+      name: PlayerSheet_11
       rect:
         serializedVersion: 2
         x: 576
@@ -336,20 +336,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7aa00fba03a63342b6c00293f14eca4
-      internalID: 962951569
+      spriteID: 9f13ccc85fe84574a96c2481b603e15d
+      internalID: 1511998697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_12
+      name: PlayerSheet_12
       rect:
         serializedVersion: 2
         x: 0
@@ -357,20 +357,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5f627d8db41cb1429f64f3a9f5de16c
-      internalID: 1300828410
+      spriteID: a7d81f38fc0c2d740a8dc2f75484352a
+      internalID: -1203531680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_13
+      name: PlayerSheet_13
       rect:
         serializedVersion: 2
         x: 192
@@ -378,20 +378,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e732f83aa37e76489c16e535c31da38
-      internalID: 616549060
+      spriteID: 16afb358a6ea8c949a165ba80b9d9d6e
+      internalID: 2093411450
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_14
+      name: PlayerSheet_14
       rect:
         serializedVersion: 2
         x: 384
@@ -399,20 +399,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f93ca8d9f412934bbe60339273521ac
-      internalID: -1170039227
+      spriteID: f920f5a2a7952e64fa98de57e2823aa6
+      internalID: -365427044
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_15
+      name: PlayerSheet_15
       rect:
         serializedVersion: 2
         x: 576
@@ -420,20 +420,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51704f5a899356449bca2bfb8992ecf1
-      internalID: -1188565692
+      spriteID: b608df5e4ee7a2940ba920e20f75cc91
+      internalID: 1677565379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_16
+      name: PlayerSheet_16
       rect:
         serializedVersion: 2
         x: 768
@@ -441,20 +441,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afe236257ebd64c49890d46a4137fb1c
-      internalID: -1851228308
+      spriteID: 99e8f3b1d0ff9944f93cb5aba4050b33
+      internalID: 1331010817
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_17
+      name: PlayerSheet_17
       rect:
         serializedVersion: 2
         x: 0
@@ -462,20 +462,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52668f8e1aadb92459ac01077a4437f0
-      internalID: 1320497014
+      spriteID: 695ff31384b524640be1496a2e6c459e
+      internalID: -2047594636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_18
+      name: PlayerSheet_18
       rect:
         serializedVersion: 2
         x: 192
@@ -483,20 +483,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99a3fe8563984144e895549ee07e2c60
-      internalID: -709205365
+      spriteID: 0b113296dca347144b6f1f985e637f77
+      internalID: -73707988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_19
+      name: PlayerSheet_19
       rect:
         serializedVersion: 2
         x: 384
@@ -504,20 +504,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bd62158689460b44a5e9c161f7f848f
-      internalID: 1578975913
+      spriteID: 56d641d623026ed469dc2c5e95700c21
+      internalID: 1062595636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_20
+      name: PlayerSheet_20
       rect:
         serializedVersion: 2
         x: 576
@@ -525,20 +525,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebb28126cc48ca94b882aef50eecfa44
-      internalID: 769978549
+      spriteID: 27a4225a7ca6e3f429897e8d5bbf2aa3
+      internalID: 1219108426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_21
+      name: PlayerSheet_21
       rect:
         serializedVersion: 2
         x: 0
@@ -546,20 +546,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cc31c9ee3b511c4694dcea7fbe30b4a
-      internalID: -1484260486
+      spriteID: bbbcf8fb174ebd9489c8adcc4704c707
+      internalID: 356960674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_22
+      name: PlayerSheet_22
       rect:
         serializedVersion: 2
         x: 192
@@ -567,20 +567,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f038e5bedc8dab74d8ec1bb608d74e60
-      internalID: -475010945
+      spriteID: 2ceae21a2c347294da47945c28b96966
+      internalID: -1404227949
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_23
+      name: PlayerSheet_23
       rect:
         serializedVersion: 2
         x: 384
@@ -588,20 +588,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83faa70b92111b34d905bea31097965b
-      internalID: -130350175
+      spriteID: 628527b377e046947b44b6586eed0a8a
+      internalID: -2005545300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_24
+      name: PlayerSheet_24
       rect:
         serializedVersion: 2
         x: 576
@@ -609,20 +609,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ad09743ded2f3149bdc7b27fb022e9a
-      internalID: -869056878
+      spriteID: 5a96a4ee1fed6af4399614ca1cbd2889
+      internalID: 1044833574
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_25
+      name: PlayerSheet_25
       rect:
         serializedVersion: 2
         x: 0
@@ -630,20 +630,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7344b239fcff534e814628fb84b7759
-      internalID: -829136931
+      spriteID: 5473413abcc79c643a6843be943c4384
+      internalID: -551848284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_26
+      name: PlayerSheet_26
       rect:
         serializedVersion: 2
         x: 192
@@ -651,20 +651,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb166914d39e7e643a51c02cf676a3f8
-      internalID: 490496714
+      spriteID: d5be98ae9a00e4340b36b0b5113f8b86
+      internalID: 744074097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_27
+      name: PlayerSheet_27
       rect:
         serializedVersion: 2
         x: 384
@@ -672,20 +672,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a92a4865370f4949ac0e37a6f76e6da
-      internalID: -403896556
+      spriteID: 64884cc114e444e4295e87738f84309d
+      internalID: 1102878245
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_28
+      name: PlayerSheet_28
       rect:
         serializedVersion: 2
         x: 576
@@ -693,20 +693,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17b8f0b25217cbe4ba090bbd57bf4838
-      internalID: 2069643394
+      spriteID: 3a963e3a26104424792e6152cf97362c
+      internalID: -78658046
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_29
+      name: PlayerSheet_29
       rect:
         serializedVersion: 2
         x: 0
@@ -714,20 +714,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2aa67ba5683bd0b4480f2b86d95eba5c
-      internalID: 1526146293
+      spriteID: 81e374c6ddfaf8049babd8c58e461176
+      internalID: 651571280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_30
+      name: PlayerSheet_30
       rect:
         serializedVersion: 2
         x: 0
@@ -735,20 +735,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17eba488edfa2db4cb68a8e62b8c0d05
-      internalID: -1798542003
+      spriteID: c9023ef292d45df43b39c4e19ba9c4fb
+      internalID: 2139707699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_31
+      name: PlayerSheet_31
       rect:
         serializedVersion: 2
         x: 192
@@ -756,20 +756,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dac0f6c6821115d4e9e44a8d6f0c61e4
-      internalID: 1185900833
+      spriteID: 38b246eafe1554343b1847ad2f7177bd
+      internalID: 232133549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_32
+      name: PlayerSheet_32
       rect:
         serializedVersion: 2
         x: 384
@@ -777,20 +777,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61febeb12e75c13488cc67142f15e6e4
-      internalID: 1383146630
+      spriteID: 8d0c61bbbc2ffa748b7c6565eec4884e
+      internalID: -749373555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_33
+      name: PlayerSheet_33
       rect:
         serializedVersion: 2
         x: 576
@@ -798,20 +798,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1739234b78d1861468fa8f7375bdae43
-      internalID: -949112525
+      spriteID: 05b24722f9cee964eaa880875d078db1
+      internalID: 918127580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_34
+      name: PlayerSheet_34
       rect:
         serializedVersion: 2
         x: 0
@@ -819,20 +819,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db149324f7447644a949f65360fa74a2
-      internalID: -1823797214
+      spriteID: b5626928da11ada4db3db90d2f73db77
+      internalID: -791229639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_35
+      name: PlayerSheet_35
       rect:
         serializedVersion: 2
         x: 192
@@ -840,20 +840,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17a996e349ab4024dbf17c87ab6ccb2f
-      internalID: 1395789874
+      spriteID: 009d67511adb33448be087f66da7b897
+      internalID: 1552582983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_36
+      name: PlayerSheet_36
       rect:
         serializedVersion: 2
         x: 384
@@ -861,20 +861,20 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d76fe01bed22a14ab644cdb67c93b85
-      internalID: -1547439177
+      spriteID: 9597aa8ccb9f5254fbcea7a0cdd2455d
+      internalID: -83724722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Churitsu_character_sheet_final_37
+      name: PlayerSheet_37
       rect:
         serializedVersion: 2
         x: 576
@@ -882,14 +882,14 @@ TextureImporter:
         width: 192
         height: 192
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58fb9063d046118499401654b43aa138
-      internalID: 1110701642
+      spriteID: 65a3149a9881ad840b3803298f5ee67f
+      internalID: -1789472921
       vertices: []
       indices: 
       edges: []
@@ -905,44 +905,44 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Churitsu_character_sheet_final_0: -1313348029
-      Churitsu_character_sheet_final_1: -212148985
-      Churitsu_character_sheet_final_10: 480809009
-      Churitsu_character_sheet_final_11: 962951569
-      Churitsu_character_sheet_final_12: 1300828410
-      Churitsu_character_sheet_final_13: 616549060
-      Churitsu_character_sheet_final_14: -1170039227
-      Churitsu_character_sheet_final_15: -1188565692
-      Churitsu_character_sheet_final_16: -1851228308
-      Churitsu_character_sheet_final_17: 1320497014
-      Churitsu_character_sheet_final_18: -709205365
-      Churitsu_character_sheet_final_19: 1578975913
-      Churitsu_character_sheet_final_2: -1439477625
-      Churitsu_character_sheet_final_20: 769978549
-      Churitsu_character_sheet_final_21: -1484260486
-      Churitsu_character_sheet_final_22: -475010945
-      Churitsu_character_sheet_final_23: -130350175
-      Churitsu_character_sheet_final_24: -869056878
-      Churitsu_character_sheet_final_25: -829136931
-      Churitsu_character_sheet_final_26: 490496714
-      Churitsu_character_sheet_final_27: -403896556
-      Churitsu_character_sheet_final_28: 2069643394
-      Churitsu_character_sheet_final_29: 1526146293
-      Churitsu_character_sheet_final_3: -634013643
-      Churitsu_character_sheet_final_30: -1798542003
-      Churitsu_character_sheet_final_31: 1185900833
-      Churitsu_character_sheet_final_32: 1383146630
-      Churitsu_character_sheet_final_33: -949112525
-      Churitsu_character_sheet_final_34: -1823797214
-      Churitsu_character_sheet_final_35: 1395789874
-      Churitsu_character_sheet_final_36: -1547439177
-      Churitsu_character_sheet_final_37: 1110701642
-      Churitsu_character_sheet_final_4: 845094408
-      Churitsu_character_sheet_final_5: -1113096752
-      Churitsu_character_sheet_final_6: 824792324
-      Churitsu_character_sheet_final_7: -482379601
-      Churitsu_character_sheet_final_8: 1487308142
-      Churitsu_character_sheet_final_9: 1406442373
+      PlayerSheet_0: -1828851091
+      PlayerSheet_1: -967493285
+      PlayerSheet_10: -738191496
+      PlayerSheet_11: 1511998697
+      PlayerSheet_12: -1203531680
+      PlayerSheet_13: 2093411450
+      PlayerSheet_14: -365427044
+      PlayerSheet_15: 1677565379
+      PlayerSheet_16: 1331010817
+      PlayerSheet_17: -2047594636
+      PlayerSheet_18: -73707988
+      PlayerSheet_19: 1062595636
+      PlayerSheet_2: -1060031246
+      PlayerSheet_20: 1219108426
+      PlayerSheet_21: 356960674
+      PlayerSheet_22: -1404227949
+      PlayerSheet_23: -2005545300
+      PlayerSheet_24: 1044833574
+      PlayerSheet_25: -551848284
+      PlayerSheet_26: 744074097
+      PlayerSheet_27: 1102878245
+      PlayerSheet_28: -78658046
+      PlayerSheet_29: 651571280
+      PlayerSheet_3: 258789642
+      PlayerSheet_30: 2139707699
+      PlayerSheet_31: 232133549
+      PlayerSheet_32: -749373555
+      PlayerSheet_33: 918127580
+      PlayerSheet_34: -791229639
+      PlayerSheet_35: 1552582983
+      PlayerSheet_36: -83724722
+      PlayerSheet_37: -1789472921
+      PlayerSheet_4: 1740283708
+      PlayerSheet_5: -1243417705
+      PlayerSheet_6: 777884851
+      PlayerSheet_7: 812041348
+      PlayerSheet_8: -770873540
+      PlayerSheet_9: 869432708
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
