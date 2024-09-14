@@ -48,6 +48,7 @@ namespace _Scripts.Gameplay.Execution
             
             _player.Movement.AssignHomeSpot(new Vector2Int(currentLevel.PlayerSpot, 0));
             _player.Movement.AssignOriginalDirection(currentLevel.PlayerReversed ? -1 : 1);
+            _player.Attack.AssignStartingWeaponType(currentLevel.PlayerStartingWeapon);
 
             foreach (EnemySpawnInfo spawnInfo in currentLevel.Enemies)
             {

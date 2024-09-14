@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0516312cbaf341b99e00e76743612be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _turnsPerSecond: 3
+  _turnsPerSecond: 1
   _maxTurns: 99
 --- !u!4 &114069495
 Transform:

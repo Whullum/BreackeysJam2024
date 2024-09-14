@@ -17,6 +17,9 @@ namespace _Scripts.Gameplay
         private bool _playerReversed;
         
         [SerializeField]
+        private WeaponType _playerStartingWeapon;
+        
+        [SerializeField]
         private EnemySpawnInfo[] _enemies;
 
         [SerializeField]
@@ -25,6 +28,8 @@ namespace _Scripts.Gameplay
         public int PlayerSpot => _playerSpot;
 
         public bool PlayerReversed => _playerReversed;
+
+        public WeaponType PlayerStartingWeapon => _playerStartingWeapon;
 
         public EnemySpawnInfo[] Enemies => _enemies;
 

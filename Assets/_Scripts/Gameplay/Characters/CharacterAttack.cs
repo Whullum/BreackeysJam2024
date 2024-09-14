@@ -24,7 +24,9 @@ namespace _Scripts.Gameplay.Characters
         private int _kickDamage;
         
         private CharacterMovement _movement;
-        
+
+        private CharacterLife _life;
+        private CharacterLife Life => _life ??= GetComponent<CharacterLife>(); 
         private CharacterMovement Movement => _movement ??= GetComponent<CharacterMovement>();
 
         [Inject]
@@ -45,8 +47,10 @@ namespace _Scripts.Gameplay.Characters
 
         public bool Punch()
         {
-            if ( ! TryGetVictim(1, out CharacterMarker victim))
+            if ( ! TryGetVictim(1, out CharacterMarker victim) || victim.Life.IsDodging)
                 return false;
+            
+            victim.Life.StopGuard();
             victim.Life.TakeDamage(_punchDamage);
             Punched?.Invoke();
 
@@ -62,9 +66,9 @@ namespace _Scripts.Gameplay.Characters
                 return true;
             }
 
-            if (!Movement.IsInAir)
+            if ( ! Movement.IsInAir)
                 return true;
-            
+
             Spot destination = null;
             for (int i = 10; i >= 0; i--)
             {
@@ -83,7 +87,7 @@ namespace _Scripts.Gameplay.Characters
 
         public bool Kick()
         {
-            if ( ! TryGetVictim(1, out CharacterMarker victim))
+            if ( ! TryGetVictim(1, out CharacterMarker victim) || victim.Life.IsDodging || victim.Life.IsGuarding)
                 return false;
 
             victim.Life.TakeDamage(_kickDamage);
@@ -158,7 +162,6 @@ namespace _Scripts.Gameplay.Characters
                     continue;
             
                 victim = adjacentSpot.GetObject<CharacterMovement>()?.GetComponent<CharacterMarker>();
-                Debug.Log($"{victim?.GetType()} {GetComponent<CharacterMarker>().GetType()}");
                 if (victim?.GetType() == GetComponent<CharacterMarker>().GetType())
                 {
                     victim = null;

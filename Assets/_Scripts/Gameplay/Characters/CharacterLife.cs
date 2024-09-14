@@ -17,10 +17,15 @@ namespace _Scripts.Gameplay.Characters
         public bool IsDead { get; private set; }
 
         public bool IsDodging { get; private set; }
+
+        public bool IsGuarding { get; private set; }
         
         public event Action Died;
         public event Action TookHit;
         public event Action Dodged;
+        public event Action Guarded;
+        public event Action Blocked;
+        public event Action StoppedGuard;
         
         [Inject]
         private FightPlayer _fightPlayer;
@@ -32,6 +37,7 @@ namespace _Scripts.Gameplay.Characters
         {
             _health = _startingHealth;
             _fightPlayer.TurnStarted += StopDodge;
+            _fightPlayer.TurnStarted += StopGuard;
             _comboSystem.ComboEnded += CheckDeath;
         }
 
@@ -40,6 +46,11 @@ namespace _Scripts.Gameplay.Characters
             if (IsDead)
                 return;
 
+            if (IsGuarding)
+            {
+                Blocked?.Invoke();
+                return;
+            }
             if (IsDodging)
             {
                 Dodged?.Invoke();
@@ -58,6 +69,18 @@ namespace _Scripts.Gameplay.Characters
         {
             if (_health <= 0)
                 Kill();
+        }
+
+        public void Guard()
+        {
+            IsGuarding = true;
+            Guarded?.Invoke();
+        }
+
+        public void StopGuard()
+        {
+            IsDodging = false;
+            StoppedGuard?.Invoke();
         }
 
         public void Dodge()
@@ -87,6 +110,8 @@ namespace _Scripts.Gameplay.Characters
         {
             _health = _startingHealth;
             IsDead = false;
+            StopGuard();
+            StopDodge();
         }
 
         public void Restore() => gameObject.SetActive(true);
