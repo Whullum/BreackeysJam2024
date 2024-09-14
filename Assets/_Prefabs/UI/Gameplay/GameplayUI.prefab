@@ -802,6 +802,7 @@ GameObject:
   - component: {fileID: 5236846065992293291}
   - component: {fileID: 5266542254883252637}
   - component: {fileID: 1472630694508684319}
+  - component: {fileID: 218380720580957605}
   m_Layer: 5
   m_Name: SimulateButton
   m_TagString: Untagged
@@ -857,7 +858,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 46c0639b89422ac10ad3074874447099, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d8221b54a0dd7c2479c48c275bde8ea2, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -966,6 +967,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _real: 0
+--- !u!114 &218380720580957605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430730056584762887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59581b10cd628744aacc1a8ca5f26da4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  _originalColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1533673815162802433
 GameObject:
   m_ObjectHideFlags: 0
@@ -2960,7 +2975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
+  m_Color: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 0.40784314}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
