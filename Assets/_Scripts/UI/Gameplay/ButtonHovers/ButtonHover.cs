@@ -24,6 +24,10 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             _toScale = GetComponent<RectTransform>();
         }
     }
+    private void OnEnable()
+    {
+        _toScale.localScale = Vector3.one;
+    }
 
     public void OnPointerEnter(PointerEventData _)
     {
