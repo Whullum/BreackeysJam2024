@@ -1,4 +1,5 @@
-﻿using _Scripts.Gameplay;
+﻿using System.Reflection;
+using _Scripts.Gameplay;
 using _Scripts.Gameplay.Characters;
 using _Scripts.Gameplay.Props;
 using _Scripts.Gameplay.Execution;
@@ -8,6 +9,8 @@ using _Scripts.Gameplay.Weapon;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
+using System;
+using NaughtyAttributes.Test;
 
 namespace _Scripts.Infrastructure
 {
@@ -36,6 +39,9 @@ namespace _Scripts.Infrastructure
 
         [SerializeField]
         private FightPlayer _fightPlayer;
+
+        [SerializeField]
+        private GameOverScreen _gameOverScreen;
         
         public override void InstallBindings()
         {
@@ -48,6 +54,12 @@ namespace _Scripts.Infrastructure
             Container.Bind<PropFactory>().FromInstance(_propFactory).AsSingle();
             Container.Bind<ManaBarController>().FromInstance(_manaBarController).AsSingle();
             Container.Bind<ComboSystem>().AsSingle();
+            
+            Container.Bind<GameOverScreen>().FromInstance(_gameOverScreen).AsSingle();
+
+
+
+
         }
     }
 }

@@ -14,6 +14,12 @@ namespace _Scripts.Gameplay.Execution
 {
     public class FightPlayer : MonoBehaviour
     {
+        [SerializeField]
+        private float _turnsPerSecond;
+        
+        [SerializeField]
+        private int _maxTurns;
+        
         [Inject]
         private Timeline _timeline;
 
@@ -36,30 +42,52 @@ namespace _Scripts.Gameplay.Execution
         private WeaponOnGroundFactory _weaponOnGroundFactory;
 
         [Inject]
-        private PropFactory _propFactory;
+        private GameOverScreen _gameOverScreen;
 
+        [Inject]
+        private PropFactory _propFactory;
+        
+        private FightState _currentState;
+
+        private float TurnsPeriod => 1 / _turnsPerSecond;
+        
         private bool IsWinConditionMet => _enemyContainer.Enemies.All(e => e.Life.IsDead);
 
         private bool IsLoseConditionMet => _player.Life.IsDead;
 
-        private bool _isFighting = false;
+        public bool IsPlanning => _currentState == FightState.Planning;
+        
+        public bool IsForeseeing => _currentState == FightState.Foresight;
+
+        public bool IsFightingReal => _currentState == FightState.RealFight;
 
         public event Action TurnStarted;
 
-        public void PlayFight()
+        public void PlayFight(bool real)
         {
-            if (!_isFighting)
+            if (IsPlanning)
             {
-                StartCoroutine(Fight());
+                StartCoroutine(Fight(real));
             }
         }
 
-        private IEnumerator Fight()
+        public void StopFight()
         {
-            // Fight is limited by 99 turns. This is a sanity check.
-            _isFighting = true;
+            if ( ! IsForeseeing)
+                return;
+            
+            StopAllCoroutines();
+            _currentState = FightState.Planning;
+            Debug.Log("Fight is over");
+            _soundManager.SwitchMusicState(GameplayAudioState.Calm);
+            RestoreScene();
+        }
+
+        private IEnumerator Fight(bool real)
+        {
+            _currentState = real ? FightState.RealFight : FightState.Foresight;
             _soundManager.SwitchMusicState(GameplayAudioState.Storm);
-            for (int turn = 0; turn < 99; turn++)
+            for (int turn = 0; turn < _maxTurns; turn++)
             {
                 TurnStarted?.Invoke();
                 _comboSystem.SwitchTurns();
@@ -74,7 +102,7 @@ namespace _Scripts.Gameplay.Execution
                     _player.Movement.TryDescend();
                 }
 
-                yield return new WaitForSeconds(0.3f);
+                yield return new WaitForSeconds(TurnsPeriod);
 
                 _comboSystem.UpdateComboState();
                 if (_comboSystem.IsComboActive)
@@ -86,25 +114,33 @@ namespace _Scripts.Gameplay.Execution
                 foreach (EnemyMarker enemy in _enemyContainer.Enemies)
                 {
                     enemy.Behaviour.PerformNextTurn();
-                    yield return new WaitForSeconds(0.3f);
+                    yield return new WaitForSeconds(TurnsPeriod);
                 }
 
 
-                if (IsWinConditionMet)
-                {
-                    _levelLoader.LoadNextLevel();
-                    break;
-                }
-                if (IsLoseConditionMet)
+                if (IsWinConditionMet || IsLoseConditionMet)
                 {
                     break;
                 }
             }
-            _isFighting = false;
-            Debug.Log("Fight is over");
 
+            if (real)
+            {
+                if (IsWinConditionMet)
+                {
+                    _levelLoader.LoadNextLevel();
+                }
+                else
+                {
+                    _gameOverScreen.ShowGameOver();
+                }
+            }
+            else
+            {
+                StopFight();
+            }
+            
             _soundManager.SwitchMusicState(GameplayAudioState.Calm);
-            RestoreScene();
         }
 
         private void RestoreScene()
@@ -117,6 +153,13 @@ namespace _Scripts.Gameplay.Execution
 
             _weaponOnGroundFactory.Discard();
             _propFactory.Discard();
+        }
+
+        private enum FightState
+        {
+            Planning,
+            Foresight,
+            RealFight
         }
     }
 }

@@ -94,20 +94,18 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private List<InteractableSFXSelector> _interactableSFX;
 
-    private EventReference _sliderSound;
-
+    [SerializeField]
     private FMOD.Studio.EventInstance _musicInstance;
 
+    private EventReference _sliderSound;
 
     public void ChangeVolume(VolumeType volumeType, float volume)
     {
         string volumeTypeName = Enum.GetName(typeof(VolumeType), volumeType);
 
-        // insert playerprefs fuckery maybe
-
         string busName = "bus:/" + volumeTypeName;
-        var bus = FMODUnity.RuntimeManager.GetBus(busName);
-        bus.setVolume(volume);
+        //var bus = FMODUnity.RuntimeManager.GetBus(busName);
+        //bus.setVolume(volume);
     }
 
     private void PlayOneShot(EventReference sound)
@@ -122,6 +120,7 @@ public class SoundManager : MonoBehaviour
 
         _musicInstance = FMODUnity.RuntimeManager.CreateInstance(music);
         _musicInstance.start();
+        //Debug.Log(_musicInstance);
     }
 
     public void StopRepeatAudio()
@@ -135,10 +134,11 @@ public class SoundManager : MonoBehaviour
 
     public void SwitchMusicState(GameplayAudioState audioState)
     {
+        //Debug.Log(_musicInstance);
         if (audioState == GameplayAudioState.Calm)
-            _musicInstance.setParameterByNameWithLabel("GameplayState", "Calm");
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByNameWithLabel("GameplayState", "Calm");
         else
-            _musicInstance.setParameterByNameWithLabel("GameplayState", "Storm");
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByNameWithLabel("GameplayState", "Storm");
     }
 
     public void PlayBackgroundMusic(BackgroundMusicType musicType)

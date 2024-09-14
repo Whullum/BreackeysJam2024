@@ -8,21 +8,33 @@ using UnityEngine.Serialization;
 namespace _Scripts.Gameplay
 {
     [CreateAssetMenu(menuName = "Level")]
-    public class LevelData : ScriptableObject
+    public class LevelData : LevelSource
     {
         [SerializeField]
         private int _playerSpot;
+
+        [SerializeField]
+        private bool _playerReversed;
+        
+        [SerializeField]
+        private WeaponType _playerStartingWeapon;
         
         [SerializeField]
         private EnemySpawnInfo[] _enemies;
 
-        [FormerlySerializedAs("_otherObjects")] [SerializeField]
+        [SerializeField]
         private PropsSpawnData[] _props;
         
         public int PlayerSpot => _playerSpot;
 
+        public bool PlayerReversed => _playerReversed;
+
+        public WeaponType PlayerStartingWeapon => _playerStartingWeapon;
+
         public EnemySpawnInfo[] Enemies => _enemies;
 
         public PropsSpawnData[] Props => _props;
+
+        public override LevelData Level => this;
     }
 }

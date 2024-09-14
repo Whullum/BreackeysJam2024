@@ -76,3 +76,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _soundManager: {fileID: 655849082041155799, guid: 9a3416b6eaa654821a424bf4f241381f, type: 3}
   _levelLoaderPrefab: {fileID: 1655714347906656203, guid: 8ac11598ef9c3968580608d1728ba30d, type: 3}
+  _foresightUsagePrefab: {fileID: 1128820064404916290, guid: ab5623bcd67537145b1e2add50d1f03f, type: 3}

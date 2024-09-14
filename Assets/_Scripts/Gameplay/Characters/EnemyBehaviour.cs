@@ -57,6 +57,10 @@ namespace _Scripts.Gameplay.Characters
                     PerformAttack();
                     break;
                 
+                case EnemyIntention.Guard:
+                    PerformGuard();
+                    break;
+                
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -92,6 +96,11 @@ namespace _Scripts.Gameplay.Characters
                 Attack.Punch();
         }
 
+        private void PerformGuard()
+        {
+            Life.Guard();
+        }
+
         public void Restore()
         {
             Turn = 0;
@@ -101,6 +110,7 @@ namespace _Scripts.Gameplay.Characters
     public enum EnemyIntention
     {
         Move,
-        Attack
+        Attack,
+        Guard
     }
 }

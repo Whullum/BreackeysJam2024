@@ -18,7 +18,7 @@ public class MainMenuUISystem : MonoBehaviour
     [Inject]
     private SoundManager _soundManager;
 
-    private void Start()
+    private void Awake()
     {
         _soundManager.StopRepeatAudio();
         OpenMainMenu();

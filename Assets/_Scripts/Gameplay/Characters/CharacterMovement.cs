@@ -9,6 +9,8 @@ namespace _Scripts.Gameplay.Characters
 {
     public sealed class CharacterMovement : SpotObject
     {
+        private int _originalDirection;
+        
         public int Direction
         {
             get => transform.localScale.x.Sign();
@@ -21,12 +23,22 @@ namespace _Scripts.Gameplay.Characters
         }
 
         private CharacterLife _life;
-        public CharacterLife Life => _life ??= GetComponent<CharacterLife>(); 
-    
-
+        public CharacterLife Life => _life ??= GetComponent<CharacterLife>();
+        
         private void Awake()
         {
             Life.Died += LeaveCurrentSpot;
+        }
+
+        public void AssignOriginalDirection(int direction)
+        {
+            Direction = direction;
+            _originalDirection = Direction;
+        }
+
+        public void ReturnToOriginalDirection()
+        {
+            Direction = _originalDirection;
         }
 
         public void TurnAround()
@@ -73,7 +85,7 @@ namespace _Scripts.Gameplay.Characters
         public override void Restore()
         {
             base.Restore();
-            Direction = 1;
+            ReturnToOriginalDirection();
         }
     }
 }

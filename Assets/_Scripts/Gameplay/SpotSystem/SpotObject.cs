@@ -1,4 +1,5 @@
-﻿using _Scripts.Gameplay.Execution;
+﻿using System;
+using _Scripts.Gameplay.Execution;
 using UnityEngine;
 using Zenject;
 
@@ -16,9 +17,13 @@ namespace _Scripts.Gameplay.SpotSystem
         public Vector2Int Coordinates => CurrentSpot.Coordinates;
 
         public bool IsInAir => Coordinates.y > 0;
+
+        protected virtual bool ReturnToHomeSpotOnDiscard => true;
         
         [Inject]
         protected SpotMap SpotMap { get; private set; }
+
+        public event Action MadeStep;
 
         private void FixedUpdate()
         {
@@ -59,7 +64,11 @@ namespace _Scripts.Gameplay.SpotSystem
             if (teleport)
             {
                 transform.position = destination.transform.position;
-            } 
+            }
+            else
+            {
+                MadeStep?.Invoke();
+            }
         }
 
         public abstract void OnForceLeave();
@@ -70,11 +79,16 @@ namespace _Scripts.Gameplay.SpotSystem
             CurrentSpot = null;
         }
 
-        public virtual void Discard() => LeaveCurrentSpot();
+        public virtual void Discard()
+        {
+            if (ReturnToHomeSpotOnDiscard)
+                LeaveCurrentSpot();
+        }
 
         public virtual void Restore()
         {
-            ReturnToHomeSpot();
+            if (ReturnToHomeSpotOnDiscard)
+                ReturnToHomeSpot();
         }
     }
 }
