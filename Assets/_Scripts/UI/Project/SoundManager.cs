@@ -103,11 +103,9 @@ public class SoundManager : MonoBehaviour
     {
         string volumeTypeName = Enum.GetName(typeof(VolumeType), volumeType);
 
-        // insert playerprefs fuckery maybe
-
         string busName = "bus:/" + volumeTypeName;
-        var bus = FMODUnity.RuntimeManager.GetBus(busName);
-        bus.setVolume(volume);
+        //var bus = FMODUnity.RuntimeManager.GetBus(busName);
+        //bus.setVolume(volume);
     }
 
     private void PlayOneShot(EventReference sound)
