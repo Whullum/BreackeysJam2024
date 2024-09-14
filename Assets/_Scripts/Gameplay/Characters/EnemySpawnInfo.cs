@@ -11,12 +11,17 @@ namespace _Scripts.Gameplay.Characters
         private int _spot;
         
         [SerializeField]
+        private bool _reversed;
+        
+        [SerializeField]
         private EnemyIntention[] _behaviourOverride;
         
         [SerializeField]
         private WeaponType _weaponOverride; 
         
         public int Spot => _spot;
+        
+        public bool Reversed => _reversed;
 
         public EnemyIntention[] BehaviourOverride => _behaviourOverride;
 

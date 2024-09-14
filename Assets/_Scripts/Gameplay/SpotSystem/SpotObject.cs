@@ -1,4 +1,5 @@
-﻿using _Scripts.Gameplay.Execution;
+﻿using System;
+using _Scripts.Gameplay.Execution;
 using UnityEngine;
 using Zenject;
 
@@ -19,6 +20,8 @@ namespace _Scripts.Gameplay.SpotSystem
         
         [Inject]
         protected SpotMap SpotMap { get; private set; }
+
+        public event Action MadeStep;
 
         private void FixedUpdate()
         {
@@ -59,7 +62,11 @@ namespace _Scripts.Gameplay.SpotSystem
             if (teleport)
             {
                 transform.position = destination.transform.position;
-            } 
+            }
+            else
+            {
+                MadeStep?.Invoke();
+            }
         }
 
         public abstract void OnForceLeave();

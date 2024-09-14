@@ -29,6 +29,8 @@ namespace _Scripts.Extentions
             return choosed;
         }
 
+        public static T TakeAwayRandomElement<T>(ref List<T> collection) => TakeAwayRandomElements(ref collection, 1)[0];
+
         public static List<T> TakeAwayRandomElements<T>(ref List<T> collection, int ammount)
         {
             List<T> choosed = new List<T>();

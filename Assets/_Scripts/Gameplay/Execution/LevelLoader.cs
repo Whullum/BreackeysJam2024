@@ -7,11 +7,11 @@ namespace _Scripts.Gameplay.Execution
     public class LevelLoader : MonoBehaviour
     {
         [SerializeField]
-        private List<LevelData> _levels;
+        private List<LevelSource> _levels;
 
         private int _currentLevelID = 0;    
 
-        public LevelData CurrentLevel
+        public LevelSource CurrentLevel
         {
             get
             {

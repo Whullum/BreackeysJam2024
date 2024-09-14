@@ -24,14 +24,6 @@ namespace _Scripts.Gameplay
         [Inject]
         private SpotMap SpotMap { get; set; }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                _fightPlayer.PlayFight();
-            }
-        }
-
         public EnemyMarker SpawnEnemy(EnemyMarker prefab, Vector2Int coordinates)
         {
             Spot targetSpot = SpotMap.GetSpot(coordinates);

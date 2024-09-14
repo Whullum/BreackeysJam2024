@@ -28,7 +28,7 @@ namespace _Scripts.Gameplay.Execution
 
         private void Start()
         {
-            SetupLevel(_levelLoader.CurrentLevel);
+            SetupLevel(_levelLoader.CurrentLevel.Level);
 
             _soundManager.PlayBackgroundMusic(BackgroundMusicType.Simulation);
         }
@@ -47,10 +47,13 @@ namespace _Scripts.Gameplay.Execution
             }
             
             _player.Movement.AssignHomeSpot(new Vector2Int(currentLevel.PlayerSpot, 0));
+            _player.Movement.AssignOriginalDirection(currentLevel.PlayerReversed ? -1 : 1);
+            _player.Attack.AssignStartingWeaponType(currentLevel.PlayerStartingWeapon);
 
             foreach (EnemySpawnInfo spawnInfo in currentLevel.Enemies)
             {
                 EnemyMarker newEnemy = _enemyContainer.SpawnEnemy(_enemyPrefab, new Vector2Int(spawnInfo.Spot, 0));
+                newEnemy.Movement.AssignOriginalDirection(spawnInfo.Reversed ? -1 : 1);
                 if (spawnInfo.BehaviourOverride.Length > 0)
                 {
                     newEnemy.Behaviour.ApplyLoop(spawnInfo.BehaviourOverride);
