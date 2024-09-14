@@ -701,6 +701,8 @@ MonoBehaviour:
   cursorTexture: {fileID: 2800000, guid: bc70600459ce4e34d9b0324cd9c796c6, type: 3}
   cursorMode: 1
   hotSpot: {x: 0, y: 0}
+  originalSprite: {fileID: 21300000, guid: 333e9631cf98fe84a9a55c3555318e00, type: 3}
+  highlightSprite: {fileID: 21300000, guid: 85e490ebafb87e34bb8d1fac10cfbf2f, type: 3}
 --- !u!58 &1593148652
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1598,6 +1600,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4036358274506418440, guid: ca7112de818b89cb798dbf364ec365e6, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 333e9631cf98fe84a9a55c3555318e00, type: 3}
+    - target: {fileID: 4036358274506418440, guid: ca7112de818b89cb798dbf364ec365e6, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036358274506418440, guid: ca7112de818b89cb798dbf364ec365e6, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4036358274506418440, guid: ca7112de818b89cb798dbf364ec365e6, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4086076824552800328, guid: ca7112de818b89cb798dbf364ec365e6, type: 3}
       propertyPath: m_Name
       value: GameplayUI
@@ -1718,6 +1736,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4750631842459563120, guid: ca7112de818b89cb798dbf364ec365e6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.0000076
+      objectReference: {fileID: 0}
     - target: {fileID: 4888677624859055452, guid: ca7112de818b89cb798dbf364ec365e6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1925,6 +1947,30 @@ PrefabInstance:
     - target: {fileID: 5763108937803726586, guid: ca7112de818b89cb798dbf364ec365e6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940107350595416517, guid: ca7112de818b89cb798dbf364ec365e6, type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940107350595416517, guid: ca7112de818b89cb798dbf364ec365e6, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5d6ab9b0970857b47af628596aa8f2cc, type: 3}
+    - target: {fileID: 5940107350595416517, guid: ca7112de818b89cb798dbf364ec365e6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940107350595416517, guid: ca7112de818b89cb798dbf364ec365e6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940107350595416517, guid: ca7112de818b89cb798dbf364ec365e6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940107350595416517, guid: ca7112de818b89cb798dbf364ec365e6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: _Scripts.Gameplay.UI.ForeseeButton, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6306364686723476409, guid: ca7112de818b89cb798dbf364ec365e6, type: 3}
       propertyPath: m_SizeDelta.x
