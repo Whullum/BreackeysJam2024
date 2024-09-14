@@ -11,9 +11,17 @@ namespace _Scripts.Gameplay.Props
 
         public bool IsBroken => Durability == 0;
 
+        public bool IsImpaledOn { get; private set; }
+
         private void Awake()
         {
             RestoreDurability();
+        }
+
+        public void Impale()
+        {
+            if (IsBroken)
+                IsImpaledOn = true;
         }
 
         public void TakeHit()
@@ -32,6 +40,7 @@ namespace _Scripts.Gameplay.Props
         private void RestoreDurability()
         {
             Durability = _startingDurability;
+            IsImpaledOn = false;
         }
     }
 }

@@ -37,7 +37,7 @@ namespace _Scripts.Gameplay.SpotSystem
                 return null;
             
             T newObj = ContainerFactory.Instantiate<T>(prefab ?? _defaultPrefab.gameObject, spot.transform.position, transform);
-            newObj.GoToSpot(coordinates, true);
+            newObj.AssignHomeSpot(coordinates);
             _pool.Add(newObj);
             return newObj;
         }

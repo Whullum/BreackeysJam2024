@@ -47,22 +47,34 @@ namespace _Scripts.Gameplay.Characters
 
         public bool Punch()
         {
-            if ( ! TryGetVictim(1, out CharacterMarker victim) || victim.Life.IsDodging)
+            if ( ! TryGetVictim(1, out CharacterMarker victim))
                 return false;
             
             victim.Life.StopGuard();
             victim.Life.TakeDamage(_punchDamage);
             Punched?.Invoke();
 
-            if (victim.Movement.CurrentSpot?.GetObject<ElectricPole>()?.IsBroken ?? false)
+            ElectricPole impalePole = victim.Movement.CurrentSpot?.GetObject<ElectricPole>();
+            if (impalePole?.IsBroken ?? false)
             {
                 victim.Life.Kill();
+                impalePole.Impale();
                 return true;
             }
-            if (victim.Movement.CurrentSpot?.GetAdjacentSpot(new Vector2Int(1, 0) * Movement.Direction)?.GetObject<ElectricPole>()?.IsBroken ?? false)
+
+            Debug.Log(victim);
+            Debug.Log(victim.Movement);
+            Debug.Log(victim.Movement.CurrentSpot);
+            Debug.Log(victim.Movement.CurrentSpot.GetAdjacentSpot(new Vector2Int(1, 0) * Movement.Direction));
+            Debug.Log(victim.Movement.CurrentSpot.GetAdjacentSpot(new Vector2Int(1, 0) * Movement.Direction).GetObject<ElectricPole>());
+            impalePole = victim.Movement.CurrentSpot?.GetAdjacentSpot(new Vector2Int(1, 0) * Movement.Direction)
+                ?.GetObject<ElectricPole>();
+            if (impalePole?.IsBroken ?? false)
             {
+                Debug.Log(impalePole);
                 victim.Movement.GoToSpot(victim.Movement.Coordinates + new Vector2Int(1, 0) * Movement.Direction);
                 victim.Life.Kill();
+                impalePole.Impale();
                 return true;
             }
 
@@ -87,12 +99,12 @@ namespace _Scripts.Gameplay.Characters
 
         public bool Kick()
         {
-            if ( ! TryGetVictim(1, out CharacterMarker victim) || victim.Life.IsDodging || victim.Life.IsGuarding)
+            if ( ! TryGetVictim(1, out CharacterMarker victim))
                 return false;
 
             victim.Life.TakeDamage(_kickDamage);
             Kicked?.Invoke();
-            if (victim.Life.IsDead)
+            if (victim.Life.IsDead || victim.Life.IsGuarding)
                 return true;
             
             if (Movement.IsInAir)

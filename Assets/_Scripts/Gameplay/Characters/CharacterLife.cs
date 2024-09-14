@@ -79,7 +79,7 @@ namespace _Scripts.Gameplay.Characters
 
         public void StopGuard()
         {
-            IsDodging = false;
+            IsGuarding = false;
             StoppedGuard?.Invoke();
         }
 

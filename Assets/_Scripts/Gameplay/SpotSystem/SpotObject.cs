@@ -17,6 +17,8 @@ namespace _Scripts.Gameplay.SpotSystem
         public Vector2Int Coordinates => CurrentSpot.Coordinates;
 
         public bool IsInAir => Coordinates.y > 0;
+
+        protected virtual bool ReturnToHomeSpotOnDiscard => true;
         
         [Inject]
         protected SpotMap SpotMap { get; private set; }
@@ -77,11 +79,16 @@ namespace _Scripts.Gameplay.SpotSystem
             CurrentSpot = null;
         }
 
-        public virtual void Discard() => LeaveCurrentSpot();
+        public virtual void Discard()
+        {
+            if (ReturnToHomeSpotOnDiscard)
+                LeaveCurrentSpot();
+        }
 
         public virtual void Restore()
         {
-            ReturnToHomeSpot();
+            if (ReturnToHomeSpotOnDiscard)
+                ReturnToHomeSpot();
         }
     }
 }
