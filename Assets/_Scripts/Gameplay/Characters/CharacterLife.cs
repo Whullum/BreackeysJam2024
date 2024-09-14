@@ -46,7 +46,6 @@ namespace _Scripts.Gameplay.Characters
             if (IsDead)
                 return;
 
-            Debug.Log(IsDodging);
             if (IsGuarding)
             {
                 Blocked?.Invoke();

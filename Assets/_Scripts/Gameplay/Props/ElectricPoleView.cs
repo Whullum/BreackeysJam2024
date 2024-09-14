@@ -10,6 +10,9 @@ namespace _Scripts.Gameplay.Props
 
         [SerializeField]
         private SpriteRenderer _spriteRenderer;
+
+        [SerializeField]
+        private SpriteRenderer _impaledSpriteRenderer;
         
         [SerializeField]
         private Sprite[]  _spritePerDurability;
@@ -17,6 +20,7 @@ namespace _Scripts.Gameplay.Props
         private void Update()
         {
             _spriteRenderer.sprite = _spritePerDurability[_model.Durability];
+            _impaledSpriteRenderer.enabled = _model.IsImpaledOn;
         }
     }
 }

@@ -11,14 +11,21 @@ namespace _Scripts.Gameplay.Props
 
         public bool IsBroken => Durability == 0;
 
+        public bool IsImpaledOn { get; private set; }
+
         private void Awake()
         {
             RestoreDurability();
         }
 
+        public void Impale()
+        {
+            if (IsBroken)
+                IsImpaledOn = true;
+        }
+
         public void TakeHit()
         {
-            Debug.Log("Hit");
             Durability--;
             Durability = Mathf.Max(Durability, 0);
             Debug.Log(Durability);
@@ -33,6 +40,7 @@ namespace _Scripts.Gameplay.Props
         private void RestoreDurability()
         {
             Durability = _startingDurability;
+            IsImpaledOn = false;
         }
     }
 }

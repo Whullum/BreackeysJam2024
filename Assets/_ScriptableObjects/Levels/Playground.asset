@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a338ed11c3c24361903f209526102940, type: 3}
   m_Name: Playground
   m_EditorClassIdentifier: 
-  _playerSpot: 4
-  _playerReversed: 0
+  _playerSpot: 2
+  _playerReversed: 1
   _playerStartingWeapon: {fileID: 11400000, guid: 23dcc1764686e3b45be9fd22b86c8b5c, type: 2}
   _enemies:
-  - _spot: 3
+  - _spot: 1
     _reversed: 0
     _behaviourOverride: 000000000100000002000000
     _weaponOverride: {fileID: 0}

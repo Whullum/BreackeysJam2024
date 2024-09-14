@@ -54,15 +54,27 @@ namespace _Scripts.Gameplay.Characters
             victim.Life.TakeDamage(_punchDamage);
             Punched?.Invoke();
 
-            if (victim.Movement.CurrentSpot?.GetObject<ElectricPole>()?.IsBroken ?? false)
+            ElectricPole impalePole = victim.Movement.CurrentSpot?.GetObject<ElectricPole>();
+            if (impalePole?.IsBroken ?? false)
             {
                 victim.Life.Kill();
+                impalePole.Impale();
                 return true;
             }
-            if (victim.Movement.CurrentSpot?.GetAdjacentSpot(new Vector2Int(1, 0) * Movement.Direction)?.GetObject<ElectricPole>()?.IsBroken ?? false)
+
+            Debug.Log(victim);
+            Debug.Log(victim.Movement);
+            Debug.Log(victim.Movement.CurrentSpot);
+            Debug.Log(victim.Movement.CurrentSpot.GetAdjacentSpot(new Vector2Int(1, 0) * Movement.Direction));
+            Debug.Log(victim.Movement.CurrentSpot.GetAdjacentSpot(new Vector2Int(1, 0) * Movement.Direction).GetObject<ElectricPole>());
+            impalePole = victim.Movement.CurrentSpot?.GetAdjacentSpot(new Vector2Int(1, 0) * Movement.Direction)
+                ?.GetObject<ElectricPole>();
+            if (impalePole?.IsBroken ?? false)
             {
+                Debug.Log(impalePole);
                 victim.Movement.GoToSpot(victim.Movement.Coordinates + new Vector2Int(1, 0) * Movement.Direction);
                 victim.Life.Kill();
+                impalePole.Impale();
                 return true;
             }
 
