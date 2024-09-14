@@ -102,7 +102,6 @@ namespace _Scripts.Gameplay.Execution
             }
             _isFighting = false;
             Debug.Log("Fight is over");
-
             _soundManager.SwitchMusicState(GameplayAudioState.Calm);
             RestoreScene();
         }

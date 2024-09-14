@@ -53,14 +53,6 @@ MonoBehaviour:
         Data3: 1793004701
         Data4: 535907996
       Path: event:/MUS_Gameplay
-  - type: 3
-    sound:
-      Guid:
-        Data1: -2018492899
-        Data2: 1193699164
-        Data3: 1793004701
-        Data4: 535907996
-      Path: event:/MUS_Gameplay
   _buttonClickSFX:
   - type: 1
     sound:
