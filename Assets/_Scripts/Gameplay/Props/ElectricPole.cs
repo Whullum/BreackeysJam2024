@@ -18,6 +18,7 @@ namespace _Scripts.Gameplay.Props
 
         public void TakeHit()
         {
+            Debug.Log("Hit");
             Durability--;
             Durability = Mathf.Max(Durability, 0);
             Debug.Log(Durability);
