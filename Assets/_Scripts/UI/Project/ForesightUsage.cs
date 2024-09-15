@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Zenject;
 
 namespace _Scripts.UI.Project
 {
@@ -10,6 +11,8 @@ namespace _Scripts.UI.Project
         private int _startingUses;
 
         public int UsesLeft { get; private set; }
+
+        public float UsagePercentage {get => UsesLeft/_startingUses;}
 
         private void Awake()
         {

@@ -13,8 +13,7 @@ public class TitleAnimation : MonoBehaviour
     [SerializeField]
     private List<RectTransform> _titles;
 
-    [Button]
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(AnimTitle());
     }
