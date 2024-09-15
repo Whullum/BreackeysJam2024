@@ -11,8 +11,8 @@ namespace _Scripts.Gameplay.Characters
     {
         [SerializeField]
         private int _startingHealth;
-        
-        private int _health;
+
+        public int Health { get; private set; }
 
         public bool IsDead { get; private set; }
 
@@ -35,7 +35,7 @@ namespace _Scripts.Gameplay.Characters
 
         private void Awake()
         {
-            _health = _startingHealth;
+            Health = _startingHealth;
             _fightPlayer.TurnStarted += StopDodge;
             _fightPlayer.TurnStarted += StopGuard;
             _comboSystem.ComboEnded += CheckDeath;
@@ -58,7 +58,7 @@ namespace _Scripts.Gameplay.Characters
             }
 
             damage = Math.Max(0, damage);
-            _health -= damage;
+            Health -= damage;
             TookHit?.Invoke();
 
             if ( ! _comboSystem.IsComboActive)
@@ -67,7 +67,7 @@ namespace _Scripts.Gameplay.Characters
 
         private void CheckDeath()
         {
-            if (_health <= 0)
+            if (Health <= 0)
                 Kill();
         }
 
@@ -99,7 +99,7 @@ namespace _Scripts.Gameplay.Characters
             if ( ! Application.isPlaying)
                 throw new InvalidOperationException("No killing in edit mode!");
             
-            _health = 0;
+            Health = 0;
             IsDead = true;
             Died?.Invoke();
             Debug.Log($"Add death animation here");
@@ -108,7 +108,7 @@ namespace _Scripts.Gameplay.Characters
 
         public void Discard()
         {
-            _health = _startingHealth;
+            Health = _startingHealth;
             IsDead = false;
             StopGuard();
             StopDodge();
