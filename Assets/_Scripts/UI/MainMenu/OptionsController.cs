@@ -23,9 +23,9 @@ public class OptionsController : MonoBehaviour
     private SoundManager _soundManager;
 
 
-    private string _mainVolumeKey = "Volume/Main";
-    private string _sfxVolumeKey = "Volume/SFX";
-    private string _musicVolumeKey = "Volume/Music";
+    private string _mainVolumeKey = "";
+    private string _sfxVolumeKey = "SFX";
+    private string _musicVolumeKey = "Music";
 
     [SerializeField]
     private float _timeBetweenSounds = 0.1f;
