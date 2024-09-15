@@ -49,7 +49,6 @@ namespace _Scripts.Gameplay.Execution
             }
             else
             {
-                GetSyncFromCombo();
                 ComboEnded?.Invoke();
             }
 

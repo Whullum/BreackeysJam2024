@@ -66,6 +66,15 @@ namespace _Scripts.Gameplay.Execution
 
         public event Action TurnStarted;
 
+        private void Awake()
+        {
+            _comboSystem.ComboEnded += () =>
+            {
+                if (IsFightingReal)
+                    _comboSystem.GetSyncFromCombo();
+            };
+        }
+
         public void PlayFight(bool real)
         {
             if (IsPlanning)
