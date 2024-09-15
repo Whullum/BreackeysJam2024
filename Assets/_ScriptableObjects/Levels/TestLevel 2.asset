@@ -13,10 +13,17 @@ MonoBehaviour:
   m_Name: TestLevel 2
   m_EditorClassIdentifier: 
   _playerSpot: 3
+  _playerReversed: 0
+  _playerStartingWeapon: {fileID: 0}
   _enemies:
   - _spot: 1
+    _reversed: 0
     _behaviourOverride: 000000000000000001000000
     _weaponOverride: {fileID: 11400000, guid: 23dcc1764686e3b45be9fd22b86c8b5c, type: 2}
   - _spot: 5
+    _reversed: 0
     _behaviourOverride: 0000000001000000
     _weaponOverride: {fileID: 0}
+  _props: []
+  _isTutorialLevel: 0
+  _tutorialText: 
