@@ -24,7 +24,7 @@ namespace _Scripts.Gameplay.UI
 
         private void OnEnable()
         {
-            _manaController.SetManaBar(_foresightUsage.UsagePercentage);
+            _manaController.SetManaBar(_foresightUsage.UsesLeft);
         }
 
         public void Fight()
@@ -40,7 +40,7 @@ namespace _Scripts.Gameplay.UI
                 {
                     _fightPlayer.PlayFight(false);
                 }
-                _manaController.SetManaBar(_foresightUsage.UsagePercentage);
+                _manaController.SetManaBar(_foresightUsage.UsesLeft);
 
                 _soundManager.PlayButtonClickSFX(ButtonClickSFX.Simulation);
 

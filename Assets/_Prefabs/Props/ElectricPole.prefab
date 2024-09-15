@@ -235,4 +235,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lerpMoveSpeed: 20
-  _startingDurability: 0
+  _startingDurability: 1

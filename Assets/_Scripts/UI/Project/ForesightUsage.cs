@@ -12,8 +12,6 @@ namespace _Scripts.UI.Project
 
         public int UsesLeft { get; private set; }
 
-        public float UsagePercentage {get => UsesLeft/_startingUses;}
-
         private void Awake()
         {
             ResetUses();
@@ -22,6 +20,13 @@ namespace _Scripts.UI.Project
         public void ResetUses()
         {
             UsesLeft = _startingUses;
+        }
+
+        public void AddUses(int amount)
+        {
+            if (amount <= 0)
+                return;
+            UsesLeft += amount;
         }
 
         public bool TryUse()
