@@ -28,7 +28,7 @@ namespace _Scripts.Gameplay
         [SerializeField]
         private bool _isTutorialLevel = false;
         
-        [Multiline]
+        [NaughtyAttributes.ResizableTextArea]
         [SerializeField]
         private string _tutorialText = "";
 
