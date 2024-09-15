@@ -49,6 +49,7 @@ public class OptionsController : MonoBehaviour
     public void UpdateMainVolume(float value)
     {
         _mainVolumeSlider.value = value;
+        PlayerPrefs.SetFloat(_mainVolumeKey, value);
         _soundManager.ChangeVolume(VolumeType.Main, value);
         _playSound = true;
     }
@@ -56,6 +57,7 @@ public class OptionsController : MonoBehaviour
     public void UpdateSFXVolume(float value)
     {
         _sfxVolumeSlider.value = value;
+        PlayerPrefs.SetFloat(_sfxVolumeKey, value);
         _soundManager.ChangeVolume(VolumeType.SFX, value);
         _playSound = true;
     }
@@ -63,6 +65,7 @@ public class OptionsController : MonoBehaviour
     public void UpdateMusicVolume(float value)
     {
         _musicVolumeSlider.value = value;
+        PlayerPrefs.SetFloat(_musicVolumeKey, value);
         _soundManager.ChangeVolume(VolumeType.Music, value);
         _playSound = true;
     }
