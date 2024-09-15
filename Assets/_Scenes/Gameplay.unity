@@ -391,6 +391,7 @@ MonoBehaviour:
   _fightPlayer: {fileID: 114069494}
   _tutorial: {fileID: 8249099283490418509}
   _gameOverScreen: {fileID: 8249099283490418508}
+  _victoryScreen: {fileID: 1481723054}
 --- !u!114 &262526470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -743,6 +744,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 4713573381419652582, guid: 02e24e8217d11654292e1e21e5d837eb, type: 3}
+--- !u!114 &1481723054 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7301699467754075821, guid: ca7112de818b89cb798dbf364ec365e6, type: 3}
+  m_PrefabInstance: {fileID: 8249099283490418506}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b0b185933a3e1226bfca8bb05503075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1561381680
 GameObject:
   m_ObjectHideFlags: 0

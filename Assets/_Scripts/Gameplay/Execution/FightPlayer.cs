@@ -45,6 +45,9 @@ namespace _Scripts.Gameplay.Execution
         private GameOverScreen _gameOverScreen;
 
         [Inject]
+        private VictoryScreen _victoryScreen;
+
+        [Inject]
         private PropFactory _propFactory;
         
         private FightState _currentState;
@@ -129,12 +132,13 @@ namespace _Scripts.Gameplay.Execution
             {
                 if (IsWinConditionMet)
                 {
-                    _levelLoader.LoadNextLevel();
+                    _victoryScreen.ShowVictoryScreen();
                 }
                 else
                 {
                     _gameOverScreen.ShowGameOver();
                 }
+                _soundManager.StopRepeatAudio();
             }
             else
             {

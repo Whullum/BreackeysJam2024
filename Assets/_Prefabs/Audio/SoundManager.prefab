@@ -61,22 +61,6 @@ MonoBehaviour:
         Data3: 1404959124
         Data4: 1137217380
       Path: event:/MUS_TitleMenu
-  - type: 3
-    sound:
-      Guid:
-        Data1: 500905579
-        Data2: 1271201856
-        Data3: 347661974
-        Data4: 882626326
-      Path: event:/MUS_Victory
-  - type: 3
-    sound:
-      Guid:
-        Data1: -762701127
-        Data2: 1297098951
-        Data3: 527731349
-        Data4: -66019866
-      Path: event:/MUS_LoseSinger
   _buttonClickSFX:
   - type: 1
     sound:
@@ -110,6 +94,22 @@ MonoBehaviour:
         Data3: 156952751
         Data4: 352841399
       Path: event:/UI_Card_Select
+  - type: 5
+    sound:
+      Guid:
+        Data1: 500905579
+        Data2: 1271201856
+        Data3: 347661974
+        Data4: 882626326
+      Path: event:/MUS_Victory
+  - type: 6
+    sound:
+      Guid:
+        Data1: -762701127
+        Data2: 1297098951
+        Data3: 527731349
+        Data4: -66019866
+      Path: event:/MUS_LoseSinger
   _buttonHoverSFX:
   - type: 1
     sound:

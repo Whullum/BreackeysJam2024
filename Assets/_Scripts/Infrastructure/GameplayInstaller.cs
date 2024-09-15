@@ -45,6 +45,9 @@ namespace _Scripts.Infrastructure
 
         [SerializeField]
         private GameOverScreen _gameOverScreen;
+
+        [SerializeField]
+        private VictoryScreen _victoryScreen;
         
         public override void InstallBindings()
         {
@@ -59,6 +62,7 @@ namespace _Scripts.Infrastructure
             Container.Bind<ComboSystem>().AsSingle();
             Container.Bind<TutorialScript>().FromInstance(_tutorial).AsSingle();
             Container.Bind<GameOverScreen>().FromInstance(_gameOverScreen).AsSingle();
+            Container.Bind<VictoryScreen>().FromInstance(_victoryScreen).AsSingle();
         }
     }
 }

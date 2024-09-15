@@ -5,13 +5,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class GameOverScreen : MonoBehaviour
+public class VictoryScreen : MonoBehaviour
 {
+    
     [SerializeField]
     private GameObject _toEnable;
 
     [SerializeField]
-    private Button _restartButton;
+    private Button _nextLevelButton;
 
     [Inject]
     private LevelLoader _levelLoader;
@@ -21,18 +22,17 @@ public class GameOverScreen : MonoBehaviour
 
     private void Awake()
     {
-        _restartButton.onClick.AddListener(OnRestart);
+        _nextLevelButton.onClick.AddListener(OnClick);
     }
 
-    private void OnRestart()
+    private void OnClick()
     {
-        _levelLoader.LoadLevel(0);
+        _levelLoader.LoadNextLevel();
     }
 
-    public void ShowGameOver()
+    public void ShowVictoryScreen()
     {
         _toEnable.SetActive(true);
-        _soundManager.PlayButtonClickSFX(ButtonClickSFX.Loss);
+        _soundManager.PlayButtonClickSFX(ButtonClickSFX.Victory);
     }
-
 }
