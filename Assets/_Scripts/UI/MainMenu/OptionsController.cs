@@ -27,6 +27,11 @@ public class OptionsController : MonoBehaviour
     private string _sfxVolumeKey = "Volume/SFX";
     private string _musicVolumeKey = "Volume/Music";
 
+    [SerializeField]
+    private float _timeBetweenSounds = 0.1f;
+    private float _lastSoundPlayed = 0f;
+    private bool _playSound =false;
+
     private void OnEnable()
     {
         float mainVolume = GetSavedVolume(_mainVolumeKey);
@@ -45,21 +50,34 @@ public class OptionsController : MonoBehaviour
     {
         _mainVolumeSlider.value = value;
         _soundManager.ChangeVolume(VolumeType.Main, value);
-        PlaySoundEffect();
+        _playSound = true;
     }
 
     public void UpdateSFXVolume(float value)
     {
         _sfxVolumeSlider.value = value;
         _soundManager.ChangeVolume(VolumeType.SFX, value);
-        PlaySoundEffect();
+        _playSound = true;
     }
 
     public void UpdateMusicVolume(float value)
     {
         _musicVolumeSlider.value = value;
         _soundManager.ChangeVolume(VolumeType.Music, value);
-        PlaySoundEffect();
+        _playSound = true;
+    }
+
+    private void Update()
+    {
+        if (Time.time - _lastSoundPlayed > _timeBetweenSounds)
+        {
+            if (_playSound)
+            {
+                PlaySoundEffect();
+                _playSound = false;
+                _lastSoundPlayed = Time.time;
+            }
+        }
     }
 
     private void OnDisable()

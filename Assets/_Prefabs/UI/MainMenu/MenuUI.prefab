@@ -747,6 +747,7 @@ MonoBehaviour:
   _mainVolumeSlider: {fileID: 2438537501543385123}
   _musicVolumeSlider: {fileID: 3920345761271016346}
   _sfxVolumeSlider: {fileID: 1900770825237640794}
+  _timeBetweenSounds: 0.075
 --- !u!1 &2241435993569945762
 GameObject:
   m_ObjectHideFlags: 0
