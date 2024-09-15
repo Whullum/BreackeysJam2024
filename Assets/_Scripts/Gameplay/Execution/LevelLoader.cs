@@ -57,6 +57,7 @@ namespace _Scripts.Gameplay.Execution
             if ((_currentLevelID >= _levels.Count) || (levelID < 0))
             {
                 Debug.LogError("Level out of range!");
+                LoadMainMenu();
                 return;
             }
             _currentLevelID = levelID;

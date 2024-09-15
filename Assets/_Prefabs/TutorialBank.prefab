@@ -59,12 +59,15 @@ MonoBehaviour:
 
     Explore
     their behaviour to find the best solution'
-  - SIMULATE spends SYNC, use them wisely
+  - SIMULATE spends SYNC, use those wisely
   - 'At least two chained attacks or successful dodges start a COMBO.
 
 
-    Longer
-    COMBOS give you SYNC in real fight.'
+    Repetitive
+    moves break the COMBO
+
+
+    Longer COMBOS give you SYNC in real fight.'
   - 'Chains can hit enemy at distance of 3 squares.
 
 

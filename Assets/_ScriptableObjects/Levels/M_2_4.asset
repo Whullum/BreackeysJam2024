@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a338ed11c3c24361903f209526102940, type: 3}
+  m_Name: M_2_4
+  m_EditorClassIdentifier: 
+  _playerSpot: 3
+  _playerReversed: 1
+  _playerStartingWeapon: {fileID: 0}
+  _enemies:
+  - _spot: 2
+    _reversed: 0
+    _behaviourOverride: 010000000000000002000000
+    _weaponOverride: {fileID: 0}
+  - _spot: 4
+    _reversed: 1
+    _behaviourOverride: 020000000000000001000000
+    _weaponOverride: {fileID: 0}
+  - _spot: 6
+    _reversed: 1
+    _behaviourOverride: 010000000000000002000000
+    _weaponOverride: {fileID: 11400000, guid: 23dcc1764686e3b45be9fd22b86c8b5c, type: 2}
+  _props:
+  - _prefab: {fileID: 91634067716177283, guid: d59654e9ffc8d29489890891eabd2434, type: 3}
+    _spot: 0

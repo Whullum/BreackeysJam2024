@@ -10,12 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2727d1a4c78418494b98e8075753ecb, type: 3}
-  m_Name: GroupEasy
+  m_Name: S_2_Group
   m_EditorClassIdentifier: 
   _levels:
-  - {fileID: 11400000, guid: d5006ee2bb0c231418ff5846a19b0c56, type: 2}
-  - {fileID: 11400000, guid: b7929ac7696c77544bfecb18aa0242fa, type: 2}
-  - {fileID: 11400000, guid: 17af1b60c9a50e5428c08dff1fd89df1, type: 2}
   - {fileID: 11400000, guid: 53c2e450914921b4ca18f022de50864f, type: 2}
   - {fileID: 11400000, guid: dca69e0d1c8555547ab060e9aa9ff815, type: 2}
   - {fileID: 11400000, guid: 764a531aeda493d4f99652d41841e5e7, type: 2}
