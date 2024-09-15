@@ -101,11 +101,26 @@ public class SoundManager : MonoBehaviour
 
     public void ChangeVolume(VolumeType volumeType, float volume)
     {
-        string volumeTypeName = Enum.GetName(typeof(VolumeType), volumeType);
+        //string volumeTypeName = Enum.GetName(typeof(VolumeType), volumeType);
+
+        string volumeTypeName = "";
+
+        switch (volumeType)
+        {
+            case VolumeType.Main:
+                volumeTypeName = "";
+                break;
+            case VolumeType.Music:
+                volumeTypeName = "Music";
+                break;
+            case VolumeType.SFX:
+                volumeTypeName = "SFX";
+                break;
+        }
 
         string busName = "bus:/" + volumeTypeName;
-        //var bus = FMODUnity.RuntimeManager.GetBus(busName);
-        //bus.setVolume(volume);
+        var bus = FMODUnity.RuntimeManager.GetBus(busName);
+        bus.setVolume(volume);
     }
 
     private void PlayOneShot(EventReference sound)
