@@ -25,13 +25,6 @@ namespace _Scripts.Gameplay
         [SerializeField]
         private PropsSpawnData[] _props;
 
-        [SerializeField]
-        private bool _isTutorialLevel = false;
-        
-        [NaughtyAttributes.ResizableTextArea]
-        [SerializeField]
-        private string _tutorialText = "";
-
         public int PlayerSpot => _playerSpot;
 
         public bool PlayerReversed => _playerReversed;
@@ -43,9 +36,5 @@ namespace _Scripts.Gameplay
         public PropsSpawnData[] Props => _props;
 
         public override LevelData Level => this;
-
-        public bool IsTutorialLevel => _isTutorialLevel;
-
-        public string TutorialText => _tutorialText;
     }
 }

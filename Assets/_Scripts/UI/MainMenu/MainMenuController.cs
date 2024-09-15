@@ -1,4 +1,5 @@
 using _Scripts.Gameplay.Execution;
+using _Scripts.UI.Project;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -23,6 +24,9 @@ public class MainMenuController : MonoBehaviour
 
     [Inject]
     private MainMenuUISystem _uiSystem;
+    
+    [Inject]
+    private ForesightUsage _foresightUsage;
 
     void Awake()
     {
@@ -60,6 +64,7 @@ public class MainMenuController : MonoBehaviour
     private void LoadGameplay()
     {
         _levelLoader.LoadLevel(0);
+        _foresightUsage.ResetUses();
     }
 
     private void PlayClickSFX()

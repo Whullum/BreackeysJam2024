@@ -29,6 +29,9 @@ namespace _Scripts.Gameplay.Execution
         [Inject]
         private SoundManager _soundManager;
 
+        [Inject]
+        private TutorialBank _tutorialBank;
+
         private void Start()
         {
             SetupLevel(_levelLoader.CurrentLevel.Level);
@@ -71,16 +74,12 @@ namespace _Scripts.Gameplay.Execution
             {
                 _propFactory.SpawnObject(prop.Prefab, new Vector2Int(prop.Spot, 0));
             }
-
-            if (currentLevel.IsTutorialLevel)
-            {
-                _tutorial.ActivateTutorial();
-                _tutorial.SetTutorialText(currentLevel.TutorialText);
-            }
-            else
-            {
-                _tutorial.DeActivateTutorial();
-            }
+            
+            if ( ! _tutorialBank.TutorialAvailable)
+                return;
+            _tutorial.SetTutorialText(_tutorialBank.CurrentTutorial);
+            _tutorial.ActivateTutorial();
+            _tutorialBank.SwitchToNext();
         }
     }
 }
