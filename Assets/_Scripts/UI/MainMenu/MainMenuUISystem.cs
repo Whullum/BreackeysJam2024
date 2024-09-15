@@ -21,6 +21,7 @@ public class MainMenuUISystem : MonoBehaviour
     private void Awake()
     {
         _soundManager.StopRepeatAudio();
+        _soundManager.PlayBackgroundMusic(BackgroundMusicType.MainMenu);
         OpenMainMenu();
     }
 

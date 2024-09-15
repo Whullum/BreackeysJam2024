@@ -69,6 +69,7 @@ namespace _Scripts.Gameplay.Execution
             {
                 StartCoroutine(Fight(real));
             }
+            Debug.Log("button");
         }
 
         public void StopFight()
@@ -87,6 +88,7 @@ namespace _Scripts.Gameplay.Execution
         {
             _currentState = real ? FightState.RealFight : FightState.Foresight;
             _soundManager.SwitchMusicState(GameplayAudioState.Storm);
+            Debug.Log("button2");
             for (int turn = 0; turn < _maxTurns; turn++)
             {
                 TurnStarted?.Invoke();
@@ -123,7 +125,6 @@ namespace _Scripts.Gameplay.Execution
                     break;
                 }
             }
-
             if (real)
             {
                 if (IsWinConditionMet)

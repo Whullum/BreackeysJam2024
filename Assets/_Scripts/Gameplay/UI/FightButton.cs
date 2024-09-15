@@ -9,12 +9,20 @@ namespace _Scripts.Gameplay.UI
     {
         [SerializeField]
         private bool _real;
-        
+
         [Inject]
         private FightPlayer _fightPlayer;
-        
+
         [Inject]
         private ForesightUsage _foresightUsage;
+
+        [Inject]
+        private ManaBarController _manaController;
+
+        private void OnEnable()
+        {
+            _manaController.SetManaBar(_foresightUsage.UsagePercentage);
+        }
 
         public void Fight()
         {
@@ -22,10 +30,16 @@ namespace _Scripts.Gameplay.UI
             {
                 _fightPlayer.PlayFight(true);
             }
-            else if (_foresightUsage.TryUse())
+            else
             {
-                _fightPlayer.PlayFight(false);
+                if (_foresightUsage.TryUse())
+                {
+                    _fightPlayer.PlayFight(false);
+                }
+                _manaController.SetManaBar(_foresightUsage.UsagePercentage);
+
             }
+
         }
     }
 }

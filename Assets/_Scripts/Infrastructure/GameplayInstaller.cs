@@ -41,6 +41,9 @@ namespace _Scripts.Infrastructure
         private FightPlayer _fightPlayer;
 
         [SerializeField]
+        private TutorialScript _tutorial;
+
+        [SerializeField]
         private GameOverScreen _gameOverScreen;
         
         public override void InstallBindings()
@@ -54,12 +57,8 @@ namespace _Scripts.Infrastructure
             Container.Bind<PropFactory>().FromInstance(_propFactory).AsSingle();
             Container.Bind<ManaBarController>().FromInstance(_manaBarController).AsSingle();
             Container.Bind<ComboSystem>().AsSingle();
-            
+            Container.Bind<TutorialScript>().FromInstance(_tutorial).AsSingle();
             Container.Bind<GameOverScreen>().FromInstance(_gameOverScreen).AsSingle();
-
-
-
-
         }
     }
 }

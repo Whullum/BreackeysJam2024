@@ -24,6 +24,9 @@ namespace _Scripts.Gameplay.Execution
         private PlayerMarker _player;
 
         [Inject]
+        private TutorialScript _tutorial;
+
+        [Inject]
         private SoundManager _soundManager;
 
         private void Start()
@@ -67,6 +70,16 @@ namespace _Scripts.Gameplay.Execution
             foreach (PropsSpawnData prop in currentLevel.Props)
             {
                 _propFactory.SpawnObject(prop.Prefab, new Vector2Int(prop.Spot, 0));
+            }
+
+            if (currentLevel.IsTutorialLevel)
+            {
+                _tutorial.ActivateTutorial();
+                _tutorial.SetTutorialText(currentLevel.TutorialText);
+            }
+            else
+            {
+                _tutorial.DeActivateTutorial();
             }
         }
     }
