@@ -1895,7 +1895,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
+  m_fontSize: 53.3
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3850,7 +3850,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You lost a real fight!
+  m_text: 'You lost a real fight!
+
+    You are dead.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7476dbaf0aa1acdf9a57410dbac6ee1d, type: 2}
   m_sharedMaterial: {fileID: 5350369998438435421, guid: 7476dbaf0aa1acdf9a57410dbac6ee1d, type: 2}
@@ -3889,7 +3891,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 5
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 50
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -5148,7 +5150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7165998523772518577
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5346,8 +5348,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2993407265603107069}
+  m_Children: []
   m_Father: {fileID: 5294351348497964222}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
@@ -5383,7 +5384,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You won!
+  m_text: 'Congratulations!
+
+    You won!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7476dbaf0aa1acdf9a57410dbac6ee1d, type: 2}
   m_sharedMaterial: {fileID: 5350369998438435421, guid: 7476dbaf0aa1acdf9a57410dbac6ee1d, type: 2}
@@ -5422,7 +5425,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 5
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 50
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -5482,10 +5485,11 @@ RectTransform:
   m_Children:
   - {fileID: 997429534845503688}
   - {fileID: 5484862829164518918}
+  - {fileID: 2993407265603107069}
   m_Father: {fileID: 6722892540958882383}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.3, y: 0.3}
-  m_AnchorMax: {x: 0.7, y: 0.7}
+  m_AnchorMin: {x: 0.35, y: 0.4}
+  m_AnchorMax: {x: 0.65, y: 0.7}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5597,13 +5601,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2335699737354530585}
-  m_Father: {fileID: 5484862829164518918}
+  m_Father: {fileID: 5294351348497964222}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -150}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 30}
   m_SizeDelta: {x: 220, y: 80}
-  m_Pivot: {x: 0.5, y: 1}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &5589850751505022831
 CanvasRenderer:
   m_ObjectHideFlags: 0
