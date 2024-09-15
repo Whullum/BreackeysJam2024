@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: Punch
   m_EditorClassIdentifier: 
   _name: Punch
-  _description: Punch enemy. Knocks them back while in air
+  _description: 'Punch enemy. Knocks them back while in air.
+
+    Breaks enemies''
+    guard.'
   _icon: {fileID: 21300000, guid: 0026dec495f82a444ab82a93a38161a4, type: 3}
