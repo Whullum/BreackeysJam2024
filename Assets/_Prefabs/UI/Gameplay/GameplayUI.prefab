@@ -2548,6 +2548,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buttons: {fileID: 4225979850771411316}
+  _timelineReset: {fileID: 2727364316859770520}
+  _actionBar: {fileID: 5832033064170710460}
 --- !u!1 &4294696971377741696
 GameObject:
   m_ObjectHideFlags: 0
@@ -4261,6 +4263,18 @@ MonoBehaviour:
       - m_Target: {fileID: 4724425635212479790}
         m_TargetAssemblyTypeName: _Scripts.Gameplay.UI.FightButton, Assembly-CSharp
         m_MethodName: Fight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2705131307812502068}
+        m_TargetAssemblyTypeName: FightStageController, Assembly-CSharp
+        m_MethodName: SwitchToFightStage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
